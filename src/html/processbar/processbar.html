@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.processbar.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        .sui_process{margin-bottom: 2em;}
+    </style>
+</head>
+<body>
+
+
+<div style="padding: 40px; width: 500px;">
+
+    <!--<div class="sui_process" style="width: 100%;">-->
+        <!--<span class="sui_process_con" style="width:80%;"></span>-->
+        <!--<span class="sui_process_text">80%</span>-->
+    <!--</div>-->
+
+    <!--<div class="sui_process" style="width: 100%;">-->
+        <!--<span class="sui_process_con" style="width:100%;"></span>-->
+        <!--<span class="sui_process_text">100%</span>-->
+    <!--</div>-->
+
+    <!--<div class="sui_process" style="width: 100%;">-->
+        <!--<span class="sui_process_con red" style="width:80%;"></span>-->
+        <!--<span class="sui_process_text">80%</span>-->
+    <!--</div>-->
+
+    <div  id="percent2"></div>
+    <div  id="percent3"></div>
+    <div  id="percent1"></div>
+</div>
+
+<div style="padding: 10px 40px;">
+    <p>为processBar赋值：</p>
+    <br/>
+    <button id="sv10">赋值10</button>
+    <button id="sv50">赋值50</button>
+    <button id="sv100">赋值100</button>
+</div>
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/processbar/processbar.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        var process1 = new Sui.Processbar({
+            applyTo: 'percent1',
+            value:2
+        })
+
+        var process2 = new Sui.Processbar({
+            applyTo: 'percent2'  ,
+            customClass:'sui_process_red',
+            value:45
+        })
+
+        var process3 = new Sui.Processbar({
+            applyTo: 'percent3',
+            value:78,
+            showText:false
+        })
+
+        $('#sv10').bind('click',function(){
+            process1.setValue(10);
+        })
+        $('#sv50').bind('click',function(){
+            process1.setValue(50);
+        })
+        $('#sv100').bind('click',function(){
+            process1.setValue(100);
+        })
+    });
+
+</script>
+
+</body>
+</html>

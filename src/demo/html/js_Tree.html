@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+             树组件
+        </div>
+        <article>
+            <h1>Sui.tree.Tree(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> table.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Component</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.tree.Tree </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js ,jquery-ui.js, sui.js ,suibase.js , tree.js</p>
+                <p>sui.base.css,sui.tree.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>renderTo (String)</td>
+                            <td>'tree'</td>
+                            <td>
+                                <p>渲染该组件所在的DOM元素id </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>lineVisible (Boolean)</td>
+                            <td>false (默认)</td>
+                            <td>
+                                <p>是否显示树结构线 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>selectPath (Boolean)</td>
+                            <td>false (默认)</td>
+                            <td>
+                                <p>选择节点之后,返回的Label是节点文本,还是节点所在路径的文本 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>listeners (Object)</td>
+                            <td> {
+                                    nodeClick : function(event) {
+                                        var text = event.nodeText;
+                                        Sui.log(text);
+                                    }
+                                }
+                            </td>
+                            <td>
+                                <p>事件监听器，可监听nodeClick、nodeChecked、afterBuildRoot、loaded、beforeContextMenu等事件 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>enableDefaultContextMenu (Boolean)</td>
+                            <td>false (默认)</td>
+                            <td>
+                                <p>是否允许使用右键菜单,当checkedType不是单选或默认时，enableDefaultContextMenu为true会开启[全选]右键菜单。需要导入menu.js和sui.menu.css文件</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>checkedType (String)</td>
+                            <td>Sui.TreeSelectType.DEFAULT (默认)</td>
+                            <td>
+                                <p>树节点的选择模式，可以为单选、多选或不出现选择框，详细请参考 Sui.TreeSelectType </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>contextMenu (Sui.menu.ContextMenu)</td>
+                            <td>new Sui.menu.ContextMenu </td>
+                            <td>
+                                <p>右键菜单，默认为null </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.tree.Tree.html" target="_blank">Sui.tree.Tree.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <section>
+                    <p class="str">Example:通过JSON创建一棵树 <a href="js_Tree_json.html" target="_blank">演示页面 </a></p>
+                    <!--<p class="str">Example:通过数组创建一棵树 <a href="js_Tree_array.html" target="_blank">演示页面 </a></p>-->
+                    <p class="str">Example:通过组件方法创建一棵树 <a href="js_Tree_method.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:自定义树节点的图标 <a href="js_Tree_icon.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:右键菜单操作 <a href="js_Tree_contextMenu.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:第三方插件zTree <a href="../../js/plugin/zTree/demo/cn/index.html" target="_blank">演示页面 </a></p>
+                </section>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+
+</script>
+
+</html>

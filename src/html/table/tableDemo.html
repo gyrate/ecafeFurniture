@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.tree.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.processbar.css" rel="stylesheet" media="all"/>
+
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.json-2.3.js"></script>
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/menu/menu.js"></script>
+    <script type="text/javascript" src="../../js/table/table.js"></script>
+    <script type="text/javascript" src="../../js/form/form.js"></script>
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/numberfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+    <script type="text/javascript" src="../../js/tree/tree.js"></script>
+    <script type="text/javascript" src="../../js/form/treefield.js"></script>
+    <script type="text/javascript" src="../../js/processbar/processbar.js"></script>
+
+</head>
+<body>
+
+<div style="position: absolute; width:980px;top:50px;left:250px; height: 400px; background: #f0f0f0;">
+    <div class="std_ctrl" style="">
+        <a  id="addRow" href="javascript:void(0);"><b class="s_ico s_ico_add"></b>添加项目</a>
+        <a href="javascript:void(0);"><b class="s_ico s_ico_minu"></b>删除项目</a>
+    </div>
+    <div  id="grid"></div>
+
+    <div class="std_tpage">
+        <span class="total">
+            <label>当前共123条数据</label>
+            <label>每页显示</label>
+            <select>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+            </select>
+            <label>条</label>
+        </span>
+
+        <a href="">首页</a>
+        <a href="">上一页</a>
+        <a href="">下一页</a>
+        <a href="">末页</a>
+        <form>
+            <input type="text" class="w50">
+            <input type="submit" value="跳转" class="btn_go">
+        </form>
+    </div>
+
+    <p class="pv20">成绩统计: <em class="fb" id="totalScore">0</em></p>
+</div>
+
+<script>
+    $(function () {
+
+        //console.time('Table');
+
+        var store = new Sui.data.Store([
+            { score:25,name : '王四王',  sex: '男', id:'408', project:['1','2'],process:0},
+            { score:25,name : '王四', sex: '男', id:'409', project:'2',process:10},
+            { score:25,name : '王四', sex: ' textov; ', id:'410', project:'3',process:50},
+            { score:25,name : '王四', sex: '男Rickshaw 。', id:'410', project:'3',process:100},
+            { score:25,name : '王四', sex: '男Rickshaw 。', project:'4',process:120},
+            { score:25,name : '王四', sex: '男Rickshaw 。',process:23},
+            { score:25,name : '王四', sex: '男Rickshaw 。',process:23},
+            { score:25,name : '王四', sex: '男Rickshaw 。',process:23},
+            { score:25,name : '王四', sex: '男',process:23},
+            { score:25,name : '王四', sex: '男',process:23},
+            { score:25,name : '王四', sex: '男',process:23},
+            { score:25,name : '李华', sex: '男',process:23}
+        ]);
+
+        var treeDate = {
+            "children":[
+                {"children":[
+                    {"data":{},"id":"408","nodeIconClass":"","nodeText":"我的表单","parentId":"407"},
+                    {"data":{},"id":"409","nodeIconClass":"","nodeText":"待审批表单200","parentId":"407"},
+                    {"data":{},"id":"410","nodeIconClass":"","nodeText":"已审批表单300","parentId":"407"},
+                    {"data":{},"id":"416","nodeIconClass":"","nodeText":"待查阅的表单500","parentId":"407"},
+                    {"data":{},"id":"430","nodeIconClass":"","nodeText":"发起表单","parentId":"407"}
+                ],"data":{},"id":"407","nodeIconClass":"","nodeText":"我的工作台",expanded:true},
+                {"children":[
+                    {"data":{},"id":"491","nodeIconClass":"","nodeText":"招待费用","parentId":"490"},
+                    {"data":{},"id":"492","nodeIconClass":"","nodeText":"请假单500","parentId":"490"},
+                    {"data":{},"id":"493","nodeIconClass":"","nodeText":"借款单600","parentId":"490"},
+                    {"data":{},"id":"494","nodeIconClass":"","nodeText":"绩效表单700","parentId":"490"},
+                    {"data":{},"id":"495","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"}
+                ],"data":{},"id":"490","nodeIconClass":"","nodeText":"我的工作台 ",expanded:true}
+            ],
+            "data":{},
+            "id":"1",
+            "nodeIconClass":"",
+            "nodeText":"根节点"
+        };
+        var root = Sui.tree.TreeNodeUtil.buildTreeNodeFromJsonData(treeDate);
+
+        var table = new Sui.table.Table({
+            applyTo : 'grid',
+            fixWidth:false,
+            cellHeight:null,
+            selectType : Sui.table.SelectType.MULTI,
+            columns: [
+                {
+                    display: '名称',
+                    name: 'name',
+                    width: 200,
+                    editor : new Sui.table.TextEditor(),
+                    sortable:true
+                },
+                {
+                    display: '性别',
+                    name: 'sex',
+                    width: 150,
+                    align: 'left',
+                    editor : new Sui.table.TextEditor(),
+                    sortable:true
+                },
+                {
+                    display:'所在项目',
+                    name:'project',
+                    width:150,
+                    align:'left',
+                    editor: new Sui.table.MultiSelectEditor({
+                        items:[
+                            {label:'智慧路灯',value:'1'},
+                            {label:'南沙智慧家庭服务平台',value:'2'},
+                            {label:'南沙区一卡通系统',value:'3'},
+                            {label:'2013年质量体系改进项',value:'4'},
+                            {label:'IT部2013年日常工作',value:'5'}
+                        ]
+                        ,searchable:true //开启搜索模式
+                    })
+                    ,
+                    renderBody:function(text, parentElementJQ, table, cm){
+
+                        var arr = [
+                            {label:'智慧路灯',value:'1'},
+                            {label:'南沙智慧家庭服务平台',value:'2'},
+                            {label:'南沙区一卡通系统',value:'3'},
+                            {label:'2013年质量体系改进项',value:'4'},
+                            {label:'IT部2013年日常工作',value:'5'}
+                        ];
+
+                        var result = [];
+                        if(text){
+                            var vals = Sui.ArrayUtil.itemToArray(text);
+                            for (var i = 0,len = vals.length; i < len; i++) {
+                                result.push( Sui.ArrayUtil.findObjectInArray(arr, 'value', vals[i])['label'] );
+                            }
+                            console.log(result);
+                        }
+                        parentElementJQ.append(result.join(','));
+                    }
+                },
+                {
+                    display: '表单模版',
+                    name:'id',
+                    width:150,
+                    align:'left',
+                    editor:new Sui.table.TreeFieldEditor({
+                        treeConfig:{
+                            root:root ,
+                            checkedType: Sui.TreeSelectType.SINGLE
+                        }
+                    })
+                    ,
+                    renderBody:function(text, parentElementJQ, table, cm) {
+                        var label =  '';
+                        if(text){
+                            var node = root.findNodeByAttr('id',text);
+                            label = node.getNodeText();
+                        }
+                        parentElementJQ.append(label);
+                    }
+                },
+                {
+                    display:'成绩',
+                    align:'center',
+                    name:'score',
+                    width:80,
+                    editor:new Sui.table.NumberEditor(),
+                    onCompleteEdit :function(e) {
+                        calculateScore();
+                    }
+                },
+                {
+                    display:'进度',
+                    align:'left',
+                    name:'process',
+                    width:120,
+                    renderBody: function(val, targetElement) {
+                        var div = $('<div></div>').appendTo(targetElement);
+                        new Sui.Processbar({
+                            applyTo:div,
+                            value:val,
+                            width:70
+                        })
+                    }
+                },
+                {
+                    display : '操作列',
+                    align:'center',
+                    name : 'operator',
+                    width : 80,
+                    renderBody: function(val, targetElement) {
+                        var button = $("<a class='unl'>删除</a>").appendTo(targetElement);
+                        button.click(function(e) {
+                            var index = table.findDomInRowIndex(e.target);
+                            store.removeRecord(index);
+                        });
+                    }
+                }
+            ],
+            store :  store
+        });
+
+        //console.timeEnd('Table');
+        var i=0;
+        $("#addRow").click(function() {
+            store.addRecordData({
+                name : "编码" + (i++),
+                sex : "2013-10-24"
+            });
+        });
+
+        //计算总分
+        function calculateScore() {
+            var total = 0;
+            for (var i = 0,len = store.getCount(); i < len; i++) {
+                var value = store.getRecord(i).getFieldValue('score') || 0;
+                total += parseInt(value, 10);
+            }
+            $('#totalScore').html(total);
+        }
+        calculateScore();
+
+    });
+</script>
+</body>
+</html>

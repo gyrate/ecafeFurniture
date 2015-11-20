@@ -1,0 +1,16 @@
+.dashwrap{ background: #fff; min-width: inherit;}
+.dashtoolbar{ position:relative; padding:  0 5px 10px 5px; text-align: left;}
+.dashboard{  zoom:1; min-height: 200px;}
+.dashboard:after{ content:'';display: table; clear: both;}
+.dash_sortlist{ float: left; min-height: 200px; height: 100%;}
+.dash_panel{ padding: 0 4px 14px;clear: both; }
+.dash_box{ margin:0 4px 14px; padding: 4px 10px; border: 1px solid #95bae6; color: #fff; background: #fff; border-radius: 3px; }
+.dash_box .box_title{ position: relative; padding:0 1em 4px;overflow: hidden;  zoom:1;line-height: 26px; height: 26px; font-weight: 600; color: #3969a7; border-bottom: 1px solid #95bae6 ;}
+.dash_box .ico{ position: absolute; top:5px; width: 16px; height: 16px; background: url('../images/dashbord/dashboard_element.png') no-repeat; overflow: hidden; text-indent: -9999px; cursor: pointer;}
+.dash_box .ico_more{ background-position: -8px -8px; right: 36px; }
+.dash_box .ico_delete{ background-position:-42px -8px; right: 4px; }
+.dash_box .box_content{ padding: 10px 0; line-height: 2em; overflow: hidden;}
+.dash_box .box_content iframe{ width: 100%; border: 0 none;}
+.sortable-placeholder{  margin-bottom: 14px;  padding: 10px;  height: 40px;  line-height: 40px;border: 3px solid  #8dc556;  background:#d2f5af;  border-radius: 8px; color:#8dc556;  text-align: center;}
+.sortable-placeholder:after{  font-weight: 600;  content:'哇，我可以放在这里';}
+

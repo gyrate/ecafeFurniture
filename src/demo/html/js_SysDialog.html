@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body{ background: #fff;}
+    </style>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            弹出窗口组件
+        </div>
+        <article>
+            <h1>Sui.dialog.SysDialog(${option})</h1>
+            <section class="info">
+                <p><label>旧名</label> SysDialog</p>
+                <p><label>文件</label> dialog.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> 无</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.dialog.SysDialog </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js,  dialog.js</p>
+                <p>default.css , skin1.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。<em class="req">*</em>表示该属性为必填项</p>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="140">
+                        <col width="240">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>id</td>
+                            <td>'Window1'</td>
+                            <td>弹出窗口唯一标识，可通过Sui.dialog.list[id]方式找到对应窗体，如果不声明该参数则为窗体自动生成Id</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>title(String)</td>
+                            <td>"系统消息"</td>
+                            <td>窗体标题</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>body(String ,Dom)</td>
+                            <td>"&lt;p&gt;hello world.&lt;/p&gt;" 或 document.getElementById('target')</td>
+                            <td>主体内容,传入隐藏Dom元素后窗体会自动将其显示，关闭后回到原先的状态</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>url(String)</td>
+                            <td>"${path}/data.jsp"</td>
+                            <td>与body不共存；若该属性存在，则窗口主体为以该值为src的iframe</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>button(Array)</td>
+                            <td>
+                                [{value:'确定', <br>
+                                   disable:false,<br>
+                                   fun:function(){},<br>
+                                   arg:[$A,$B]},{},... ]
+                            </td>
+                            <td>窗体根据该设置生成按钮及对应执行函数，fun和arg为空时执行函数为关闭窗口</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>mask(boolean) </td>
+                            <td> true</td>
+                            <td>是否生成遮罩层，默认为<em class="str">true</em>，此时除弹出窗口外其他区域点击无效</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>maskAlpha(float)</td>
+                            <td> 0.5</td>
+                            <td>遮罩层透明度，为0-1二位小数，默认值<em class="str">0.4</em></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>width(int,String)</td>
+                            <td>400 或  '400px'</td>
+                            <td>内容区宽度，默认值<em class="str">'auto'</em></td>
+                        </tr><tr>
+                            <td></td>
+                            <td>height(int,,String)</td>
+                            <td>300 或 '300px'</td>
+                            <td>内容区高度，默认值<em class="str">'auto'</em></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>openAfterFun(Array)</td>
+                            <td> [ { fun:function(){},arg:[$A...] },<br> { fun:function(){},arg:[$A...]},... ]</td>
+                            <td>弹出窗口后执行函数序列</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>closeAfterFun(Array)</td>
+                            <td>[ { fun:function(){},arg:[$A...] },<br> { fun:function(){},arg:[$A...]},... ]</td>
+                            <td>关闭窗口后执行函数序列</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>closeBeforeFun(Array)</td>
+                            <td>[ { fun:function(){},arg:[$A...] },<br> { fun:function(){},arg:[$A...]},... ]</td>
+                            <td>关闭窗口前执行函数序列</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>hideScroll(boolean)</td>
+                            <td>false</td>
+                            <td>是否隐藏html滚动条 true|<em class="str">false</em> (缺省)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>autoOpen(boolean)</td>
+                            <td>true</td>
+                            <td>是否创建后自动打开窗口<em class="str">true</em>(缺省)|false</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>drag(boolean)</td>
+                            <td>true</td>
+                            <td>是否可拖拽移动窗口<em class="str">true</em>(缺省)|false</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>resize(boolean)</td>
+                            <td>false (默认)</td>
+                            <td>是否可通过拖拽改变窗体大小</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>trigger(object)</td>
+                            <td>$('#LoanInput')</td>
+                            <td>声明该弹出窗口的触发者，以便返回数据给它</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>template(String)</td>
+                            <td> '&lt;div class="msg" actor="content"&gt;&lt;/div&gt;'</td>
+                            <td>
+                                对话窗口模版，事实上<a href="js_MsgDialog.html" class="str">MsgDialog</a>、<a href="js_SysReader.html" class="str">SysReader</a>
+                                等组件就是通过修改template与其他参数而产生的SysDialog实例对象。<br>
+                                模版定制的自由度较高，其中标签属性actor用于声明该标签扮演的角色，角色具有唯一性，即不能在模版中同事声明两个content，可选角色有：
+                                content（内容区），main（content的容器），title（标题），foot（底部，用于放置button），closer（关闭触发器），drager（拖拽触发器)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>needIframeInIE (Boolean) </td>
+                            <td>false (默认)  </td>
+                            <td>在IE浏览器是否需要使用iframe方法将layer的z轴层级提高，高于视频控件 ，该参数只对IE有效</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>打开模态窗口</span>
+                                <a href="javascript:void(0);">openDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>关闭当前模态窗口</span>
+                                <a href="javascript:void(0);">closeDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.dialog.html" target="_blank">Sui.dialog.html</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <section>
+                <p class="str">Example:创建一个标准弹出窗口</p>
+<pre id="std_pop" class="ml2e"><code class="javascript">var win = new Sui.dialog.SysDialog({
+    id:'win1', //可以通过Sui.dialog.list['win1']找到窗体
+    body:"hello world,I am dialog" ,
+    button:[{
+        value:'确定',
+        fun: function(){
+            alert('我马上就要关闭了');
+            win.closeDialog();
+        }
+        },{
+        value:'取消'
+    }]
+});
+</code></pre>
+                <p>
+                    <input type="button" pre="std_pop" class="_runCode" value="运行">
+                </p>
+            </section>
+
+            <section>
+                <p class="str">Example:body数据类型为Dom元素</p>
+<pre id="std_dom" class="ml2e"><code class="javascript">var win = new Sui.dialog.SysDialog({
+    body: document.getElementById('DomDiv') ,
+    //注意body必须为String或Dom元素，而不能为数组或其他类型
+    button:[{value:'确定'}]
+});
+</code></pre>
+                <p class="str">Demo</p>
+                <div class="demo">
+                    <div style="width:360px; line-height: 50px;border: 1px solid #999; background-color: #99ccff;text-align: center;" id="DomDiv">
+                        Hello world! My id is DomDiv; display:block;
+                    </div>
+                    <p class="tip">即使div的display为none，在弹出窗口时它还是会被显示出来</p>
+                </div>
+                <p>
+                    <input type="button" pre="std_dom" class="_runCode" value="运行">
+                </p>
+            </section>
+
+            <section>
+                <p class="str">Example:访问外域页面</p>
+<pre id="std_Domain" class="ml2e"><code class="javascript">var win = new Sui.dialog.SysDialog({
+    id:'outDomain',
+    url:"http://www.baidu.com",
+    resize:true,
+    button:[{value:'确定'}]
+});
+</code></pre>
+                <p>
+                    <input type="button" pre="std_Domain" class="_runCode" value="运行">
+                </p>
+            </section>
+
+            <section>
+                <p class="str">Example:创建一个url窗口</p>
+<pre  id="std_url" class="ml2e"><code class="javascript">new Sui.dialog.SysDialog({
+    url:"./js_SysDialog_FrameA.html",
+    //该页面需要加载dialog.js，才能实现数据交换、关闭窗口等功能
+    width:480,
+    height:300
+});
+</code></pre>
+                <p>
+                    <input type="button" pre="std_url" class="_runCode" value="运行">
+                </p>
+            </section>
+
+        <section>
+                <p class="str">Example:打开窗口后执行函数</p>
+<pre id="std_openAfter" class="ml2e"><code class="javascript">var _openAfterFun  = function (){
+    alert('I am _openAfterFun');
+}
+new Sui.dialog.SysDialog({
+    body:"打开窗口后执行",
+    openAfterFun:[{fun:_openAfterFun}]
+});
+</code></pre>
+                <p>
+                    <input type="button" pre="std_openAfter" class="_runCode" value="运行">
+                </p>
+            </section>
+
+            <section >
+                <p class="str">Example:关闭窗口后执行函数</p>
+<pre id="std_closeAfter" class="ml2e"><code class="javascript">var _closeAfterFun = function (){
+    alert('I am closeAfterFun');
+}
+new Sui.dialog.SysDialog({
+    body:"关闭窗口后执行",
+    closeAfterFun:[{fun:_closeAfterFun}]
+});
+</code></pre>
+                <p>
+                    <input type="button" pre="std_closeAfter" class="_runCode" value="运行">
+                </p>
+            </section>
+
+            <section>
+                <p class="str">Example:Dialog父窗口传递数据、Dialog之间传递数据</p>
+<pre class="ml2e" id="std_prompt"><code class="javascript">var win = new SysDialog({
+    url:'./js_SysDialog_FrameA.html',
+    resize:true,
+    button:[{
+        value:'最小化',
+        fun:function(){
+            win.minimize();
+        }
+    }]
+})
+</code></pre>
+                <p class="str">Demo</p>
+                <p class="demo">
+                    <label>userVal：</label>
+                    <input type="text" id="userVal">
+                </p>
+                <p>
+                    <input type="button" value="运行" class="_runCode" pre="std_prompt">
+                </p>
+            </section>
+
+            <section>
+                <p class="str">Example:在iframe内修改窗体的尺寸</p>
+<pre class="ml2e" id="changesize"><code class="javascript"> new SysDialog({
+    url:'./js_SysDialog_FrameC.html',
+    button:[{
+        value:'关闭'
+    }]
+})
+</code></pre>
+                <p class="str">Demo</p>
+                <p>
+                    <input type="button" value="运行" class="_runCode" pre="changesize">
+                </p>
+            </section>
+
+        <section>
+                <p class="str">Example:用自定义的模版生成dialog</p>
+<pre class="ml2e" id="template"><code class="javascript">var win = new SysDialog({
+    template:  '&lt;div actor="main"  style=" padding: 10px; background: #99ccff ;border: 1px solid #3399ff;"&gt;'+
+                '    &lt;a href="javascript:void(0);" actor="closer">关闭&lt;/a&gt;'+
+                '    &lt;div actor="content" style="padding: 10px; width:200px; height: 100px;background: #0099ff;"&gt;'+
+                '    &lt;/div&gt;'+
+                '    &lt;div actor="foot" style="padding:10px 0 ;">&lt;/div&gt;'+
+                '&lt;/div&gt;',
+    body:'大家好我是内容',
+    button:[{value:'ok1'},{value:'ok2'}]
+})
+</code></pre>
+                <p>
+                    <input type="button" value="运行" class="_runCode" pre="template">
+                </p>
+            </section>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var tab//数据源
+    ;
+    $('#createComponent').click(function(){
+        $(this).attr('disabled',true);
+    });
+
+</script>
+
+</html>

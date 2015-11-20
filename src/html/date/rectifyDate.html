@@ -1,0 +1,154 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+   <script>
+
+
+       function rectifyDate(value,format){
+//
+//           if(Sui.isEmpty(value)){
+//               return '';
+//           }
+           console.warn('value: %s,format: %s',value,format);
+
+           var reg = format.replace(/y+/g,'([0-9]{1,4})')
+                            .replace(/M+/g,'(1[012]|0?[0-9])')
+                            .replace(/d+/g,'([12][0-9]|3[01]|0?[0-9])')
+                   .replace(/h+/g,'([0-1]?[0-9]|2[0-3])')
+                   .replace(/m+/g,'([0-5]?[0-9])')
+                   .replace(/s+/g,'([0-5]?[0-9])')
+
+//           console.log('reg: '+ reg);
+           var matchResult = value.match(new RegExp(reg));
+
+           if (matchResult && matchResult.length > 0) {
+
+               //日期格式正确，移除第一个全匹配素，剩下子匹配元素
+               matchResult.shift();
+               //将format上的时间格式块（如yyyy,MM,dd等从foramt上剥离，与其输入值对应）
+               var dateElements = format.split(new RegExp('\\s+|-|\/|,|\\\\|:','g')),
+                       dateObj = {};
+               for (var i = 0,len = dateElements.length; i < len; i++) {
+                   dateObj[dateElements[i]] = matchResult[i];
+               }
+//               console.log(dateObj);
+
+               var result = format;
+               //根据日期格式纠正日期
+               for(var prop in dateObj){
+                   var val = dateObj[prop];
+                   switch (prop){
+                       case 'yy':
+                           if(val.length<2){
+                               val ='0'+val;
+                           }else if(val.length>2){
+                               val = val.substr(val.length -2);
+                           }
+                           break;
+                       case 'yyyy':
+                           if(val.length<4){
+                               val = '2000'.substr(0,4-val.length) + val;
+                           }else{
+                               var f =  parseInt(val.substr(0,1));
+                               f =  f > 2 ? 2 : ( f < 1 ? 2 : f);
+                               val = f + val.substr(1);
+                           }
+                           break;
+                       case 'M':
+                       case 'd':
+                           val = ( parseInt(val) >0 )? val : '1';
+                           break;
+                       case 'h':
+                       case 'm':
+                       case 's':
+                           break;
+                       case 'MM':
+                       case 'dd':
+                            val = ( parseInt(val) >0 )? val : '1';
+                           val = (val.length < 2 ? '0' : '' ) + val;
+                           break;
+                       case 'hh':
+                       case 'mm':
+                       case 'ss':
+                           val = (val.length < 2 ? '0' : '' ) + val;
+                           break;
+                       default:
+                           break;
+                   }
+                   dateObj[prop] = val;
+                   result = result.replace(prop,val);
+               }
+               console.dir(dateObj);
+               switchToDate(dateObj);
+              // console.error(result) ;
+
+           }else{
+               return null;
+           }
+       }
+       function switchToDate (dateObj){
+           var currentDate = new Date();
+           var _y = dateObj.yyyy || formatYY(dateObj.yy) || currentDate.getFullYear(),
+               _M = parseInt(dateObj.MM)-1 || parseInt(dateObj.M)-1 || currentDate.getMonth(),
+               _d = dateObj.dd || dateObj.d || currentDate.getDate(),
+               _h = dateObj.hh || dateObj.h || currentDate.getHours(),
+               _m = dateObj.mm || dateObj.m || currentDate.getMinutes(),
+               _s = dateObj.ss || dateObj.s || currentDate.getSeconds();
+
+           console.log('switchToDate:' + new Date(_y,_M,_d,_h,_m,_s));
+
+           return new Date(_y,_M,_d,_h,_m,_s);
+
+           function formatYY(yy){
+               return yy ? '20' + yy:null;
+           }
+       }
+   </script>
+
+    <script>
+        window.onload = function(){
+            rectifyDate('','yyyy-MM-dd');
+            rectifyDate('2013-12-15 05:12:33','yyyy-MM-dd hh:mm:ss');
+            rectifyDate('2013-12-15 05:12:33','yy-MM-dd hh:mm:ss');
+            rectifyDate('3-12-15 05:12:33','yy-MM-dd hh:mm:ss');
+            rectifyDate('2013-12-15 05:12:3','yyyy-MM-dd hh:mm:ss');
+            rectifyDate('20','yy');
+            rectifyDate('2013','yy');
+            rectifyDate('20','yyyy');
+            rectifyDate('0013','yyyy');
+            rectifyDate('1913','yyyy');
+            rectifyDate('2013','yyyy');
+            rectifyDate('9013','yyyy');
+            rectifyDate('2013-12','yyyy-MM');
+            rectifyDate('2013-2','yyyy-MM');
+            rectifyDate('2013-30','yyyy-MM');
+            rectifyDate('2013-2','yyyy-M');
+            rectifyDate('2013-12','yyyy-M');
+            rectifyDate('2013-12-3','yyyy-MM-dd');
+            rectifyDate('2013-12-01','yyyy-MM-dd');
+            rectifyDate('2013-12-0','yyyy-MM-dd');
+            rectifyDate('2013-0-12','yyyy-MM-dd');
+            rectifyDate('2013-0-0','yyyy-MM-dd');
+            rectifyDate('2013-12-21','yyyy-MM-dd');
+            rectifyDate('2013-12-51','yyyy-MM-dd');
+            rectifyDate('2013-52','yyyy-MM');
+            rectifyDate('2013-52-21','yyyy-MM-dd');
+            rectifyDate('2013-12-1','yyyy-MM-d');
+            rectifyDate('2013-12-11','yyyy-MM-d');
+            rectifyDate('2013-12-01','yyyy-MM-d');
+            rectifyDate('2:2:2','h:m:s');
+            rectifyDate('2:2:2','hh:mm:ss');
+            rectifyDate('20:21:23','h:m:s');
+            rectifyDate('20:21:23','hh:mm:ss');
+            rectifyDate('20:21:230','h:m:s');
+            rectifyDate('20:210:23','h:m:s');
+            rectifyDate('200:21:23','h:m:s');
+            rectifyDate('0:0:0','hh:mm:ss');
+            rectifyDate('0:0:0','h:m:s');
+        }
+    </script>
+</body>
+</html>

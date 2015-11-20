@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.form.spinner.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            数字输入框
+        </div>
+        <article>
+            <h1>Sui.form.Spinner(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> spinner.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.form.TextField</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.form.Spinner </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , textfield.js ,spinner.js</p>
+                <p>sui.form.spinner.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo(Date)</td>
+                            <td>'input'</td>
+                            <td>
+                                <p>渲染到组件的id</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>value(Number)</td>
+                            <td>5</td>
+                            <td>
+                                <p>组件的值</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>minValue(Number)</td>
+                            <td>10</td>
+                            <td>
+                                <p>组件最小值，默认为null</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>maxValue(Number)</td>
+                            <td>0</td>
+                            <td>
+                                <p>组件最大值，默认为null</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>toFixed(Number)</td>
+                            <td>0 (默认)</td>
+                            <td>
+                                <p>小数点后位数</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>addValue(Number)</td>
+                            <td>1 (默认)</td>
+                            <td>
+                                <p>数字增加（减少）步长，建议为正整数，默认为1</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>readOnly(Boolean)</td>
+                            <td>false (默认)</td>
+                            <td>
+                                <p>是否为只读状态</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.form.Spinner.html" target="_blank">Sui.form.Spinner.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准Spinner组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript"> spinner = new Sui.form.Spinner({
+    applyTo: 'input',
+    minValue:-100,
+    maxValue:100,
+    value:50,
+    toFixed:0 //小数点后0位
+});
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+<section>
+                        <p class="str">Example:调整取值范围</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listOperation"><code class="javascript">spinner.setMinValue(0);
+spinner.setMaxValue(50);
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listOperation">
+                        </p>
+                    </section>
+
+<section>
+                        <p class="str">Example:禁用、启用组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listItemEditor"><code class="javascript">spinner.setReadOnly(readonly);
+readonly = !readonly;
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listItemEditor">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:修改组件值</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listSelectAll"><code class="javascript">spinner.setValue(35);
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listSelectAll">
+                        </p>
+                    </section>
+
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <input id="input">
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/spinner.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var spinner//数据源
+     ,readonly = true;
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

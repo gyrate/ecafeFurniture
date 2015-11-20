@@ -1,0 +1,19 @@
+.sui_datefield_layer {
+    position: absolute;
+    /* 日期选择组件, 不需要出现滚动条. 内容需要全部显示出来 */
+    width : auto;
+    height : auto;
+    border : none;
+}
+
+.sui_trigger .datefield_trigger_icon {
+    display: inline-block;
+    width: 16px;
+    line-height: 20px;
+    height: 16px;
+    border : none;
+    margin-top: 2px;
+    padding-right: 2px;
+    background: transparent url("../images/icons.png") -65px -86px no-repeat;
+    cursor: pointer;
+}

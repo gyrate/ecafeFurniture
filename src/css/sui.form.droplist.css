@@ -1,0 +1,73 @@
+/* ComboBox的样式 */
+.sui_combo_layer {
+    /* 默认的Layer会指定宽度和高度 */
+    float: left;
+    width: auto;
+    height: auto;
+    border:1px solid #ccc;
+}
+
+.sui_combo_list {
+	/* 跟输入框的宽度对应 */
+    width: 123px;
+    height: 150px;
+    min-height: 12px;
+    overflow: auto;
+    padding: 5px 0;
+    border : none;
+    background-color: #FFFFFF;
+    float: left;
+}
+
+/* div的内容为空白的问题 */
+.sui_combo_item {
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+    padding-left: 10px;
+    border-bottom: 0 none;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sui_combo_itemOver {
+    background-color: #0768b9;
+    color: #fff;
+}
+
+.sui_combo_itemSelected {
+
+}
+
+.sui_multicombo_list {	
+	padding : 0;
+	border : none;
+}
+
+.sui_multicombo_list .listContainer {	
+	min-width: 220px;
+	height : 150px;
+	overflow : auto;
+}
+
+.sui_multicombo_list .multi_tool {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 16px;
+    background: url("../images/skin1/gradient.png") repeat-x scroll 0 -161px transparent;
+    border-bottom: 1px solid #B2B7BC;
+    overflow: hidden;
+}
+
+.sui_multicombo_list .multi_tool .button{
+    font-size: 12px;
+    text-decoration: none;
+	margin-right: 4px;
+    color: #2C66A7;
+}
+
+.sui_trigger_loading{ position: relative; }
+.sui_trigger_loading:after{ content: ''; display: block; position: absolute; top:0px; right:-24px; width:20px;height: 20px; background: url('../images/m_ico_load.gif') center center no-repeat;}
+
+
+

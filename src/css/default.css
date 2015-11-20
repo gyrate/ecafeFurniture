@@ -1,0 +1,214 @@
+﻿html{  overflow:auto;  height:100%;  _overflow-x:hidden}
+body{ font-family: Verdana,"宋体",Arial,"Arial Narrow";  font-size:12px}
+a{ text-decoration:none;cursor: pointer;}
+.wrap{ white-space:nowrap;  overflow:hidden;  text-overflow:ellipsis}
+.linb{display:inline-block; *display:inline; *zoom:1}
+.sys_tip{ display:block;  padding:0 10px;  height:22px; line-height: 22px;}
+.move{ cursor: move}
+/*------------------------- TABLE-----------------------------*/
+.col0{width:30px}
+.col1{width:100px}
+.col2{width:200px}
+.col3{width:300px}
+.std{ position:relative;  margin:50px auto;  width:800px;  overflow:hidden}
+.std_filter{ padding:10px 28px 10px 28px;}
+.std_ctrl{ height:23px;  padding:4px 8px 0}
+.std_ctrl *{ vertical-align:middle}
+
+.std_table{ table-layout:fixed; width: 100%; *width: auto; zoom:1; empty-cells:show;}
+.std_table tr th.sort{ cursor:pointer}
+.std_table tr th,
+.std_table tr td{ padding:0 8px;  height:24px;  line-height:24px;  white-space:nowrap;  overflow:hidden;  text-overflow:ellipsis;  cursor:default; word-break:keep-all;}
+.std_table tfoot tr td{ height:30px;  line-height:30px;  vertical-align:middle}
+.std_table tfoot tr td.tf_l{ text-align:left}
+.std_table tfoot tr td.tf_r{ text-align:right}
+.std_table .edit_txt { width: 100%; border:1px solid #d0d0d0; }
+.std_table .percent{ position: relative; padding: 1px; width: 96px; height: 14px; overflow: hidden;}
+.std_table .percent_g,
+.std_table .percent_r { height: 14px; line-height:14px; text-align: center;}
+.std_table .percent span{ display:block; position: absolute;left:50px;top:0px;margin-left: -18px; width:36px; height:16px; line-height:16px;}
+.std_tpage { height: 27px; padding: 4px 8px 0;text-align: right; overflow: hidden;}
+.std_tpage .total{ float: left;}
+.std_tpage form{ display: inline-block; *display: inline;zoom:1;}
+.std_tpage .btn_go{ height: 20px;}
+
+.std_table_sim .ipt_extxt input{height: 16px; line-height: 16px;}
+.std_table_sim .ipt_extxt .s_ico{margin-top: 0;}
+.std_table_sim .s_ico{vertical-align: middle;}
+
+/*------------------------- FORM -----------------------------*/
+.std_form .caption,
+.caption{ margin:14px 0;  padding:0 8px;  font-size:14px;  font-weight:bold}
+.std_form *{ vertical-align:middle}
+.std_form p,
+.std_form .p{ margin-bottom:12px;  line-height:20px}
+.std_form .lab,
+.std_form .lab_s,
+.std_form .lab_long{ display:inline-block;  width:100px;  text-align:right}
+.std_form .lab_s{ width:60px}
+.std_form .lab_long{ width:140px}
+.std_form .title{ margin-bottom:10px;  line-height: 30px; height: 30px; font-weight:bold;}
+.std_form .s_title{ padding-left: 10px; height:30px;line-height: 30px; cursor: default; }
+.std_form .s_title .s_ico{ cursor: pointer;}
+.std_form p.tip{ margin:0 0 0 104px;line-height: 20px;}
+.ipt_txt,
+.ipt_txt_s,
+.ipt_extxt{ padding:0 0;  height:20px;  line-height:20px}
+.ipt_txt{ width:126px}
+.ipt_txt_s{ width:40px}
+.ipt_txt input,
+.ipt_extxt input{ _height:18px;  _line-height:18px;}
+.ipt_extxt{ position:relative;  display:inline-block; /*margin-right: 10px;  *margin-right:14px;*/  *display:inline; }
+.ipt_extxt input{  padding: 0 0 0 .2em; margin-right:4px; width:98px;  height:20px;  line-height:20px;  vertical-align:top; *margin-right:0; }
+.ipt_extxt span{ display:inline-block; margin-left: 4px;  width:17px;  height:20px;  vertical-align:top;  cursor:pointer}
+.ipt_extxt .s_ico{ vertical-align:top;  margin-top:2px;  margin-right:0.2em;  cursor:pointer}
+.ipt_extxt .mini{ display:inline-block;  *margin-top:-2px;  _margin-top:0;  width:17px;  height:20px}
+.ipt_extxt .mini .mini_inc,
+.ipt_extxt .mini .mini_dec{ display:block;  width:17px;  height:10px;  _font-size:0}
+.ipt_extxt .droplist{ position:absolute;  top:22px;  left:-1px}
+.ipt_extxt .multilist{ position:absolute;  top:22px;  left:-1px}
+.ipt_extxt .multilist li *{ vertical-align:middle}
+.ipt_extxt .multilist input{ width:12px}
+.ipt_file{ position: absolute;*margin-left:-6px;width: 66px;height: 22px;z-index: 1;cursor: pointer;filter: alpha(opacity = 0);opacity: 0;cursor: pointer;}
+.std_form .form_col { vertical-align:top; display:inline-block;  *display:inline;  *zoom:1;  width:260}
+.std_form .form_row { display:inline-block;  margin:10px}
+.std_form .form_td{ display: inline-block;width: 140px;}
+.std_form .sel{ width:163px}
+.std_form .ipt_chk{ margin:0 3px 0 0;  vertical-align:bottom;  *vertical-align:middle}
+.std_form .tarea,
+.tarea{ padding:0.4em;  width:350px;  height:100px;  vertical-align:top; font-size:12px}
+.std_form .tarea_tip{ margin-left:85px;  line-height:20px}
+.std_form .barea{ padding-left: 100px;}
+.std_photo{ position:absolute;  top:50px;  left:500px;  width:150px;  height:240px;  text-align:center}
+.std_photo .photo{ display:block;  margin-bottom:12px;  padding:9px 9px 15px}
+
+.remind {padding: 10px;  }
+.remind p{ line-height: 24px;}
+.remind a{text-decoration: underline;}
+.inf_table{ border-collapse:collapse;table-layout:fixed; text-align: center;}
+.inf_table th,
+.inf_table td{ padding: 0 10px; line-height:24px; height: 24px;}
+.inf_table th{ text-align: center; font-weight: 600;}
+/*------------------------- ICONS -----------------------------*/
+.s_ico, .x_ico, .m_ico, .b_ico { display: inline-block; *display: inline; *zoom: 1 }
+.s_ico{ margin-right:4px;  width:16px;  height:16px;  vertical-align:text-bottom}
+.x_ico{ width:20px;  height:20px}
+.m_ico{ width:32px;  height:32px}
+.b_ico{ width:62px;  height:62px}
+/*------------------------- BUTTONS -----------------------------*/
+.btn{ width:66px;  height:22px;  line-height:22px;  cursor:pointer;  text-align:center}
+.b_btn{ width:96px;  height:30px;  line-height:30px;  font-weight:bold;  cursor:pointer}
+.lb_btn{ width:129px; height: 30px; line-height: 30px;font-weight:bold; cursor: pointer; }
+.h_btn{ width:156px;  height:43px;  cursor:pointer}
+.a_btn{ position: relative; display:inline-block; height: 23px; line-height: 23px; padding:0 8px; border: 0 none; }
+.a_btn span{ position: absolute; top:0; right:0; display: inline-block; height: 23px; width: 8px;  }
+/*------------------------- SEARCH TREEBOX -----------------------------*/
+.searchbox{ position:relative}
+.searchbox .ipt_extxt{ margin-right:4px; width:197px;}
+.searchbox .ipt_extxt input{ width:166px}
+.searchbox .droplist{ position:absolute;  top:23px;  left:0;  width:200px}
+.treebox{ margin:10px 0;  height:200px; overflow: auto;}
+/*------------------------- LAYOUT -----------------------------*/
+.frame_top{ /*height:81px*/ zoom:1;}
+.frame_top:after,
+.frame_top:before{ content: ' ';display: table;clear: both;}
+.frame_side{ position: absolute;  left:0; padding:6px 0 0 6px;  overflow:hidden; z-index:4; }
+.frame_main{ position: relative; margin-left:230px;  padding:6px 6px 0; z-index:0;}
+.frame_main_frame{ padding: 0;}
+.frame_side_mid{ padding: 0;left: 6px;}
+.frame_side_frame{ padding: 0;}
+.frame_main_w{ margin-left:0;  padding:6px 6px 0;}
+.frame_main_n{ padding: 0;}
+.layout { position: relative; padding: 10px; height: 300px; overflow: auto; }
+.layout_dash{ padding: 10px 4px; overflow: auto;}
+.frame_bottom { position: fixed; _position: absolute; bottom: 0; width: 100%; height: 20px; line-height: 20px; z-index: 8; }
+.copyright { text-align: center; font-size: 10px; color: #999; }
+
+.topline{ height:40px;  overflow:hidden}
+.topline .logo{ display:inline-block;  width:130px;  height:40px;  text-indent:-9999px}
+.topline .comlink{ float:right;  margin:14px 10px 0 0}
+
+.toolbar{ position:relative; padding:0 0 4px; z-index:5; zoom:1; min-height: 44px;}
+.toolbar:after,
+.toolbar:before{ content: ' '; display: table; clear: both;}
+.toolbar .tab{ position: absolute; top:15px; right: 10px; width: 30px; height: 14px; }
+.toolbar .tab a { display:block; float: left; width: 15px;height: 14px; text-indent: -9999px; }
+
+.sidebar{ position:relative;  width:202px;  height:500px;  padding:10px; _padding-right:7px;  z-index:8; overflow: auto;}
+.sidebar .menu_head{ position:relative;margin-bottom: 2px; height: 29px; line-height: 29px; padding: 0 10px;  }
+.sidebar .menu_head .ico{ position: absolute;top:6px;right:10px; width:16px;height: 16px; cursor: pointer;}
+.sidebar .menu_body{margin-bottom: 2px; padding: 10px 0;  }
+.sidebar .menu_body a{ display: block; padding: 0 14px; line-height: 24px; height: 24px;}
+
+.sidegap{ position:relative;  left:-2px;  float:left;  width:8px;  height:300px;  z-index:10}
+.sidegap .toggle{ position:absolute;  left:0;  top:50%;  margin-top:-40px;  width:8px;  height:80px}
+
+.hr, .hr_s{ margin-bottom:10px;  height:0;  line-height:0;  font-size:0}
+.path { height: 30px;}
+/*------------------------- JS ELEMENTS -----------------------------*/
+.droplist{ width:110px;  padding:5px 0;  max-height:120px;  overflow:auto}
+.droplist li{ height:20px;  white-space:nowrap; }
+.droplist li a{ display:block;  padding:0 10px;  height:20px;  line-height:20px;  cursor:pointer}
+
+.multilist { width: 220px }
+.multilist .multilist_opt { padding: 0 16px; height: 24px; line-height: 24px }
+.multilist .multilist_opt a { margin-right: 4px }
+.multilist .multilist_list { height: 90px; padding: 10px 16px; overflow-y: scroll }
+.multilist .multilist_list li { line-height: 20px; height: 20px; white-space: nowrap }
+
+.fwin{ position:absolute;  display:none; z-index:9}
+.fwin .fwin_content{ padding:6px 10px;  line-height:24px;  overflow:auto}
+.fwin .arraw{ position:absolute;  top:-9px;  left:20px;  display:block;  width:10px;  height:10px}
+.fwin .fwin_content p{ margin-bottom:6px}
+.fwin .fwin_foot{ height:30px;  line-height:30px;  text-align:center}
+/*------------------------- POP WINDOW -----------------------------*/
+.std_pop {/* position: absolute*/ }
+.std_pop .pop_border {}
+.std_pop .pop_title { position: relative; padding: 0 18px; height: 30px; line-height: 30px; font-size: 12px; font-weight: 600; }
+.std_pop .pop_title span{  display:block; height:30px;  padding-right: 60px; overflow: hidden;/*没实现省略号*/}
+.std_pop .pop_title .close { position: absolute; top: 0; right: 18px; display: inline-block; width: 44px; height: 20px; text-indent: -9999px; cursor: pointer }
+.std_pop .pop_main{ /*text-align: center;*/}
+.std_pop .pop_content { padding: 10px }
+.std_pop .pop_content .td_ico { width: 80px;vertical-align: text-top; }
+.std_pop .pop_content .td_txt { padding: 10px 14px 0 0; line-height: 20px;text-align: left; }
+.std_pop .pop_content .td_txt div{ width:300px;height:60px;overflow: auto; white-space:normal;word-break:break-all;word-wrap:break-word; }
+.std_pop .pop_foot { padding: 9px 18px; height: 22px; text-align: right }
+.std_pop .pop_foot .btn{ margin-left: 4px; }
+.std_pop .pop_resize{ display: none; position: absolute;bottom:1px;right:1px;width: 14px; height: 14px; cursor: se-resize;z-index: 9; }
+.pop_iframe { margin: 0; padding:0;min-height: inherit; min-width: inherit;}
+.pop_iframe_content { padding: 10px ;min-height: inherit; min-width: inherit;}
+.pop_iframe_foot { padding: 9px 18px; height: 22px; text-align: right }
+.msg { padding: 0 20px 0 44px; height: 34px; line-height: 34px;  }
+/*------------------------- BOX -----------------------------*/
+.std_box { width: 99% }
+.std_box .box_title { padding: 0 18px; height: 30px; line-height: 30px; cursor: default }
+.std_box .box_title .s_ico { margin-top: 8px }
+.std_box .box_title .box_title_tab { display: inline-block; *display: inline; *zoom: 1; margin-top: 4px; height: 24px; line-height: 24px; padding: 0 0.8em }
+.std_box .box_content { padding: 10px 20px; line-height: 24px }
+.std_box .box_content .li_des { display: inline-block; width: 70% }
+.std_box .box_content .li_tip { display: inline-block; width: 30%; text-align: right }
+
+/*--------------------------- EXPRESSION -------------------------------*/
+.expression{}
+.expression .lib{ position:relative;  margin-bottom:6px;  padding:6px;  line-height:26px}
+.expression .lib p{ margin-bottom:4px}
+.expression .lib a.sign{ display:inline-block;  _display:inline;  _zoom:1;  width:18px;  height:18px;  line-height:18px;  text-align:center;  font-family:arial,sans-serif,serif}
+.expression .tarea{ width:440px}
+.expression .tip{ padding-top:6px}
+.expression .fwin{ top:40px}
+/*--------------------------- NODE SELECT BOX -------------------------------*/
+.nodeselbox .selbox{ position:relative;  width:208px;  height:350px;  overflow:auto}
+.nodeselbox .selbox li{ position:relative;  padding:0 10px;  height:24px;  line-height:24px;  overflow:hidden}
+.nodeselbox .selbox li span{ display:inline-block;  width:150px;  height:24px;  line-height:24px;  overflow:hidden;  white-space:nowrap;  text-overflow:ellipsis;  cursor:default}
+.nodeselbox .selbox li .selbox_del{ position:absolute;  top:6px;  right:4px;  display:block;  width:12px;  height:12px;  text-indent:-9999px}
+.nodeselbox .s_ico_right{ margin: 0;}
+/*----------------------  SIMPLE TABLE ------------------------*/
+.simple_form .caption{ margin:0;  font-size:16px;  text-align:center}
+.simple_form .tcline{ line-height:30px;  text-align:center}
+.simple_table { width:100%;  table-layout:fixed}
+.simple_table td{ cursor:default;  height:24px; line-height: 24px;  overflow:hidden;  padding:0 4px;  text-overflow:ellipsis;  white-space:nowrap}
+.simple_table .selarea select{ width:100%}
+.simple_table .labeltd{ width:110px}
+.simple_table .titletd{ text-align:center}
+.simple_table .num{ width:20px;  text-align:center}
+

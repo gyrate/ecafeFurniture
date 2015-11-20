@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <style>
+        .caption{ padding: 1em; font-size: 2em;}
+        p{margin-bottom: 1em;}
+    </style>
+</head>
+<body style="background: #f0f0f0;">
+
+    <h2 class="caption">跨域数据通讯</h2>
+    <div style="padding: 2em;">
+        <p>
+            <input type="text" id="statusText" value="msg from a.html">
+        </p>
+        <p>
+            <button id="sendButton"> 向b.html发送一个消息</button>
+        </p>
+        <p>
+            <label>接收消息：</label><label id='status'></label>
+        </p>
+    </div>
+    <iframe src="http://localhost/ecafe/src/html/postMessage/b.html" style="margin-left: 2em;" width="500" height="300" id="widget"></iframe>
+    <!--尝试用不用域名的地址，测试跨域下dialog的弹出-->
+    <!--<iframe src="b.html"></iframe>-->
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+<script>
+$(function(){
+
+    var trustedOrigin = "http://localhost";
+
+    function messageHandler(e) {
+        if (e.origin == trustedOrigin) {//接收消息的时候，判断消息是否来自可信的源，这个源是否可信则完全看自己的定义了。
+            //e.data才是真实要传递的数据
+            if(Sui.isString(e.data)){
+                showMsg(e.data);
+            }else{
+                //接收到非字符串的消息体，调用页面方法
+                var data = e.data;
+                if(data.action){
+                    var acts = data.action.split('.'),
+                        opt = Sui;
+                    for (var i = 0,len = acts.length; i < len; i++) {
+                        opt = opt[acts[i]];
+                    }
+                    new opt(data.config);
+                }
+            }
+
+
+        } else {
+            // ignore messages from other origins
+        }
+    }
+
+    function sendString(s) {
+        //发送消息,s为消息内容，trustedOrigin为目标窗口域名 第二个参数可改为'*'
+        document.getElementById("widget").contentWindow.postMessage(s,trustedOrigin);
+    }
+
+    function showMsg(message) {
+        document.getElementById("status").innerHTML = message;
+    }
+
+    function sendStatus() {
+        var statusText = document.getElementById("statusText").value;
+        sendString(statusText);
+    }
+
+    function loadDemo() {
+        addEvent(document.getElementById("sendButton"), "click", sendStatus);
+        sendStatus();
+    }
+
+    function addEvent(obj, trigger, fun) {
+        if (obj.addEventListener) obj.addEventListener(trigger, fun, false);
+        else if (obj.attachEvent) obj.attachEvent('on' + trigger, fun);
+        else obj['on' + trigger] = fun;
+    }
+    addEvent(window, "load", loadDemo);
+    addEvent(window, "message", messageHandler);
+
+
+})
+</script>
+</body>
+</html>

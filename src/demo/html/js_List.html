@@ -1,0 +1,305 @@
+   <!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            日期组件
+        </div>
+        <article>
+            <h1>Sui.List(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> list.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Component</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.List </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , list.js</p>
+                <p>sui.form.list.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>data</td>
+                            <td>null</td>
+                            <td>
+                                <p>组件对应的数据源 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>labelField(String)</td>
+                            <td>
+                                'label' (默认)
+                            </td>
+                            <td>
+                                <p>服务器数据中与List组件选项描述值对应的属性名</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>valueField(String)</td>
+                            <td>
+                                'value' (默认)
+                            </td>
+                            <td>
+                                <p>服务器数据中与List组件选项实际值所对应的属性名</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>removableIcon (Boolean)</td>
+                            <td>'sui_date'(默认)</td>
+                            <td>是否需要删除图标组件</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>selectedClass (String)</td>
+                            <td>''(默认)</td>
+                            <td>组件被选中的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defaultClass (String)</td>
+                            <td>'sui_date'(默认)</td>
+                            <td>日期样式定义</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>draggable (Boolean)</td>
+                            <td>
+                                false (默认)
+                            </td>
+                            <td>是否启用拖拽，可通过拖拽交换两个子项的位置</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>containment (DOM) </td>
+                            <td> null (默认)  </td>
+                            <td>限制拖放的范围DOM</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>dropHoverClass(Date)</td>
+                            <td> ''(默认)</td>
+                            <td>当被拖动对象在该对象的上面时，添加的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>acceptDragClass(Date)</td>
+                            <td> ''(默认)</td>
+                            <td>哪些对象可以接受该对象放下，此时样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>emptyToClear(Boolean)</td>
+                            <td> false(默认)</td>
+                            <td>是否显示清空操作项</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>itemWidth(Boolean)</td>
+                            <td> null(默认)</td>
+                            <td>选项的宽度，有时候list项流式排列时会用到</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>iconClass(String)</td>
+                            <td> ''(默认)</td>
+                            <td>选项字段前的图标样式，不指定则不生成图标</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.list.html" target="_blank">Sui.list.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准List组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript"> store = new Sui.data.Store([
+        { label : '中国', value : 'CN' },
+        { removable : true, label : '美国', value : 'US'},
+        { removable : true,label : '英国', value : 'EN'},
+        { label : '意大利', value : 'IT'},
+        { label : '加拿大',value : 'JN'},
+        { label : '日本', value : 'JP'},
+        { label : '俄罗斯', value : 'OR'},
+        { label : '印度', value : 'IN'},
+        { label : '德国', value : 'MD'},
+        { label : '泰国', value : 'TS'}
+    ]);
+
+    var select = new Sui.List({
+        applyTo : 'div', //将id为'div'的DOM元素渲染成List
+        width : 150, //List宽度
+        store : store, //组件数据
+        draggable : true, //是否支持拖拽
+        iconClass:'s_ico s_ico_node',//选项图标样式
+        listeners : { //操作事件监听
+            selected : function(e) {
+                    alert(e.value);
+            }
+        }
+    });
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+<section>
+                        <p class="str">Example:创建一个标准List组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listOperation"><code class="javascript">var num = parseInt(Math.random(1)*100);
+store.addRecordData({
+    label : '法国'+ num ,
+    value : 'FR'+ num
+})
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listOperation">
+                        </p>
+                    </section>
+
+<section>
+                        <p class="str">Example:修改一个选项</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listItemEditor"><code class="javascript">var record = store.findRecordByNameValue('label','中国');//找到描述为'中国'的选项
+record.setFieldValue('label','中华人民共和国');//修改选项的描述
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listItemEditor">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:修改一个选项</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listSelectAll"><code class="javascript">var record = store.findRecordByNameValue('label','中国');//找到描述为'中国'的选项
+record.setFieldValue('label','中华人民共和国');//修改选项的描述
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listSelectAll">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:列表数据交换 <a target="_blank" href="js_List_selAll.html">演示页面 </a></p>
+                    </section>
+
+
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <div  id="div"></div>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var store,//数据源
+        select1,//组件句柄
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

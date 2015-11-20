@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" media="all" href="../../css/default.css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body  class="pop_iframe">
+    <div class="pop_iframe_content">
+        <form class="std_form">
+            <p>
+                <a id="closeInFrame">&lt;在iframe中关闭窗口&gt;</a>
+                <a href ="js_SysDialog_FrameA.html" target="_blank">&lt;新窗口打开iframeA&gt;</a>
+            </p>
+            <p>
+                <label>用户：</label>
+                <input type="text"  id="user" value="123"/>
+                <em class="t_req">*</em>
+            </p>
+            <p>
+                <label>密码：</label>
+                <input type="password" value="123" disabled/>
+            </p>
+            <p>
+                <label>邮箱：</label>
+                <input type="text" value="gyrate.sky@qq.com" disabled />
+            </p>
+
+            <div class="p">
+                <label title="点击窗口右上角按钮关闭窗口时会触发函数执行"><input type="checkbox" id="setCloseAfterFun"> 关闭后弹出警告</label>
+            </div>
+
+            <p>
+                <input id="sendToParent" value="传递数据给父页面" type="button">
+                <input id="sendToB" value="传递数据给窗口B" type="button">
+            </p>
+
+            <div>
+                <input id="input"/>
+            </div>
+
+        </form>
+    </div>
+<script src="../../js/jquery-1.7.1.min.js"></script>
+<script src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script src="../../js/dialog/dialog.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+<script>
+    $(function(){
+        //初始化输入框
+        if (Sui.dialog.data('user')) {
+            $('#user').val(Sui.dialog.data('user'));
+        }
+        //传递数据给父页面
+        $('#sendToParent').click(function(){
+
+            var user = $('#user').val();
+            Sui.dialog.data('user',user);
+            //将窗体内的值赋值给父窗口元素
+            var parent = Sui.dialog.opener ;
+            parent.$('#userVal').val( user );
+        });
+        //传递数据给窗口B
+        $('#sendToB').click(function(){
+
+            var user = $('#user').val();
+            Sui.dialog.data('user',user);
+
+            new Sui.dialog.SysDialog({
+                id:'B',
+                url:'./js_SysDialog_FrameB.html',
+                closeAfterFun:[{
+                    fun:function(){
+                        var dataB = Sui.dialog.data('user');
+                        $('#user').val(dataB);
+                    }
+                }]
+            })
+        });
+        //关闭窗体
+        $('#closeInFrame').click(function() {
+            Sui.dialog.close();
+        });
+        //设置点击关闭窗体前的执行函数
+        Sui.dialog.setProperty('closeBeforeFun',{
+            fun:function() {
+                //console.info('我在窗口关闭后弹出!');
+                alert('我在窗口关闭前弹出!');
+            },
+            arg:null
+        });
+
+        var select = new Sui.form.DropList({
+            applyTo : 'input',
+            name : 'input',
+            searchable : true,
+            value : '3',
+            //forceSelect:false,
+            comboMaxHeight:150,
+            items : [
+                { label : 'ABBCD', value : '1'},
+                { label : 'ABBCD2',value : '2'},
+                { label : 'ABBCD3',value : '3'},
+                { label : 'ABBCD4',value : '4'},
+                { label : 'DBBCD2',value : '5'},
+                { label : 'AAAAA', value : '6'},
+                { label : 'BBBBB', value : '7'},
+                { label : 'EEEEE', value : '8'},
+                { label : 'FFFFF', value : '9'},
+                { label : 'GFGGG', value : '10'},
+                { label : 'HHHHH', value : '11'},
+                { label : 'IIIII', value : '12'},
+                { label : 'JJJJJ', value : '13'},
+                { label : 'KKKKK', value : '14'},
+                { label : 'LLLLL', value : '15'}
+            ],
+            listeners:{
+                selected : function(event){
+                    console.log(event.value);
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

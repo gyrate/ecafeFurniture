@@ -1,0 +1,480 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>数据列表</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="all" href="../../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css" type="text/css"/>
+
+    <link rel="stylesheet" href="../../css/sui.base.css" />
+    <link rel="stylesheet" href="../../css/sui.table.css" />
+    <link rel="stylesheet" href="../../css/sui.form.triggerfield.css" />
+    <link rel="stylesheet" href="../../css/sui.form.date.css" />
+    <link rel="stylesheet" href="../../css/sui.form.list.css" />
+    <link rel="stylesheet" href="../../css/sui.form.droplist.css" />
+    <link rel="stylesheet" href="../../css/sui.menu.css" />
+    <link rel="stylesheet" href="../../css/sui.tree.css" />
+    <link rel="stylesheet" href="../../css/sui.tab.css" />
+    <link rel="stylesheet" href="../../css/sui.navigator.css"/>
+</head>
+<body>
+<div class="frame_top" id="frame_top">
+    <div class="topline">
+        <a class="fl logo" href="demo.html">
+            <img src="../../images/logo.png" width="130" height="40"/>
+        </a>
+        <ul class="menu" id="topmenu">
+        </ul>
+            <span class="comlink">
+                <a href="javascript:void(0)">用户设置</a> |
+                <a href="demo.html">帮助中心</a>
+                <a href="../login/theme1/login.html">[退出]</a>
+            </span>
+    </div>
+    <div class="toolbar" id="toolbar">
+
+    </div>
+</div>
+<div class="frame_side" id="frame_side">
+    <div class="sidebar fl" id="sidebar">
+        <div class="searchbox">
+            <div class="ipt_extxt">
+                <input type="text" value="" id="nodeSearch_txt" defaultValue="输入关键词"/>
+                <b class="s_ico s_ico_search" id="nodeSearch_btn"></b>
+            </div>
+        </div>
+        <div class="treebox" id="treeboxwrap">
+            <div id="treebox">
+            </div>
+        </div>
+    </div>
+    <div class="sidegap" id="sidegap">
+        <a id="side_toggle" class="toggle" href="javascript:void(0);"></a>
+    </div>
+</div>
+<div class="frame_main" id="frame_main">
+    <div class="layout" id="layout">
+        <div class="path">
+            <b class="s_ico s_ico_page"></b> <b>项目立项</b>
+        </div>
+        <div id="switch">
+            <div class="tab_menu">
+                <ul>
+                    <li class="menu_item"><span>表单一</span></li>
+                    <li class="menu_item"><span>表单二</span></li>
+                    <li class="menu_item"><span>配置界面</span></li>
+                </ul>
+            </div>
+            <div class="tab_content">
+                <div class="content_item">
+
+                    <form class="std_form" enctype="" method="post" action="" >
+                        <div class="p">
+                            <label class="lab"><em class="t_req">*</em> 项目编号：</label>
+                            <input type="text" class="ipt_txt" require="true" id="proNum">
+                            <span id="proNumTip" class="tip">请输入编号</span>
+                            <p class="tip">6~12个数字 </p>
+                        </div>
+                        <div class="p">
+                            <label class="lab"><em class="t_req">*</em> 项目名称：</label>
+                            <input type="text" class="ipt_txt" require="true" id="proName">
+                            <span id="proNameTip" class="tip">请输入项目名称</span>
+                            <p class="tip"> 包括字母、数字、下划线，以字母开头，字母或数字结尾 </p>
+                        </div>
+                        <div class="p">
+                            <label class="lab">所属上级项目：</label>
+                            <input type="text" id="proSuper" class="ipt_txt" value="智慧城市">
+                            <span id="proSuperTip" class="tip">输入项目名称</span>
+                            <p class="tip">所属上级项目必须为已经存在的项目</p>
+                        </div>
+
+                        <div class="p">
+                            <label class="lab"> 项目目标：</label>
+                            <textarea class="tarea" cols="" rows=""></textarea>
+                            <p class="tip">建议输入10-400范围内的数字 </p>
+                        </div>
+
+                        <div class="hr hr_s mb10"></div>
+                        <div class="p barea">
+                            <input type="submit" class="b_btn b_btn_deep"  value="保存">
+                            <input type="button" class="b_btn" value="返回">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="content_item">
+
+                    <form class="std_form" enctype="" method="post" action="" id="mainForm">
+
+                        <div class="form_col">
+                            <div class="p">
+                                <label class="lab"><em class="t_req">*</em> 职位：</label>
+
+                                <div class="ipt_extxt" id="multipleSelect">
+                                    <input type="text" id="pro_position" require="true" name="input_multipleSelect_forbiden" title="苹果"><b  class="s_ico s_ico_list"></b>
+                                </div>
+                            </div>
+                            <div class="p">
+                                <label class="lab"> 活动时间：</label>
+                                <span class="ipt_extxt" id="datepicker">
+                                    <input type="text" value="datepicker_ipt"><b class="s_ico s_ico_date"></b>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form_col">
+                            <div class="p">
+                                <label class="lab"><em class="t_req">*</em> 部门：</label>
+
+                                <div class="ipt_extxt" id="singleSelect">
+                                    <input type="text" value="" require="true" id="pro_department"  name="input_singleSelect_forbiden"><span></span>
+                                    <input type="hidden" name="input_singleSelect" value="1"></div>
+                            </div>
+                            <div class="p">
+                                <label class="lab"> 项目规模：</label>
+                                <input type="text" class="ipt_txt">
+                            </div>
+                        </div>
+                        <!--end of form_col-->
+
+                        <div class="form_col">
+                            <div class="p">
+                                <label class="lab"> 项目成员：</label>
+
+                                <div class="ipt_extxt">
+                                    <input type="text" id="input_member"><b id="b_member" class="s_ico s_ico_2col"></b>
+                                </div>
+                            </div>
+                            <div class="p">
+                                <label class="lab"> 项目预算：</label>
+                                <input type="text" class="ipt_txt">
+                            </div>
+                        </div>
+                        <!--end of form_col-->
+
+                        <div class="form_col">
+                            <div class="p">
+                                <label class="lab"> 项目成员：</label>
+                                <div class="ipt_extxt">
+                                    <input type="text" class="w228"><b class="s_ico s_ico_2col"></b>
+                                </div>
+                            </div>
+                            <div class="p">
+                                <label class="lab"> 项目预算：</label>
+                                <div class="ipt_extxt">
+                                    <input class="w228" type="text" value="" require="true"><span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of form_col-->
+
+                        <div class="p">
+                            <label class="lab"> 项目目标：</label>
+                            <textarea class="tarea" cols="" rows=""></textarea>
+                            <p class="tip">建议输入10-400范围内的数字 </p>
+                        </div>
+
+                        <div class="p">
+                            <label class="lab"> 项目目标：</label>
+                            <textarea class="tarea" cols="" rows=""></textarea>
+                            <p class="tip">建议输入10-400范围内的数字 </p>
+                        </div>
+
+                        <div class="hr hr_s mb10"></div>
+                        <div class="p barea">
+                            <input type="submit" class="b_btn b_btn_deep" id="btn_save" value="保存">
+                            <input type="button" class="b_btn" value="返回" id="btn_back">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="content_item">
+                    <form class="std_form" enctype="" method="post" action="" id="sysForm">
+
+                        <h3 class="title">角色信息</h3>
+                        <div class="p">
+                            <label class="lab"><em class="t_req">*</em> 角色类型：</label>
+                            <div class="ipt_extxt">
+                                <input type="text" require="true" value="" name=""><span></span>
+                            </div>
+                            <label class="lab"><em class="t_req">*</em> 权限范围：</label>
+                            <div class="ipt_extxt">
+                                <input type="text" require="true" value="" name=""><span></span>
+                            </div>
+                        </div>
+                        <div class="p">
+                            <label class="lab"><em class="t_req">*</em> 角色名称：</label>
+                            <input type="text" require="true" class="ipt_txt" value="管理员">
+
+                            <label class="lab"><em class="t_req">*</em> 角色成员：</label>
+                            <div class="ipt_extxt">
+                                <input type="text" id="position">
+                                <b class="s_ico s_ico_list"></b>
+                            </div>
+                        </div>
+
+                        <h3 class="title">角色关联设置</h3>
+
+                        <div class="s_title">
+                            <b class="s_ico s_ico_fold"></b>表单权限设置
+                        </div>
+                        <div class="form_row">
+                            <label class="lab_long">表单查看：</label>
+                            <span class="form_td"><label><input type="checkbox" name="rightset1"> 查看自己申请的表单</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset2"> 查看他人申请的表单</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset3" checked=""> 不能看</label></span>
+                        </div>
+
+                        <div class="s_title">
+                            <b class="s_ico s_ico_fold"></b>用户权限分配
+                        </div>
+                        <div class="form_row">
+                            <label class="lab_long">查看用户信息：</label>
+                            <span class="form_td"><label><input type="checkbox" name="rightset1"> 查看自己的信息</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset2"> 查看他人的信息</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset3" checked=""> 修改自己的信息</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset4"> 修改他人的信息</label></span>
+                        </div>
+
+                        <div class="s_title">
+                            <b class="s_ico s_ico_unfold"></b>功能权限分配
+                        </div>
+                        <div class="form_row" style="display: none;">
+                            <label class="lab_long">系统管理功能分配：</label>
+                            <span class="form_td"><label><input type="checkbox" name="rightset1"> 新增用户权限</label></span>
+                            <span class="form_td"><label><input type="checkbox" name="rightset2"> 激活，禁止用户权限</label></span>
+                        </div>
+
+                        <div class="s_title">
+                            <b class="s_ico s_ico_fold"></b>用户权限分配
+                        </div>
+                        <div class="form_row">
+                            <div class="p">
+                                <label class="lab_long">我的工作台：</label>
+                                <span class="form_td"><label><input type="checkbox" name="rightset1"> 我的表单</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset2"> 待办业务</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset3" checked=""> 已办业务</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset4"> 办结任务</label></span>
+                            </div>
+                            <div class="p">
+                                <label class="lab_long">工作流引擎：</label>
+                                <span class="form_td"><label><input type="checkbox" name="rightset1"> 业务流程管理</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset2"> 工作流模板管理</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset3" checked=""> 业务入口</label></span>
+                                <span class="form_td"><label><input type="checkbox" name="rightset4"> 修改他人的信息</label></span>
+                            </div>
+                            <div class="p">
+                                <label class="lab_long">项目管理：</label>
+                                <span class="form_td"> <label><input type="checkbox" name="rightset1"> 项目管理</label></span>
+                            </div>
+                        </div>
+
+                        <h3 class="title">报工设置</h3> <!--标题-->
+                        <div class="form_row"> <!--交互区域-->
+                            <label class="lab_long">是否需要审批：</label>
+                            <label><input type="radio" name="needjudge" checked=""> 是</label>
+                            <label><input type="radio" name="needjudge"> 否</label>
+                        </div><!--end of row--->
+
+                        <h3 class="title">项目报告设置</h3>
+                        <div class="form_row">
+                            <div class="p">
+                                <label class="lab_long">是否需要审批：</label>
+                                <label><input type="radio" name="needjudge1" checked=""> 是</label>
+                                <label><input type="radio" name="needjudge1"> 否</label>
+                            </div>
+                            <div class="p">
+                                <label class="lab_long">为报工审核期：</label> <input type="text" class="ipt_txt_s">
+                                <label>倍</label>
+                            </div>
+                            <div class="p">
+                                <label class="lab_long">项目报告审批人：</label>
+                                <div class="ipt_extxt" id="department">
+                                    <input type="text" value="" name="input_department_forbiden"><span></span>
+                                <input type="hidden" name="input_department" value="5"></div>
+                            </div>
+                        </div><!--end of row--->
+
+                        <h3 class="title">项目成员所属部门经理的数据查看权限设置</h3>
+                        <div class="form_row">
+                           <label class="lab_long">权限设置：</label>
+                            <label><input type="radio" name="rightset"> 自己部门人参与的任务</label>
+                            <label><input type="radio" name="rightset"> 完全公开</label>
+                            <label><input type="radio" name="rightset" checked=""> 不能看</label>
+                        </div><!--end of row--->
+
+                        <div class="hr"></div>
+                        <div class="p barea">
+                            <input type="submit" class="b_btn b_btn_deep" value="保存">
+                            <input type="button" class="b_btn" value="返回">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--end of layout-->
+</div>
+<div class="frame_bottom"  id="frame_bottom">
+    <div class="copyright">
+        <p>版权所有：广州中国科学院软件应用技术研究所 ©2010NFS-China.COM京ACP备07504296号</p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/tree/tree.js"></script>
+<script type="text/javascript" src="../../js/tab/tab.js"></script>
+
+<script type="text/javascript" src="../../js/navigator/navigator.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+
+        //初始化导航
+        var nav = new Sui.nav.Navigator({
+
+            applyTo:'topmenu',
+            defaultClass:'topmenu',
+            menuItemClass:'menu_item',
+
+            subRenderTo:'toolbar',
+
+            menuItems: [
+                {
+                    id:'1',
+                    caption:'项目管理',
+                    subMenuItems:[
+                        {
+                            id:'11',
+                            caption : '项目立项',
+                            imgURL : '菜单图标的URL',
+                            imgCss : 's_ico_flag',
+                            url : 'http://www.baidu.com/',
+                            subMenuItems : [
+                                { id:'111', caption : '菜单配置',url : '子菜单标题http://www.baidu.com/' },
+                                { id:'112', caption : 'URL方法权限',url : '子菜单标题http://www.baidu.com/' },
+                                { id:'113', caption : '权限配置',url : '子菜单标题http://www.baidu.com/' },
+                                { id:'114', caption : '权限配置辅助',url : '子菜单标题http://www.baidu.com/' }
+                            ]
+                        },
+                        {
+                            id:'12',
+                            caption : '项目设置',
+                            imgURL : '../../images/ico_img.png',
+                            imgCss : 's_ico_table',
+                            url : 'http://www.baidu.com/',
+                            subMenuItems:[
+                                {id:'121', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'122', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'123', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'124', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                            ]
+                        },
+                        {
+                            id:'13',
+                            caption : '报工查询',
+                            imgURL : '菜单图标的URL2',
+                            imgCss : 's_ico_2col',
+                            url : 'http://www.baidu.com/',
+                            subMenuItems:[
+                                {id:'131', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'132', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'133', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                                {id:'134', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                            ]
+                        },
+                        {
+                            id:'14',
+                            caption : '基础数据',
+                            imgURL : '菜单图标的URL2',
+                            imgCss : 's_ico_2col',
+                            url : 'http://www.baidu.com/'
+                        },
+                        {
+                            id:'15',
+                            caption : '系统设置',
+                            imgURL : '菜单图标的URL2',
+                            imgCss : 's_ico_2col',
+                            url : 'http://www.baidu.com/'
+                        }
+                    ]
+
+                },
+                {
+                    id:'2',
+                    caption:'工作流引擎' ,
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url:'http:///ww.baidu.com',
+                    subMenuItems:[
+                        {id:'21',caption:'我是二级菜单1',url:'2子菜单标题',imgCss : 's_ico_2col'},
+                        {id:'22',caption:'我是二级菜单2',url:'2子菜单标题',imgCss : 's_ico_2col'},
+                        {id:'23',caption:'我是二级菜单3',url:'2子菜单标题',imgCss : 's_ico_2col'}
+                    ]
+                },
+                {
+                    id:'3',
+                    caption:'表单申请' ,
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url:'http:///ww.baidu.com',
+                    subMenuItems:[
+                        {id:'31',caption:'我是二级菜单1',url:'3子菜单标题',imgCss : 's_ico_word'},
+                        {id:'32',caption:'我是二级菜单2',url:'3子菜单标题',imgCss : 's_ico_word'},
+                        {id:'33',caption:'我是二级菜单3',url:'3子菜单标题',imgCss : 's_ico_word'}
+                    ]
+                },
+                {
+                    id:'4',
+                    caption:'表单申请' ,
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url:'http:///ww.baidu.com',
+                    subMenuItems:[
+                        {id:'41',caption:'我是二级菜单1',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                        {id:'42',caption:'我是二级菜单2',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                        {id:'43',caption:'我是二级菜单3',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                        {id:'44',caption:'我是二级菜单4',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                        {id:'45',caption:'我是二级菜单5',url:'4子菜单标题',imgCss : 's_ico_colpik'}
+                    ]
+                }
+            ],
+            listeners:{
+                selected:function(e) {
+                    console.log(e.url);
+                }
+            }
+        });
+
+        tab = new Sui.Tab({
+            applyTo:'switch' ,
+            menuClass:'menu_item',
+            contentClass:'content_item',
+            trigger:'click',
+            needOperator:true,
+            currentIndex:0,
+            listeners:{
+                changeTab:function(e) {
+                    //alert(e.index); tab变更时触发
+                }
+            }
+        }) ;
+
+
+    });//end of ready fun
+</script>
+<!--与界面布局相关的代码-->
+<script type="text/javascript" src="../../js/layout.js"></script>
+</html>

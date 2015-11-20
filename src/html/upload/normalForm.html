@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<div style="margin: 40px auto; border: 1px solid #666; padding: 2em;">
+    <form action="../../php/upload.php" method="post" enctype="multipart/form-data" id="form" target="iamFrame">
+       <div id="formContent">
+        <div><input type="file" name="attach[]"></div>
+        <div><input type="file" name="attach[]"></div>
+        <div><input type="file" name="attach[]"></div>
+        <div><input type="file" name="attach[]"></div>
+
+        <div>
+            <input type="submit" value="提交">
+        </div>
+       </div>
+    </form>
+    <!--<input type="button" value="form外提交表单" id="submitForm"/>-->
+    <iframe name="iamFrame"></iframe>
+</div>
+
+<script type="text/javascript">
+
+    function $(id){
+        return document.getElementById(id);
+    }
+
+    window.onload = function() {
+
+
+
+    }
+</script>
+
+</body>
+</html>

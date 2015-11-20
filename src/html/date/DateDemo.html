@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title></title>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+
+    <script type="text/javascript" src="../../js/form/numberfield.js"></script>
+
+    <script type="text/javascript" src="../../js/form/spinner.js"></script>
+    <link href="../../css/sui.form.spinner.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/form/timefield.js"></script>
+    <link href="../../css/sui.form.timefield.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/form/date.js"></script>
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css"/>
+
+    <script>
+
+        $(function() {
+            var date = new Sui.Date({
+                renderTo : 'div',
+                listeners : {
+                    'selected' : function(event) {
+                        alert(event.value);
+                    }
+                },
+                //dateFormat: 'yyyy',
+                // minDate: new Date(2013,8,4),
+                // maxDate: new Date(2013,10,25),
+//                range:function(year,month,date,day){
+//                    return day !== 2 ;
+//                },
+                currentDate: new Date(1900,8,7,12,45,2),
+                specialDates: {
+                    '20130929' : {
+                        'background-color' : '#F4A551'
+                    }
+                }
+            });
+
+            $("#year").click(function() {
+                date.setDateFormat("yyyy");
+            });
+
+            $("#yearMonth").click(function() {
+                date.setDateFormat("yyyy-MM");
+            });
+
+            $("#yearMonthDay").click(function() {
+                date.setDateFormat("yyyy-MM-dd");
+            });
+
+            $("#yearMonthDayH").click(function() {
+                date.setDateFormat("yyyy-MM-dd hh");
+            });
+
+            $("#yearMonthDayHM").click(function() {
+                date.setDateFormat("yyyy-MM-dd hh:mm");
+            });
+
+            $("#yearMonthDayHMS").click(function() {
+                date.setDateFormat("yyyy-MM-dd hh:mm:ss");
+            });
+
+            $('#specialMarkToday').click(function(){
+                //将今天标红
+                var today = new Date();
+                var dayObj = {};
+                dayObj[''+ (today.getFullYear()*10000 + (today.getMonth()+1)*100 + today.getDate()) ] = {
+                    'background-color' : 'red'
+                };
+                date.setSpecialDates(dayObj);
+            });
+
+            $('#activateDate').click(function(){
+                date.activeDisableDate();
+            });
+            $('#setRange').click(function(){
+                console.log('setRange');
+                date.setRange(['2013-09-05','2013-09-25']);
+            });
+
+        });
+
+
+    </script>
+    <style type="text/css">
+        .section{
+            height: 700px;
+        }
+        .ctrlSection h2{ font-size: 20px; font-weight: 600; margin: 1em 0;}
+        .ctrlSection p{ margin: 1em 0;}
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .section{
+            overflow: hidden;
+            background: #f0f0f0;
+            height: 700px;
+        }
+        .ctrlSection h2{ font-size: 20px; font-weight: 600; margin: 1em 0;}
+        .ctrlSection p{ margin: 1em 0;}
+        .componentSection{
+            margin-left: 30%;
+            padding: 20px;
+            background: #fff;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+        .ctrlSection{
+            float: left;
+            width:30%;
+            height: 100%;
+            border-right: 1px solid #ccc;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+        .p20{padding: 20px;}
+
+    </style>
+</head>
+<body>
+
+<div class="section">
+    <div class="ctrlSection">
+       <div class="p20">
+
+           <h2>自定义日期组件的格式</h2>
+           <p>
+               <button id="year">选择年yyyy</button>
+               <button id="yearMonth">选择年月yyyy-MM</button>
+               <button id="yearMonthDay">选择年月日yyyy-MM-dd</button>
+           </p>
+           <p><button id="yearMonthDayH">选择年月日时yyyy-MM-dd hh</button>          </p>
+           <p><button id="yearMonthDayHM">选择年月日时分yyyy-MM-dd hh:mm</button>     </p>
+           <p><button id="yearMonthDayHMS">选择年月日时分秒yyyy-MM-dd hh:mm:ss</button></p>
+
+           <h2>设置可选择范围</h2>
+           <p><input id="activateDate" type="button" value="激活禁用日期"></p>
+           <p><input id="setRange" type="button" value="修改可选范围"></p>
+           <p>修改可选范围为['2013-09-05','2013-09-25']</p>
+
+           <h2>设置特殊日期</h2>
+           <p>
+                <input id="specialMarkToday" type="button" value="标识今天">
+           </p>
+
+       </div>
+
+    </div>
+
+    <div class="componentSection">
+        <div id="div"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

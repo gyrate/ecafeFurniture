@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.tab.css" rel="stylesheet" media="all"/>
+
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/menu/menu.js"></script>
+    <script type="text/javascript" src="../../js/tab/tab.js"></script>
+</head>
+<body>
+
+    <div style="padding: 2em;">
+        <button id="addTab">添加tab</button>
+        <button id="addTab1">添加tab，异步数据</button>
+        <button id="addTab2">添加tab，新iframe</button>
+        <button id="addTab3">添加tab，内容为DOM</button>
+        <button id="deleteTab">删除最后一个tab</button>
+    </div>
+      <!--class="tab"-->
+    <div id="switch">
+        <div class="tab_menu">
+            <ul>
+                <li class="menu_item"><span>tabAtabAtabAtabAtabAtabAtabAtabA</span></li>
+                <li class="menu_item"><span>B</span></li>
+                <li class="menu_item"><span>tabC</span></li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class="content_item">
+                <div style="height: 200px;background: #ccccff;">tabA content...</div>
+            </div>
+            <div class="content_item">
+                <div style="height: 200px;background: #ccffcc;">tabA content...</div>
+            </div>
+            <div class="content_item">
+                <div style="height: 200px;background: #ffcccc;">tabA content...</div>
+            </div>
+        </div>
+    </div>
+    <div id="content" style="height: 200px;background: #33ccff;"></div>
+    <script>
+        $(function(){
+            var tab = new Sui.Tab({
+                applyTo:'switch' ,
+                menuClass:'menu_item',
+                contentClass:'content_item',
+                trigger:'click',
+                needOperator:true,
+                currentIndex:2,
+                listeners:{
+                    changeTab:function(e) {
+                        //alert(e.index);
+                    }
+                }
+            }) ;
+
+            $('#addTab').click(function(){
+                tab.addTabItem({
+                    menuText:'newTab',
+                    //index:1,
+                    content:'test' + Math.random()
+                })
+            });
+
+            $('#addTab1').click(function(){
+                tab.addTabItem({
+                    menuText:'Ajax',
+                    url:'../../data/treefieldData.php'
+                })
+            });
+
+            $('#addTab2').click(function(){
+                tab.addTabItem({
+                    menuText:'Ajax',
+                    url:'../../data/treefieldData.php',
+                    needIframe:true
+                })
+            });
+
+            $('#addTab3').click(function(){
+                tab.addTabItem({
+                    menuText:'DOM',
+                    content:document.getElementById('content')
+                })
+            });
+
+            $('#deleteTab').click(function(){
+                tab.removeTabItem( tab.getTabCount() - 1 );
+            })
+        })
+    </script>
+</body>
+</html>

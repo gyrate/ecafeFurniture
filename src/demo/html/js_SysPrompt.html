@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body{ background: #fff;}
+    </style>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+             赋值窗口
+        </div>
+        <article>
+            <h1>Sui.dialog.Prompt(${option})</h1>
+            <section class="info">
+                <p><label>旧名</label> SysPrompt</p>
+                <p><label>文件</label> dialog.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> 无</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.dialog.SysDialog </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js,  dialog.js</p>
+                <p>default.css , skin1.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。<em class="req">*</em>表示该属性为必填项</p>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="140">
+                        <col width="240">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>name(String)</td>
+                            <td>"输入姓名"</td>
+                            <td>输入字段名称描述</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defaultValue(String)<em class="req">*</em></td>
+                            <td>"罗玉凤"</td>
+                            <td>输入字段默认值,缺省为空字符串</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>fun(function)</td>
+                            <td>function(msg){alert(msg);}</td>
+                            <td>处理输入字段值的函数</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>打开模态窗口</span>
+                                <a href="javascript:void(0);">openDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>关闭当前模态窗口</span>
+                                <a href="javascript:void(0);">closeDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a target="_blank" href="../../api/classes/Sui.dialog.Prompt.html">Sui.dialog.Prompt.html</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <section>
+                <p class="str">Example:创建一个标准弹出窗口</p>
+<pre id="std_prompt" class="ml2e"><code class="javascript">var prompt = new Sui.dialog.Prompt({
+    name:'输入名称',
+    defaultValue:'我是默认值',
+    fun:function(msg){
+        document.getElementById('std_prompt_result').value = msg;
+    }
+});
+</code></pre>
+                <p class="str">Demo</p>
+                <p class="demo">
+                    <label>ID为std_prompt_result的Input：</label>
+                    <input type="text" id="std_prompt_result">
+                </p>
+                <p>
+                    <input type="button" pre="std_prompt" class="_runCode" value="运行">
+                </p>
+            </section>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var tab//数据源
+    ;
+    $('#createComponent').click(function(){
+        $(this).attr('disabled',true);
+    });
+
+</script>
+
+</html>

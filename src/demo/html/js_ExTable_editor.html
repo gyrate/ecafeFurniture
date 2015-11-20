@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.extable.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css">
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css">
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css">
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css">
+    <link href="../../css/sui.form.datefield.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个标准ExTable组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+        { type : '编码', date: '2012-01-11',boss:'李四',project:'SIE001'},
+        { type : '监督', date: '2010-05-19',boss:'李斌',project:'SIE004'},
+        { type : '编码', date: '2012-01-04',boss:'张三丰',project:'SIE003'},
+        { type : '分析', date: '2012-04-15',boss:'胡一刀',project:'SIE002'},
+        { type : '分析', date: '2012-04-15',boss:'胡一刀',project:'SIE002'},
+        { type : '分析', date: '2012-04-15',boss:'胡一刀',project:'SIE002'},
+        { type : '分析', date: '2012-04-15',boss:'胡一刀',project:'SIE002'},
+        { type : '分析', date: '2012-04-15',boss:'胡一刀',project:'SIE002'},
+        { type : '编码', date: '2012-06-19',boss:'苗人凤',project:'SIE001'}
+    ]);
+    var table = new Sui.table.ExTable({
+        applyTo : 'grid',
+        //height:200,
+        selectType : Sui.table.SelectType.MULTI,//多选
+        columns: [
+            {
+                display: '工种',
+                name: 'type',
+                width: 100,
+                editor : new Sui.table.SelectEditor({
+                    searchable : true,
+                    items :['编码','监督','分析','打杂']
+                }),
+                sortable:true
+            },
+            {
+                display: '日期',
+                name: 'date',
+                width: 150,
+                align: 'left',
+                editor : new Sui.table.DateEditor(),
+                sortable:true
+            },
+            {
+                display: '负责人',
+                name: 'boss',
+                width: 100,
+                align: 'left',
+                editor : new Sui.table.TextEditor(),
+                sortable:true
+            },
+            {
+                display: '工程',
+                name: 'project',
+                width: 100,
+                align: 'left',
+                editor : new Sui.table.SelectEditor([
+                    {value : 'SIE001', label : '美的项目'},
+                    {value : 'SIE002', label : '长江三峡'},
+                    {value : 'SIE003', label : '葛洲水坝'},
+                    {value : 'SIE004', label : '华为项目'}
+                ]),
+                renderBody  : function(text, parentElementJQ, table, cm) {
+                    var arr = [
+                        {value : 'SIE001', label : '美的项目'},
+                        {value : 'SIE002', label : '长江三峡'},
+                        {value : 'SIE003', label : '葛洲水坝'},
+                        {value : 'SIE004', label : '华为项目'}
+                    ];
+                    var label = "";
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].value == text) {
+                            label = arr[i].label;
+                            break;
+                        }
+                    }
+
+                    parentElementJQ.append(label);
+                },
+                sortable:true
+            },
+            {
+                display : '操作列',
+                align:'center',
+                name : 'operator',
+                width : 100,
+                renderBody: function(val, targetElement) {
+                    var button = $("&lt;a class='unl'&gt;删除&lt;/a&gt;").appendTo(targetElement);
+                    button.click(function(e) {
+                        var index = table.findDomInRowIndex(e.target);
+                        store.removeRecord(index);
+                    });
+                }
+            }
+        ],
+        store :  store
+    });
+    var i = 0;
+    $("#addRow").click(function() {
+        store.addRecordData({
+            type : "编码" + (i++),
+            date : "2013-10-24",
+            boss : 'Caption' + (i++),
+            project:'SIE001'
+        });
+    });
+
+    $("#deleteRow").click(function() {
+        table.removeSelectedRows();
+    });
+
+    $("#getSelectedRow").click(function() {
+        if (table.getSelectedRowIndexs().length) {
+            alert('选中第' + table.getSelectedRowIndexs() + '行。');
+        } else {
+            alert('未选中任何行。');
+        }
+
+    });
+
+
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div style="padding-bottom: 1em;">
+            <input type="button" value="获取选中的行" id="getSelectedRow"/>
+            <input type="button" value="添加行" id="addRow"/>
+            <input type="button" value="删除行" id="deleteRow"/>
+        </div>
+        <div id="grid"></div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/extable.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/form/date.js"></script>
+<script type="text/javascript" src="../../js/form/datefield.js"></script>
+
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+
+
+
+</script>
+
+</html>

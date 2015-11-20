@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <!--<link href="../../css/base.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>-->
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../node_modules/qunitjs/qunit/qunit.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../node_modules/qunitjs/qunit/qunit.js"></script>
+    <style type="text/css">
+        .showcase{ float: left; width: 50%; }
+        .testField{ overflow: hidden; margin-left: 50%;}
+    </style>
+</head>
+<body>
+    <div class="showcase">
+        <h1>
+            使用ComboBox Ajax更新数据
+        </h1>
+
+        <p>
+            <button id="getValue">获取值</button>
+            <button id="setValue">设置值为15(LLLLL)</button>
+            <button id="enableSearch">启用搜索</button>
+            <button id="disabledSearch">禁用搜索</button>
+            <button id="readOnly">只读</button>
+            <button id="editable">可编辑</button>
+            <button id="clear">清空</button>
+            <button id="forceSelect">取消强制选项</button>
+        </p>
+        <p>
+            Ajax更新数据测试，键盘输入"abcd"查看备选项的变化
+        </p>
+        <input id="input"/>
+
+        <p>组件的value值：<span id="pvalue"></span></p>
+    </div>
+    <!--自动化单元测试-->
+    <div class="testField">
+        <h1 id="qunit-header">QUnit测试</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+    </div>
+
+
+<script type="text/javascript">
+
+    var select;
+    $(function () {
+
+        select = new Sui.form.DropList({
+            applyTo : 'input',
+            name : 'input',
+            searchable : true,
+            value : '3',
+            //forceSelect:false,
+            searchUrl:'../../php/droplist.php',
+            comboMaxHeight:250,
+            width:300,
+            items : [
+                { label : 'ABBCD', value : '1'},
+                { label : 'BBBCD2',value : '2'},
+                { label : 'CBBCD3',value : '3'},
+                { label : 'DBBCD4',value : '4'},
+                { label : 'EBBCD2',value : '5'},
+                { label : 'FAAAA', value : '6'},
+                { label : 'BBBBB', value : '7'},
+                { label : 'EEEEE', value : '8'},
+                { label : 'FFFFF', value : '9'},
+                { label : 'GFGGG', value : '10'},
+                { label : 'HHHHH', value : '11'},
+                { label : 'IIIII', value : '12'},
+                { label : 'JJJJJ', value : '13'},
+                { label : 'KKKKK', value : '14'},
+                { label : 'LLLLL', value : '15'}
+            ],
+            listeners:{
+                selected : function(event){
+                    console.log(event.value);
+                },
+                ajaxSearchFail:function(event){
+                    alert(event['status'] + event['error'])
+                }
+            }
+        });
+
+        $("#getValue").click(function() {
+            alert(select.getValue());
+        });
+
+        $("#enableSearch").click(function() {
+            select.setSearchable(true);
+        });
+
+        $("#disabledSearch").click(function() {
+            select.setSearchable(false);
+        });
+
+        $("#readOnly").click(function() {
+            select.setReadOnly(true);
+        });
+
+        $("#editable").click(function() {
+            select.setReadOnly(false);
+        });
+
+        $('#clear').click(function(){
+            select.clearValue();
+        });
+
+        $('#forceSelect').click(function(){
+            select.forceSelect = !select.forceSelect;
+        })
+
+        $('#setValue').click(function(){
+            select.setValue(15);
+            $('#pvalue').html(select.value);
+        })
+    });
+</script>
+
+<script type="text/javascript">
+
+    test('获取组件的值',function(){
+        equal(select.getValue(), 3, '初始化时的赋值');
+
+        select.setValue(1);
+        equal(select.getValue(), 1, '调用方法设置组件的值为1');
+
+        select.setValue(999);
+        equal(select.getValue(), '', '调用方法设置组件的值999（不存在）');
+
+        select.setValue(3);
+    });
+
+    test('设置为只读',function(){
+        select.setReadOnly(true);
+        equal(select.isReadOnly(), true, '不可编辑');
+        select.setReadOnly(false);
+    });
+
+    test('清除组件的值',function(){
+        select.clearValue();
+        equal(select.getValue(),'','清除后组件值为""') ;
+        select.setValue(1);
+    });
+
+    test('强制选项',function(){
+        select.setForceSelect(true);
+        var _input = select.getApplyToElement();
+        _input.focus().val('hello_world');
+        _input.blur();
+        var result = _input.val();
+        equal(result, select.store.findRecordByNameValue('value', select.getValue()).getFieldValue('label'), '输入不存在的值然后blur,该值不保留');
+    });
+
+</script>
+</body>
+</html>

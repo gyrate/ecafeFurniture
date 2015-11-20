@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.treetable.css" rel="stylesheet" media="all"/>
+
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/menu/menu.js"></script>
+    <script type="text/javascript" src="../../js/table/table.js"></script>
+    <script type="text/javascript" src="../../js/table/treetable.js"></script>
+</head>
+<body>
+
+    <div style="padding: 2em;">
+        <input type="button" value="获取选中的行" id="getSelectedRow"/>
+        <input type="button" value="清除选中的行" id="clearSelectedRow"/>
+    </div>
+
+
+    <table id="dateReportTable"></table>
+
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var store = new Sui.data.TreeStore({
+                idName : 'taskName',
+                parentIdName : 'parentTaskName',
+                leafName: 'isLeaf',
+                datas : [
+                    {
+                        parentTaskName : null,
+                        taskName : '节点1',
+                        isLeaf : false,
+                        taskType: '编码'
+                    },
+                    {
+                        parentTaskName : '节点1',
+                        taskName : '节点11',
+                        isLeaf : false,
+                        taskType: '编码'
+                    },
+
+                    {
+                        parentTaskName : '节点11',
+                        taskName : '节点111',
+                        isLeaf : true,
+                        taskType: '编码'
+
+                    },
+                    {
+                        parentTaskName : '节点11',
+                        taskName : '节点112',
+                        isLeaf : true,
+                        taskType: '编码'
+                    },
+                    {
+                        parentTaskName : '节点1',
+                        taskName : '节点12',
+                        isLeaf : true,
+                        taskType: '编码'
+                    },
+                    {
+                        parentTaskName : null,
+                        taskName : '节点2',
+                        isLeaf : false,
+                        taskType: '编码'
+                    },
+                    {
+                        parentTaskName : '节点2',
+                        taskName : '节点21',
+                        isLeaf : true,
+                        taskType: '编码'
+                    },
+                    {
+                        parentTaskName : '节点2',
+                        taskName : '节点22',
+                        isLeaf : true,
+                        taskType: '编码'
+                    }
+                ]});
+
+            var treetable = new Sui.table.TreeTable({
+                selectType : Sui.table.SelectType.MULTI,
+                applyTo : 'dateReportTable',
+                treeColumnName : 'taskName',
+                columns: [
+                    { display: '任务名称', name: 'taskName', width: 200 },
+                    { display: '任务类型', name: 'taskType', width: 100, align: 'left' }
+                ],
+                store :  store
+            });
+
+            $("#getSelectedRow").click(function() {
+                alert(treetable.getSelectedRowIndexs());
+            });
+
+            $("#clearSelectedRow").click(function() {
+                treetable.clearSelectedRows();
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

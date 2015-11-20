@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.extable.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/menu/menu.js"></script>
+    <script type="text/javascript" src="../../js/table/extable.js"></script>
+    <script type="text/javascript" src="../../js/form/form.js"></script>
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+
+</head>
+<body>
+
+<div style="position: absolute;left: 350px;top:50px;">
+
+    <div class="std_ctrl">
+        <a href="javacript:void(0);"><b class="s_ico s_ico_add"></b>添加项目</a>
+        <a href="javacript:void(0);"><b class="s_ico s_ico_minu"></b>删除项目</a>
+    </div>
+    <div  id="grid"></div>
+
+</div>
+
+<script>
+    $(function () {
+
+        var store = new Sui.data.Store([
+            {
+                name : '王四',
+                sex: '男',
+                grade:'四年级'
+            },
+                {
+                name : '王四',
+                sex: '男',
+                grade:'四年级'
+            },
+                {
+                name : '王四',
+                sex: ' text-overflow; ',
+                grade:'五年级'
+            },
+                {
+                name : '王四',
+                sex: '男Rickshaw 。',
+                grade:'四年级'
+            },
+                {
+                name : '王四',
+                sex: '男',
+                grade:'三年级'
+            },
+
+            {
+                name : '李华',
+                sex: '男',
+                grade:'二年级'
+            }
+        ]);
+
+        var table = new Sui.table.ExTable({
+            applyTo : 'grid',
+            selectType : Sui.table.SelectType.MULTI,
+
+            columns: [
+                [
+                    {display:'基础信息',name:'baseinfo',width:250,colspan:2},
+                    {display:'操作',name:'grade',width:260,colspan:2}
+                ],[
+                    { display: '名称', name: 'name', width: 100, editor : new Sui.table.TextEditor(), sortable:true },
+                    { display: '性别', name: 'sex',  width: 150, align: 'left', editor : new Sui.table.TextEditor(),  sortable:true},
+                    {display:'班级',name:'grade',width:80,colspan:1},
+                    { display : '操作列', align:'center', name : 'operator', width : 180,
+                        renderBody: function(val, targetElement) {
+                            var button = $("<a class='unl'>删除</a>").appendTo(targetElement);
+                            button.click(function(e) {
+                                var index = table.findDomInRowIndex(e.target);
+                                store.removeRecord(index);
+                            });
+                        }
+                    }
+                ]
+            ],
+            store :  store
+        });
+
+
+    });
+</script>
+</body>
+</html>

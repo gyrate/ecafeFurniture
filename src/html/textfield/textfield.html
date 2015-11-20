@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title></title>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .section{
+            margin: 50px auto;
+            width:300px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="section">
+
+
+    <input id="text"/>
+    <br/>
+    <br/>
+    <input class="input_text" disabled value="I am disabled"/>
+    <br/>
+    <br/>
+    <input class="input_text" readonly value="I am readonly"/>
+</div>
+
+<script>
+    $(function(){
+
+        new Sui.form.TextField({
+            applyTo:'text',
+            //readOnly:true,
+            value:'default Value'
+        })
+
+    });
+</script>
+
+</body>
+</html>

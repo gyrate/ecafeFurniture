@@ -1,0 +1,16 @@
+.pagebar { height: 27px; padding: 4px 8px 0;text-align: right; overflow: hidden;
+     background: #eff0f2 url("../images/skin1/gradient.png") 0 -234px repeat-x; border: 1px solid #D0D0D0; border-top: 0 none; color: #CBCBCB;}
+.pagebar .total{ float: left;color: #333; line-height: 24px;}
+.pagebar .total label{ display:inline-block; margin-right:4px; }
+.pagebar .total select{ margin-right: 4px; }
+.pagebar form{ display: inline-block; *display: inline;zoom:1;}
+.pagebar .page{}
+.pagebar .page_btn{ display: inline-block; margin-right: 4px;zoom:1; }
+.pagebar .page_btn:hover{ text-decoration: underline; }
+.pagebar .disable{ color: #999; }
+.pagebar .disable:hover{ text-decoration: none;}
+.pagebar .jump_ipt{ display: inline-block;margin-right: 4px; width: 40px; border: 1px solid #ccc;text-align: center;}
+.pagebar .jump_label{ display: inline-block;margin-right: 4px; color: #333;}
+.pagebar .jump_btn{ width:30px; height: 18px;  border:1px solid #999; cursor: pointer; text-indent: -9999px;overflow: hidden;  background: url('../images/pagectrl/jump_btn.png') 0 0 no-repeat;}
+.pagebar .jump_btn:hover{border-color: #2f4982;}
+

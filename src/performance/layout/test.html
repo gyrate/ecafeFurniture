@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JQunit 单元测试</title>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.11.0.css" />
+    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<h1 id="qunit-header">QUnit Hello World</h1>
+<h2 id="qunit-banner"></h2>
+<ol id="qunit-tests"></ol>
+
+<input id="input">
+
+<script>
+
+    $(function () {
+
+        //生成数据源
+        var items = [];
+        for (var i = 0,len = 100; i < len; i++) {
+            items.push({label:'Number ' + i,value: i});
+        }
+        var store = new Sui.data.Store(items);
+
+        //开始计时
+        //Timer.start('Sui.List');
+
+        var select = new Sui.form.DropList({
+            applyTo : 'input',
+            name : 'input',
+            searchable : true,
+            value : '3',
+            //forceSelect:false,
+            comboMaxHeight:150,
+            store : store,
+            listeners:{
+                selected : function(event){
+                    console.log(event.value);
+                }
+            }
+        });
+
+        //停止计时
+//        Timer.stop('Sui.List');
+//        Timer.showResult('Sui.List');
+
+
+        test("hello", function() {
+            ok(true, "world");
+        });
+
+
+    });
+
+</script>
+
+</body>
+</html>

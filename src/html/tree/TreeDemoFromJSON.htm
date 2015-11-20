@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/sui.base.css" />
+
+    <script type="text/javascript" src="../../js/tree/tree.js"></script>
+    <link href="../../css/sui.tree.css" rel="stylesheet" type="text/css"/>
+
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var tree = new Sui.tree.Tree({
+                lineVisible : true,
+                renderTo:'tree',
+
+                //draggable:true,
+                listeners : {
+                    nodeClick : function(event) {
+                        var text = event.nodeText;
+                        Sui.log(text);
+                    }
+                }
+            });
+
+            var treeDate = {
+                "children":[
+                    {"children":[
+                        {"data":{},"id":"408","nodeIconClass":"","nodeText":"我的表单100","parentId":"407"},
+                        {"data":{},"id":"409","nodeIconClass":"","nodeText":"待审批表单200","parentId":"407"},
+                        {"data":{},"id":"410","nodeIconClass":"","nodeText":"已审批表单300","parentId":"407"},
+                        {"data":{},"id":"416","nodeIconClass":"","nodeText":"待查阅的表单500","parentId":"407"},
+                        {"data":{},"id":"430","nodeIconClass":"","nodeText":"发起表单  600","parentId":"407"}
+                    ],"data":{},"id":"407","nodeIconClass":"","nodeText":"我的工作台  100",expanded:true},
+                    {"children":[
+                        {"data":{},"id":"491","nodeIconClass":"","nodeText":"招待费用申请单400","parentId":"490"},
+                        {"data":{},"id":"492","nodeIconClass":"","nodeText":"请假单500","parentId":"490"},
+                        {"data":{},"id":"493","nodeIconClass":"","nodeText":"借款单600","parentId":"490"},
+                        {"data":{},"id":"494","nodeIconClass":"","nodeText":"绩效表单700","parentId":"490"},
+                        {"data":{},"id":"495","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"}
+                    ],"data":{},"id":"490","nodeIconClass":"","nodeText":"我的工作台 ",expanded:true}
+                ],
+                "data":{},
+                "id":"1",
+                "nodeIconClass":"",
+                "nodeText":"根节点"
+            };
+
+            var root = Sui.tree.TreeNodeUtil.buildTreeNodeFromJsonData(treeDate);
+            tree.setRoot(root);
+
+//        tree.setRootVisible(true);
+
+            $("#expand").click(function() {
+                tree.expand();
+            });
+
+            $("#collapse").click(function() {
+                tree.collapse();
+            });
+
+            $("#foldable").click(function() {
+                tree.setFoldable(true);
+            });
+
+            $("#disfoldable").click(function() {
+                tree.setFoldable(false);
+            });
+
+            $("#search").click(function() {
+                var val = $("#searchContent").val();
+                tree.search(val);
+            });
+
+            $("#clearSearchContent").click(function() {
+                var val = $("#clearSearchContent").val();
+                tree.clearSearch();
+            });
+
+            var val = 0;
+            $("#addNode").click(function() {
+                tree.getSelectedNode().addChildNode(new Sui.tree.TreeNode({nodeText: "节点" + (++val)}));
+            });
+
+            $("#removeNode").click(function() {
+                tree.removeSelectedNodes();
+            });
+
+            $("#hideRoot").click(function() {
+                tree.setRootVisible(false);
+            });
+
+            $("#showRoot").click(function() {
+                tree.setRootVisible(true);
+            });
+
+            $("#hideLine").click(function() {
+                tree.setLineVisible(false);
+            });
+
+            $("#showLine").click(function() {
+                tree.setLineVisible(true);
+            });
+
+            $("#setNodeText").click(function() {
+                tree.setSelectedNodeText($("#nodeText").val());
+            });
+
+            $("#getNodeText").click(function() {
+                alert(tree.getSelectedNodeText());
+            });
+
+            $("#clearSelected").click(function() {
+                alert(tree.clearSelectedNodes());
+            });
+
+            $("#single").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.SINGLE);
+            });
+            $("#multiAllCascade").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_ALL_CASCADE);
+            });
+            $("#multiAll").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_ALL);
+            });
+            $("#multiLeaf").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_LEAF);
+            });
+
+            $("#showIcon").click(function() {
+                tree.setNodeIconVisible(true);
+            });
+
+            $("#hideIcon").click(function() {
+                tree.setNodeIconVisible(false);
+            });
+
+            $("#enableDraggable").click(function() {
+                tree.setDraggable(true);
+            });
+
+            $("#disableDraggable").click(function() {
+                tree.setDraggable(false);
+            });
+            $('#getSelectNodes').click(function(){
+                alert(tree.getSelectNodesId());
+            })
+        });
+
+    </script>
+
+</head>
+<body>
+
+<input id="enableDraggable" type="button" value="启用拖放"/>
+<input id="disableDraggable" type="button" value="禁用拖放"/>
+<br/>
+
+<input id="showIcon" type="button" value="显示图标"/>
+<input id="hideIcon" type="button" value="隐藏图标"/>
+<br/>
+
+<input id="expand" type="button" value="展开"/>
+<input id="collapse" type="button" value="折叠"/>
+<input id="foldable" type="button" value="可折叠"/>
+<input id="disfoldable" type="button" value="不可折叠"/>
+<br/>
+<input id="addNode" type="button" value="添加节点"/>
+<input id="removeNode" type="button" value="删除节点"/>
+<br/>
+<input id="hideLine" type="button" value="隐藏线条"/>
+<input id="showLine" type="button" value="显示线条"/>
+<br/>
+<input id="hideRoot" type="button" value="隐藏根节点"/>
+<input id="showRoot" type="button" value="显示根节点"/>
+<br/>
+<input id="single" type="button" value="单选"/>
+<input id="multiAllCascade" type="button" value="级联所有节点"/>
+<input id="multiAll" type="button" value="所有节点可选"/>
+<input id="multiLeaf" type="button" value="只选择叶子节点"/>
+<br/>
+<input id="clearSelected" type="button" value="全不选"/>
+<br/>
+<input type="text" id="searchContent"/><input id="search" type="button" value="搜索所有"/>
+<input id="clearSearchContent" type="button" value="清除搜索结果"/>
+<br/>
+<input type="text" id="nodeText"/><input id="setNodeText" type="button" value="设置节点文本"/>
+<input id="getNodeText" type="button" value="获取节点文本"/>
+
+<input id="getSelectNodes" type="button" value="多选模式或叶子模式下获取选中节点">
+<div id="tree" style="border:1px solid #000"></div>
+
+</body>
+</html>

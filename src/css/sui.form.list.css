@@ -1,0 +1,46 @@
+/* List的样式 。默认是不指定宽度和高度的。有边框。*/
+.sui_list { border: 1px solid #B2B7BC; overflow: auto; }
+.sui_layer_multi { width: 210px; }
+.sui_list_item { position: relative; padding: 3px 5px; line-height: 16px; height: 16px; font-size: 12px; white-space: nowrap; cursor: default; overflow: hidden; border-bottom: 1px solid #eee; }
+.sui_list_item input,
+.sui_list_item label { vertical-align: middle; }
+.sui_list_item .tool_area { position: absolute; top: 4px; right: 4px; }
+.sui_list_item .closed_icon { display: inline-block; zoom: 1; width: 12px; height: 12px; background: url('../images/list/list_element.png') -8px -5px; cursor: pointer; }
+.sui_list_item .closed_icon_over { background: url('../images/list/list_element.png') -8px -40px; }
+.sui_listitem_disabled { display: none; }
+.sui_listitem_hide{ display: none; }
+.sui_listitem_searchnotmatch { display: none; }
+.sui_list_item .checkbox { margin-right: 4px; }
+.sui_list_item .s_ico{ margin-right:4px;display: inline-block; width:16px;height: 16px;background:  50% 50% no-repeat; vertical-align: middle; }
+.sui_list_item .s_ico_node{ background-image: url('../images/list/node.png'); }
+.sui_list_item_over { background-color: #EEF4F9; }
+.sui_list_item_drophover { background-color: #B5E2A2; border: 1px solid #96D67B; }
+.sui_list_item_selected { background-color: #C8DCEC; }
+
+.multi_tool { padding: 0 6px; line-height: 24px; border-bottom: 1px solid #999; background: #f0f0f0; }
+.multi_tool a { margin-right: 4px; font-size: 12px; }
+
+.exmulti{ font-size: 12px;}
+.exmulti .s_ico{ margin-right:4px;display: inline-block; width:16px;height: 16px;background:  50% 50% no-repeat;}
+.exmulti .s_ico_unchecked{ background-image: url('../images/list/unchecked.png');}
+.exmulti .s_ico_checked{background-image: url('../images/list/checked.png');}
+
+.exmulti_tool{ height: 16px; padding:4px 2px; background: #f0f0f0 url("../images/skin1/gradient.png") repeat-x scroll 0 -161px; border-bottom: 1px solid #b2b7bc;}
+.exmulti_tool a{ color: #2C66a7;}
+.exmulti_tool .searcher{ width:140px; padding: 0 0 0 20px; margin-right: 4px; height: 14px;line-height: 14px;border: 1px solid #ccc; background:#fff url('../images/list/search.png') 4px 50%  no-repeat;}
+.exmulti_tool .button{ margin-right: 8px; display:inline-block; text-decoration: none; }
+.exmulti_tool .button:hover{ background:#2C66a7; color: #fff; }
+
+.exmulti_list{ max-height: 120px;min-height: 30px; padding:4px; border: 0 none; overflow: auto;}
+.exmulti_list .sui_list_item { float: left; border: 0 none; width:150px; line-height: 20px; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.exmulti_list .sui_list_item b{ vertical-align: text-bottom;}
+/*.exmulti_list .sui_listitem_hide {display: none;}*/
+/*不隐藏已选项，而是使用删除线表示之*/
+.exmulti_list .sui_listitem_hide { text-decoration: line-through; display: inline-block;color: #999;}
+.exmulti_list .sui_listitem_searchnotmatch{ display: none; }
+
+.exmulti_selected_list{ min-height: 30px; max-height:100px; padding:4px; overflow: auto; border-top:1px solid #ccc;}
+.exmulti_selected_list .selected_item{ float: left;  padding: 3px 5px; width: 100px;  height: 20px;line-height: 20px; overflow: hidden; word-break:break-all;}
+.exmulti_selected_list .selected_item:hover{ background: #eef4f9;}
+.exmulti_selected_list .selected_item b,
+.exmulti_selected_list .selected_item label{ vertical-align: middle;}

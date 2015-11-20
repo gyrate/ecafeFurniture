@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+
+    <!--<link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>-->
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var store = new Sui.data.Store([
+                { label : '中国', value : 'CN'},
+                { label : '美国', value : 'US'},
+                { label : '英国', value : 'EN'},
+                { label : '意大利', value : 'IT'},
+                { label : '加拿大', value : 'JN'},
+                { label : '日本', value : 'JP'},
+                { label : '俄罗斯',value : 'OR'},
+                { label : '印度',value : 'IN'},
+                { label : '德国', value : 'MD'},
+                { label : '中华人民共和国', value : 'ZH'},
+                { label : '美利坚合众国', value : 'USA'},
+                { label : '日不落帝国', value : 'ENR'},
+                { label : '捷克斯洛伐克', value : 'JK'},
+                { label : '阿尔巴尼亚', value : 'AEB'},
+                { label : '埃塞俄比亚', value : 'ASE'},
+                { label : '伊斯坦布尔',value : 'YS'},
+                { label : '印度尼西亚',value : 'YN'},
+                { label : '埃塞俄比亚', value : 'ASE'},
+                { label : '秘鲁', value : 'ML'},
+                { label : '危地马拉', value : 'WDML'},
+                { label : '澳大利亚', value : 'Au'},
+                { label : '尼泊尔', value : 'IT'},
+                { label : '德国', value : 'DG'},
+                { label : '法兰西共和国', value : 'FR'},
+                { label : '白俄罗斯',value : 'BELS'},
+                { label : '伊拉克',value : 'YLK'},
+                { label : '塔吉克斯坦', value : 'TJK'},
+                { label : '阿拉伯联合酋长共和国', value : 'TS'}
+            ]);
+
+            var select = new Sui.ExMultiList({
+                applyTo : 'sex',
+                store : store
+            });
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+<button id="removeable">可删除</button>
+<button id="unremoveable">不可删除</button>
+<button id="add">添加</button>
+<button id="up">上移</button>
+<button id="down">下移</button>
+<button id="selected">选中的值</button>
+<button id="draggable">可拖放</button>
+<button id="disdraggable">不可拖放</button>
+
+<br/>
+<br/>
+<br/>
+<div id="sex"></div>
+
+<br/>
+
+</body>
+</html>

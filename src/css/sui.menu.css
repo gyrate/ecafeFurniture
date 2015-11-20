@@ -1,0 +1,89 @@
+.sui_menuitem {
+    padding: 3px 5px;
+    font-size: 12px;
+    cursor: default;
+    overflow: hidden;
+    word-break:break-all;
+}
+.sui_menuitem_over {
+    background-color: #0768b9;
+    color: #fff;
+    cursor: pointer;
+}
+.sui_menuitem .icon{
+    display: inline-block;
+    width : 16px;
+    height : 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+.sui_menu_over {
+    background-color: #0768b9;
+    color: #fff;
+    cursor: pointer;
+}
+.sui_menu_layer {
+    position: absolute;
+    top:0;
+    left:0;
+    min-height: 10px;
+    min-width: 100px;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #B2B7BC;
+    /*transition: all 0.4s ease-out;*/
+}
+.sui_menu_layer hr{
+    border: 0 none;
+    border-top:1px solid #ccc;
+    font-size: 0;
+}
+.sui_submenuitem{
+    padding: 3px 13px 3px 5px;
+    background: url('../images/menu/ctrl_parent_node.png') no-repeat scroll 100% 50% #fff;
+    color: #333;
+}
+.sui_submenuitem.sui_menu_over{
+    background-color: #0768b9;
+    background-image: url('../images/menu/ctrl_parent_node_over.png') ;
+    color: #fff;
+    cursor: pointer;
+}
+.sui_contextmenu {
+    min-height: 10px;
+    min-width: 120px;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #B2B7BC;
+    z-index: 100;
+    cursor: default;
+}
+
+.sui_layer hr {
+    border: 0 none;
+    border-top: 1px solid #ccc;
+}
+
+.sui_hlayout .hlayout_item {
+    float: left;
+    vertical-align: top;
+}
+
+.sui_hlayout .hlayout_item div {
+    padding: 0 13px;
+    height: 27px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.sui_hlayout .vlayout_item {
+    display: block;
+    clear: both;
+}
+
+.sui_hlayout .vlayout_item div {
+    padding: 0 13px;
+    height: 27px;
+    line-height: 27px;
+    cursor: pointer;
+}

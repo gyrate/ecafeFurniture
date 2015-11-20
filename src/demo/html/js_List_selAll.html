@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:列表数据交换</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+    { label : '中国', value : 'CN'},
+    { label : '美国', value : 'US'},
+    { label : '英国', value : 'EN'},
+    { label : '意大利', value : 'IT'},
+    { label : '加拿大', value : 'JN'},
+    { label : '日本', value : 'JP'},
+    { label : '俄罗斯',value : 'OR'},
+    { label : '印度',value : 'IN'},
+    { label : '德国', value : 'MD'},
+    { label : '泰国', value : 'TS'},
+    { label : '韩国', value : 'Kr'}
+]);
+
+var store2 = new Sui.data.Store();
+
+var select = new Sui.List({
+    applyTo : 'country',
+    width : 100,
+    height: 200,
+    store : store,
+    draggable : true,
+    listeners : {
+        selected : function(e) {
+
+            var index = select.indexOfComponent(e.item);
+            store.removeRecord(index);
+            store2.addRecordData({
+                label:e.label,
+                value:e.value
+            } );
+
+        }
+    }
+});
+
+var select2 = new Sui.List({
+    applyTo:'myCountry',
+    width:100,
+    height:200,
+    store: store2,
+    iconClass:'s_ico s_ico_node',
+    listeners:{
+       selected:function(e){
+
+           var index = select2.indexOfComponent(e.item);
+           store2.removeRecord(index);
+           store.addRecordData({
+                label:e.label,
+                value:e.value
+           });
+
+       }
+   }
+});
+
+$('#selAll').click(function() {
+
+    var arr = [];
+    for (var i = 0 ,len = store.getCount(); i < len; i++) {
+        var record = store.getRecord(i);
+        arr.push(record.data);
+    }
+    store2.addRecordData(arr);
+    store.clear();
+
+});
+$('#selClear').click(function() {
+
+    var arr = [];
+    for (var i = 0 ,len = store2.getCount(); i < len; i++) {
+        var record = store2.getRecord(i);
+        arr.push(record.data);
+    }
+    store.addRecordData(arr);
+    store2.clear();
+
+});
+
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <table>
+            <colgroup>
+                <col width="110">
+                <col width="50">
+                <col width="100">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="country"></div>
+                    </td>
+                    <td>
+                        <input type="button" value="全选" id="selAll">
+                        <input type="button" value="清空" id="selClear">
+                    </td>
+                    <td>
+                        <div id="myCountry"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var store,//数据源
+        select1,//组件句柄
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

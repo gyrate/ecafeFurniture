@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>数据列表</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="all" href="../../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css" type="text/css"/>
+
+    <link rel="stylesheet" href="../../css/sui.base.css" />
+    <link rel="stylesheet" href="../../css/sui.table.css" />
+    <link rel="stylesheet" href="../../css/sui.form.triggerfield.css" />
+    <link rel="stylesheet" href="../../css/sui.form.date.css" />
+    <link rel="stylesheet" href="../../css/sui.form.list.css" />
+    <link rel="stylesheet" href="../../css/sui.form.droplist.css" />
+    <link rel="stylesheet" href="../../css/sui.menu.css" />
+    <link rel="stylesheet" href="../../css/sui.tree.css" />
+    <link rel="stylesheet" href="../../css/sui.navigator.css" />
+</head>
+<body>
+<div class="frame_top frame_top_s" id="frame_top">
+    <div class="topline">
+        <a class="fl logo" href="demo.html">
+            <img src="../../images/logo.png" width="130" height="40"/>
+        </a>
+        <ul class="menu" id="topmenu">
+        </ul>
+            <span class="comlink">
+                <a href="javascript:void(0)">用户设置</a> |
+                <a href="demo.html">帮助中心</a>
+                <a href="../login/theme1/login.html">[退出]</a>
+            </span>
+    </div>
+</div>
+<div class="frame_side" id="frame_side">
+    <div class="sidebar fl" id="sidebar">
+    </div>
+    <div class="sidegap" id="sidegap">
+        <a id="side_toggle" class="toggle" href="javascript:void(0);"></a>
+    </div>
+</div>
+<div class="frame_main" id="frame_main">
+    <div class="frame_side frame_side_mid" id="">
+        <div class="sidebar fl" id="sidebar_mid">
+            <div class="searchbox">
+                <div class="ipt_extxt">
+                    <input type="text" value="" id="nodeSearch_txt" defaultValue="输入关键词"/>
+                    <b class="s_ico s_ico_search" id="nodeSearch_btn"></b>
+                </div>
+            </div>
+            <div class="treebox" id="treeboxwrap">
+                <div id="treebox">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="frame_main frame_main_n" id="">
+        <div class="layout" id="layout">
+            <div class="path">
+                <b class="s_ico s_ico_page"></b> <b>项目立项</b>
+                > <b>待办任务列表</b>
+            </div>
+            <div class="std_filter">
+                <form class="std_form">
+
+                    <label>职位：</label>
+                    <div class="ipt_extxt" id="multipleSelect">
+                        <input type="text" name="position"/>
+                        <b class="s_ico s_ico_list"></b>
+                    </div>
+
+                    <label>活动时间：</label>
+                    <div class="ipt_extxt" id="datepicker">
+                        <input type="text" id="datepicker_ipt"/>
+                        <b class="s_ico s_ico_date"></b>
+                    </div>
+
+                    <input type="submit" value="查询目标" class="btn btn_deep">
+                </form>
+            </div>
+
+            <table id="flexme3">
+            </table>
+
+        </div>
+        <!--end of layout-->
+    </div>
+</div>
+
+<div class="frame_bottom" id="frame_bottom">
+    <div class="copyright">
+        <p>版权所有：广州中国科学院软件应用技术研究所 ©2010NFS-China.COM京ACP备07504296号</p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/tree/tree.js"></script>
+
+<script type="text/javascript" src="../../js/navigator/navigator.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+
+        //初始化导航
+        var nav = new Sui.nav.Navigator({
+
+            applyTo:'topmenu',
+            defaultClass:'topmenu',
+            menuItemClass:'menu_item',
+
+            subRenderTo:'sidebar',
+            sideNavigator:true,
+            menuItems: [{
+
+                id:'1',
+                caption:'项目管理',
+                subMenuItems:[ {
+                    id:'11',
+                    caption : '项目立项',
+                    imgURL : '菜单图标的URL',
+                    imgCss : 's_ico_flag',
+                    url : 'http://www.baidu.com/',
+                    subMenuItems : [
+                        { id:'111', caption : '菜单配置',url : 'http://www.baidu.com/' },
+                        { id:'112', caption : 'URL方法权限',url : '子菜单标题http://www.baidu.com/' },
+                        { id:'113', caption : '权限配置',url : '子菜单标题http://www.baidu.com/' },
+                        { id:'114', caption : '权限配置辅助',url : '子菜单标题http://www.baidu.com/' }
+                    ]
+                }, {
+                    id:'12',
+                    caption : '项目设置',
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_table',
+                    url : 'http://www.baidu.com/',
+                    subMenuItems:[
+                        {id:'121',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'122',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'123',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'124',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                    ]
+                },{
+                    id:'13',
+                    caption : '报工查询',
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url : 'http://www.baidu.com/',
+                    subMenuItems:[
+                        {id:'131',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'132',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'133',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                        {id:'134',caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                    ]
+                },{
+                    id:'14',
+                    caption : '基础数据',
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url : 'http://www.baidu.com/'
+                },{
+                    id:'15',
+                    caption : '系统设置',
+                    imgURL : '菜单图标的URL2',
+                    imgCss : 's_ico_2col',
+                    url : 'http://www.baidu.com/'
+                }]
+
+            },{
+                id:'2',
+                caption:'工作流引擎' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///www.baidu.com',
+                subMenuItems:[
+                    {id:'21',caption:'我是二级菜单1',url:'2子菜单标题'},
+                    {id:'22',caption:'我是二级菜单2',url:'2子菜单标题'},
+                    {id:'23',caption:'我是二级菜单3',url:'2子菜单标题'}
+                ]
+            },{
+                id:'3',
+                caption:'表单申请' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///www.baidu.com',
+                subMenuItems:[
+                    {id:'31',caption:'我是二级菜单1',url:'3子菜单标题'},
+                    {id:'32',caption:'我是二级菜单2',url:'3子菜单标题'},
+                    {id:'33',caption:'我是二级菜单3',url:'3子菜单标题'}
+                ]
+            },{
+                id:'4',
+                caption:'表单申请' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///www.baidu.com',
+                subMenuItems:[
+                    {id:'41',caption:'我是二级菜单1',url:'4子菜单标题'},
+                    {id:'42',caption:'我是二级菜单2',url:'4子菜单标题'},
+                    {id:'43',caption:'我是二级菜单3',url:'4子菜单标题'},
+                    {id:'44',caption:'我是二级菜单4',url:'4子菜单标题'},
+                    {id:'45',caption:'我是二级菜单5',url:'4子菜单标题'}
+                ]
+            }],
+            listeners:{
+                selected:function(e) {
+                    console.log(e.url);
+                    if(e.ctrlKey){
+                        window.open(e.url);
+                    }
+                }
+            }
+        });
+
+        //特定的页面布局处理
+        var bottom_h = $('#frame_bottom').height()
+        ,sidebar_mid_p = Sui.getDomPaddingV('sidebar_mid')
+        ,framemain_p = Sui.getDomPaddingV('frame_main');
+        //初始化树容器的高度
+        function setTreeBoxSize(){
+            var w_h = Math.max( $(window).height(),100)
+            ,top_h = $('#frame_top').height();
+
+            var sidebar_mid_h = w_h - top_h - bottom_h -  sidebar_mid_p - framemain_p ;
+            $('#sidebar_mid').height( sidebar_mid_h );
+            $('#treeboxwrap').height( sidebar_mid_h - 45 );
+        }
+        setTreeBoxSize();
+        $(window).resize(function(){
+            setTreeBoxSize();
+        });
+
+        //数据表格
+        var store = new Sui.data.Store([
+            { name : '张三', sex: '男', classA:'001', score:'86'},
+            { name : '王四', sex: '女', classA:'001', score:'86'},
+            { name : '王五', sex: '未知', classA:'003', score:'86'},
+            { name : '吴七', sex: '女', classA:'003', score:'86'},
+            { name : '吴七', sex: '女', classA:'001', score:'86'},
+            { name : '吴七', sex: '女', classA:'004', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '吴七', sex: '女', classA:'002', score:'86'},
+            { name : '李华', sex: '男', classA:'004', score:'86'}
+        ]);
+        var table = new Sui.table.Table({
+            applyTo : 'flexme3',
+            width:'100%',
+            fixWidth:false,//不按照列宽总和设定表格宽
+            selectType : Sui.table.SelectType.MULTI,//多选
+            columns: [
+                {
+                    display: '名称',
+                    name: 'name',
+                    width: 100,
+                    editor : new Sui.table.TextEditor(),
+                    sortable:true
+                },
+                {
+                    display: '性别',
+                    name: 'sex',
+                    width: 150,
+                    align: 'left',
+                    editor : new Sui.table.TextEditor(),
+                    sortable:true
+                },
+                {
+                    display: '班级',
+                    name: 'classA',
+                    width: 150,
+                    align: 'left',
+                    sortable:true,
+                    editor: new Sui.table.SelectEditor([
+                        {value : '001', label : '三年一班'},
+                        {value : '002', label : '四年二班'},
+                        {value : '003', label : '五年三班'},
+                        {value : '004', label : '六年四班'}
+                    ]),
+                    renderBody  : function(text, parentElementJQ, table, cm) {
+                        var arr = [
+                            {value : '001', label : '三年一班'},
+                            {value : '002', label : '四年二班'},
+                            {value : '003', label : '五年三班'},
+                            {value : '004', label : '六年四班'}
+                        ];
+                        var label = "";
+                        for (var i = 0; i < arr.length; i++) {
+                            if (arr[i].value == text) {
+                                label = arr[i].label;
+                                break;
+                            }
+                        }
+                        parentElementJQ.append(label);
+                    }
+                },
+                {
+                    display:'成绩',
+                    name:'score',
+                    width:100,
+                    align:'center',
+                    sortable:true,
+                    editor: new Sui.table.TextEditor()
+                },
+                {
+                    display : '操作列',
+                    align:'center',
+                    name : 'operator',
+                    width : 180,
+                    renderBody: function(val, targetElement) {
+                        var button = $("<a class='unl'>删除</a>").appendTo(targetElement);
+                        button.click(function(e) {
+                            var index = table.findDomInRowIndex(e.target);
+                            store.removeRecord(index);
+                        });
+                    }
+                }
+            ],
+            store :  store
+        });
+
+        //初始化树
+        var tree = new Sui.tree.Tree({
+            lineVisible : true,
+            renderTo:'treebox',
+            enableDefaultContextMenu:true,
+            //checkedType:Sui.TreeSelectType.MULTI_ALL,
+            listeners : {
+                nodeClick : function(event) {
+                    var text = event.nodeText;
+                    Sui.log(text);
+                }
+            }
+        });
+        var treeDate = {
+            "children":[
+                {"children":[
+                    {"data":{},"id":"408","nodeIconClass":"","nodeText":"我的表单100","parentId":"407",href:'http://www.baidu.com'},
+                    {"data":{},"id":"409","nodeIconClass":"","nodeText":"待审批表单200","parentId":"407",href:'http://www.google.com'},
+                    {"data":{},"id":"410","nodeIconClass":"","nodeText":"已审批表单300","parentId":"407",selected:true},
+                    {"data":{},"id":"416","nodeIconClass":"","nodeText":"待查阅的表单500","parentId":"407"},
+                    {"data":{},"id":"430","nodeIconClass":"","nodeText":"发起表单  600","parentId":"407"}
+                ],"data":{},"id":"407","nodeIconClass":"","nodeText":"我的工作台  100","expanded":"true"},
+                {"children":[
+                    {"data":{},"id":"491","nodeIconClass":"","nodeText":"招待费用申请单400","parentId":"490"},
+                    {"data":{},"id":"492","nodeIconClass":"","nodeText":"请假单500","parentId":"490"},
+                    {"data":{},"id":"493","nodeIconClass":"","nodeText":"借款单600","parentId":"490"},
+                    {"data":{},"id":"494","nodeIconClass":"","nodeText":"绩效表单700","parentId":"490"},
+                    {"data":{},"id":"495","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"496","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"497","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"498","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"499","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"500","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"501","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"502","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"503","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"504","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"505","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"506","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                    {"data":{},"id":"507","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"},
+                ],"data":{},"id":"600","nodeIconClass":"","nodeText":"我的工作台 ","expanded":"true"}
+            ],
+            "data":{},
+            "id":"1",
+            "nodeIconClass":"",
+            "nodeText":"根节点"
+        };
+        var root = Sui.tree.TreeNodeUtil.buildTreeNodeFromJsonData(treeDate);
+        tree.setRoot(root);
+
+    });//end of ready fun
+</script>
+
+<!--与界面布局相关的代码-->
+<script type="text/javascript" src="../../js/layout.js"></script>
+</html>

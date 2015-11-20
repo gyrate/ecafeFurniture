@@ -1,0 +1,31 @@
+[
+    {
+        "attr" : { "id" : 1 },
+        "data" : {
+            "title" : "Long json1",
+            "attr" : { "href" : "#" }
+        },
+        "children" : [ "Child 1", "A Child 2" ]
+    },
+    {
+        "attr" : { "id" : 2 },
+        "data" : {
+            "title" : "bLong json2",
+            "attr" : { "href" : "#" }
+        }
+    },
+    {
+        "attr" : { "id" : 3 },
+        "data" : {
+            "title" : "Long json3",
+            "attr" : { "href" : "#" }
+        }
+    },
+    {
+        "attr" : { "id" : 4 },
+        "data" : {
+            "title" : "aLong json4",
+            "attr" : { "href" : "#" }
+        }
+    }
+]

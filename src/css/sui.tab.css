@@ -1,0 +1,16 @@
+/*----------------------  TAB ------------------------*/
+.tab{ position: relative;}
+.tab .tab_menu{ position:relative;  padding-left:28px;  height:27px}
+.tab .tab_menu ul{ overflow: hidden; float: left;}
+.tab .tab_menu li{ position: relative; float:left;  display:block;  padding:0 20px 0 10px; margin-right:3px;  height:26px;  line-height:26px;cursor: pointer;  max-width: 120px; min-width: 30px;
+        border: 1px solid #e6e6e6; background: #fff;color: #666;}
+.tab .tab_menu li.on{border-bottom-color: #fff; color: #2F4982; background: #fff url("../images/skin1/gradient.png") 0 -461px repeat-x;border-top-color: #507BD5;}
+.tab .tab_menu li span{ display: inline-block; width: 100%;overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.tab .tab_menu li .close{ position: absolute; top:8px; right: 5px; display: block; width: 12px; height: 12px;background: url('../images/skin1/element.png') no-repeat -295px -5px;}
+.tab .tab_menu li .close:hover{ background-position:-295px -21px; }
+.tab .tab_menu li .s_ico{ position: absolute; top:6px; left:6px;}
+.tab .tab_menu .tab_ico_menu{ padding-left: 25px;}
+.tab .tab_content{ _margin-top:-1px; padding: 10px;border: 1px solid #e6e6e6; background: #fff}
+.tab .tab_content .std_form{ margin:24px}
+.tab .operator{ display: inline-block; padding: 0 13px; height: 26px; line-height: 26px; border: 1px solid; border-bottom: 0; cursor: pointer;background: #fff url('../images/skin1/element.png') -320px 0 no-repeat ; border-color:  #E6E6E6; }
+.tab_operator_layer { /*max-width: 120px;*/ }

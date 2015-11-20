@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/sui.base.css" />
+
+    <script type="text/javascript" src="../../js/tree/tree.js"></script>
+    <link href="../../css/sui.tree.css" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .sui_tree .country_node_icon .node_icon {
+            background-image: url("");
+            background-color: RED;
+        }
+
+        .sui_tree .provice_node_icon .node_icon {
+            background-image: url("");
+            background-color: #adff2f;
+        }
+
+        .sui_tree .city_node_icon .node_icon {
+            background-image: url("");
+            background-color: BLUE;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var tree = new Sui.tree.Tree({
+                renderTo:'tree',
+                lineVisible : true,
+                nodeIconVisible : true,
+
+                nodeClasses : {
+                    country : 'country_node_icon',
+                    provice : 'provice_node_icon',
+                    city : 'city_node_icon'
+                },
+
+                listeners : {
+                    nodeClick : function(event) {
+                        var text = event.nodeText;
+                        Sui.log(text);
+                    }
+                }
+            });
+
+            var china = new Sui.tree.TreeNode({
+                expanded : true,
+                nodeText:'中国',
+                nodeType : 'country'
+            });
+            var hunan = new Sui.tree.TreeNode({
+                expanded : true,nodeText:'湖南',
+                nodeType : 'provice'
+            });
+            var changsha = new Sui.tree.TreeNode({
+                expanded : true,nodeText:'长沙',
+                nodeType : 'city'
+            });
+
+            var hengyang = new Sui.tree.TreeNode({
+                nodeText:'衡阳',
+                nodeType : 'city'
+            });
+            var hubei = new Sui.tree.TreeNode({
+                nodeText:'湖北',
+                nodeType : 'provice'
+            });
+
+            china.addChildNode(hunan);
+            hunan.addChildNode(changsha);
+            hunan.addChildNode(hengyang);
+            china.addChildNode(hubei);
+
+            tree.setRoot(china);
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+
+<div id="tree" style="border:1px solid #000"></div>
+
+</body>
+</html>

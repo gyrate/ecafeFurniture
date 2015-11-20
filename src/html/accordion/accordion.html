@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" media="all" href="../../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/sui.accordion.css" />
+</head>
+<body>
+
+<div class="sidebar fl" style="position: inherit;" id="sidebar">
+    <div class="menu_head">
+        <a href="http://www.baidu.com" target="_blank">我的工作台</a>
+    </div>
+    <div class="menu_body">
+        <a href="javascript:void(0);">待审批表单</a>
+        <a href="javascript:void(0);">我的表单</a>
+        <a href="javascript:void(0);">已审批表单</a>
+        <a class="on" href="javascript:void(0);">纵览项目视图</a>
+        <a href="javascript:void(0);">表单管理</a>
+    </div>
+    <div class="menu_head">
+        <a href="javascript:void(0);">售前管理</a>
+    </div>
+    <div class="menu_body">
+        <a href="javascript:void(0);">待审批表单</a>
+        <a href="javascript:void(0);">我的表单</a>
+        <a href="javascript:void(0);">已审批表单</a>
+        <a href="javascript:void(0);">纵览项目视图</a>
+        <a href="javascript:void(0);">表单管理</a>
+    </div>
+    <div class="menu_head">
+        <a href="javascript:void(0);">资源管理</a>
+    </div>
+    <div class="menu_body">
+        <a href="javascript:void(0);">待审批表单</a>
+        <a href="javascript:void(0);">我的表单</a>
+        <a href="javascript:void(0);">已审批表单</a>
+        <a href="javascript:void(0);">纵览项目视图</a>
+        <a href="javascript:void(0);">表单管理</a>
+    </div>
+    <div class="menu_head">
+        <a href="javascript:void(0);">自定义表单管理</a>
+    </div>
+    <div class="menu_body">
+        <a href="javascript:void(0);">待审批表单</a>
+        <a href="javascript:void(0);">我的表单</a>
+        <a href="javascript:void(0);">已审批表单</a>
+        <a href="javascript:void(0);">纵览项目视图</a>
+        <a href="javascript:void(0);">表单管理</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+<!--基础公用函数集-->
+<!--<script type="text/javascript" src="../../js/base.js"></script>-->
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/accordion/accordion.js"></script>
+<script>
+    $(function(){
+
+        //初始化导航
+        var tab = new Sui.Accordion({
+            applyTo:'sidebar',
+            menuClass:'menu_head',
+            contentClass:'menu_body' ,
+            triggerByIcon:true,
+           // onlyOneExpand:true,
+            listeners:{
+                changeRegion:function(e) {
+                    //alert(e.index);
+                }
+            }
+        });
+
+        var navData = [
+            {
+                value:'我的工作台',
+                src:'http://www.baidu.com',
+                children:[
+                    {value:'待审表单',src:'http://www.baidu.com'},
+                    {value:'我的表单',src:'http://www.baidu.com'},
+                    {value:'纵览项目视图',src:'http://www.baidu.com'},
+                    {value:'表单管理',src:'http://www.baidu.com'}
+                ]
+            },
+            {
+                value:'我的工作台',
+                src:'http://www.baidu.com',
+                children:[
+                    {value:'待审表单',src:'http://www.baidu.com'},
+                    {value:'我的表单',src:'http://www.baidu.com'},
+                    {value:'纵览项目视图',src:'http://www.baidu.com'},
+                    {value:'表单管理',src:'http://www.baidu.com'}
+                ]
+            }
+        ];
+
+        var tab2 = new Sui.Accordion({
+            applyTo:'sidebar2',
+            menuClass:'menu_head',
+            contentClass:'menu_body' ,
+            triggerByIcon:true,
+            onlyOneExpand:true,
+            listeners:{
+                changeRegion:function(e) {
+                    //alert(e.index);
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

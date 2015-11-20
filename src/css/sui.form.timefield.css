@@ -1,0 +1,48 @@
+.sui_timefield {
+    border: 1px solid #ccc;
+}
+
+.sui_timefield input {
+    border: 0;
+}
+
+ .sui_timefield .separate {
+    width : 8px;
+}
+
+.sui_timefield .commonInput {
+    width : 20px;
+}
+
+.sui_timefield .input_text{
+    width:20px;
+}
+
+.sui_tableselect {
+    border: 1px solid #B2B7BC;
+    background: #fff;
+}
+
+.sui_tableselect td {
+    font-size: 12px;
+    padding : 2px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.sui_tableselect .onItem{
+    background-color: #4387D8;
+    color: #fff;
+    cursor: default;
+}
+
+.sui_tableselect_layer {
+    /*width : auto;*/
+    float: left;
+    height : auto;
+}
+
+.sui_tableselect_layer .sui_tableselect {
+    border: 1px solid #B2B7BC;
+}
+

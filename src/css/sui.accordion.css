@@ -1,0 +1,12 @@
+.accordion{  }
+
+.accordion .menu_head{ position:relative;margin-bottom: 2px; height: 29px; line-height: 29px; padding: 0 10px 0 26px; background: #d8e7fa url('../images/accordion/gradient.png') 0 0 repeat-x; color:#35699b; border: 1px solid #94b8e8;}
+.accordion .menu_head:hover,
+.accordion .menu_head.on{ background-position:0 -46px; }
+.accordion .menu_head .ico{ position: absolute;top:6px;left:5px; width:16px;height: 16px; cursor: pointer; background: url('../images/accordion/element.png') no-repeat;}
+.accordion .menu_head .ico_expand{ background-position: -5px -25px;}
+.accordion .menu_head .ico_fold{ background-position: -4px -4px;}
+.accordion .menu_body{margin-bottom: 2px; padding: 10px 0; background: #fbfcfe; border: 1px solid #94b8e8;}
+.accordion .menu_body a{ display: block; padding: 0 14px; line-height: 24px; height: 24px;}
+.accordion .menu_body a:hover{ background-color: #edf1fa;}
+.accordion .menu_body a.on{ background-color: #326eb4; color: #fff;}

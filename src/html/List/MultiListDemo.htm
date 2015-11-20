@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+
+    <!--<link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>-->
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var store = new Sui.data.Store([
+                { label : '中国', value : 'CN'},
+                { label : '美国', value : 'US'},
+                { label : '英国', value : 'EN'},
+                { label : '意大利', value : 'IT'},
+                { label : '加拿大', value : 'JN'},
+                { label : '日本', value : 'JP'},
+                { label : '俄罗斯',value : 'OR'},
+                { label : '印度',value : 'IN'},
+                { label : '德国', value : 'MD'},
+                { label : '泰国', value : 'TS'}
+            ]);
+
+            var select = new Sui.MultiList({
+                applyTo : 'sex',
+                //width : 100,
+                //height:150,
+                store : store,
+                //draggable : true,
+                listeners : {
+                    selected : function(e) {
+                        alert(e.value);
+                    }
+                }
+            });
+
+            $("#add").click(function() {
+                store.addRecordData({
+                    label : '法国',
+                    value : 'FR'
+                });
+            });
+
+            $("#removeable").click(function() {
+                select.setRemovable(0, true);
+            });
+
+            $("#unremoveable").click(function() {
+                select.setRemovable(0, false);
+            });
+
+            $("#up").click(function() {
+                select.upSelectedItem();
+            });
+
+            $("#down").click(function() {
+                select.downSelectedItem();
+            });
+
+             $("#selected").click(function() {
+                alert(select.getSelectedValue());
+            });
+
+             $("#draggable").click(function() {
+                select.setDraggable(true);
+            });
+            $("#disdraggable").click(function() {
+                select.setDraggable(false);
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<button id="removeable">可删除</button>
+<button id="unremoveable">不可删除</button>
+<button id="add">添加</button>
+<button id="up">上移</button>
+<button id="down">下移</button>
+<button id="selected">选中的值</button>
+<button id="draggable">可拖放</button>
+<button id="disdraggable">不可拖放</button>
+
+<br/>
+<br/>
+<br/>
+<div id="sex"></div>
+
+<br/>
+
+</body>
+</html>

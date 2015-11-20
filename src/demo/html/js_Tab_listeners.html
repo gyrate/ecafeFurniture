@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+
+    <link href="../../css/default.css" rel="stylesheet" media="all">
+    <link href="../../css/skin1.css" rel="stylesheet" media="all">
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.tab.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="c_wrap">
+    <div id="c_code">
+        <article>
+            <h2 class="str">Example:点击tab标签触发事件异步更新内容</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var tab = new Sui.Tab({
+    applyTo:'switch' ,
+    menuClass:'menu_item',
+    contentClass:'content_item',
+    trigger:'click',
+    needOperator:true,
+    //currentIndex:2,
+    listeners:{
+        changeTab:function(e) {
+
+            var index = e.index ;
+            tab.setContentItemDom( tab.getContentItemByIndex(index) ,{
+                needIframe:true,
+                url:'js_Tab_listeners_test.html'
+            });
+        }
+    }
+}) ;
+</code></pre>
+
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div class="demo">
+
+            <div  id="switch">
+                <div class="tab_menu">
+                    <ul>
+                        <li class="menu_item tab_ico_menu"><b class="s_ico s_ico s_ico_qa"></b><span>选项一</span></li>
+                        <li class="menu_item tab_ico_menu"><b class="s_ico s_ico_colpik"></b><span>选项二</span></li>
+                        <li class="menu_item tab_ico_menu"><b class="s_ico s_ico_2col"></b><span>选项三</span></li>
+                    </ul>
+                </div>
+                <div class="tab_content">
+                    <div class="content_item">
+                        <div style="height: 200px;background: #ccccff;">点击【运行】初始化组件</div>
+                    </div>
+                    <div class="content_item">
+                        <div style="height: 200px;background: #ccffcc;">tabA content...</div>
+                    </div>
+                    <div class="content_item">
+                        <div style="height: 200px;background: #ffcccc;">tabA content...</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/tab/tab.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var menu//数据源
+    ;
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

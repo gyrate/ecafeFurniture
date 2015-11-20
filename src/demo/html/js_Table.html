@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+             数据表格
+        </div>
+        <article>
+            <h1>Sui.table.Table(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> table.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Component</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.table.Table </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , form.js , textfield.js ,triggerField.js ,menu.js ,list.js, droplist.js, table.js </p>
+                <p>sui.table.css ,sui.menu.css , sui.form.triggerfield.css , sui.form.date.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo (String)</td>
+                            <td>'tableParent'</td>
+                            <td>
+                                <p>渲染容器的ID </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>width (Number)</td>
+                            <td>600,'100%'</td>
+                            <td>
+                                <p>组件的实际宽度 </p>
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td></td>-->
+                            <!--<td>height (Number)</td>-->
+                            <!--<td>300</td>-->
+                            <!--<td>-->
+                                <!--<p>组件的实际高度，数据量大于展示区域时出现滚动条 </p>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <tr>
+                            <td></td>
+                            <td>showTipWhenEmpty (Boolean)</td>
+                            <td>false(默认)</td>
+                            <td>
+                                <p>如果没有数据显示提示 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>tipWhenEmpty (String)</td>
+                            <td>
+                                "没有数据" (默认)
+                            </td>
+                            <td>
+                                <p>没有数据提示消息 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>fixWidth  (Boolean)</td>
+                            <td>true (默认)</td>
+                            <td>是否根据列宽计算表格宽度，默认为true</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defaultClass  (String)</td>
+                            <td>
+                                'sui_table' (默认)
+                            </td>
+                            <td>表格的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>headerCellClass  (String) </td>
+                            <td> 'headercell' (默认)  </td>
+                            <td>表头单元格的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>bodyCellClass (String)</td>
+                            <td>'bodycell' (默认</td>
+                            <td>表内容单元格的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>store (Sui.data.store)</td>
+                            <td> null(默认)</td>
+                            <td>表格记录数据</td>
+                        </tr>
+                   　   <tr>
+                            <td></td>
+                            <td>columnModels (Sui.table.columnModels)</td>
+                            <td>
+                                 null(默认)
+                            </td>
+                            <td>
+                                <p>列头数据，列头数据</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>selectType (String)</td>
+                            <td>
+                                'single'
+                            </td>
+                            <td>表格当前的选择模式,单选single和多选multi</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>checkboxColumnIndex  (Number)</td>
+                            <td>
+                                 0
+                            </td>
+                            <td>当表格为多选模式时，checkbox所在列的索引</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>checkboxVisibleColumn  (String,Function)</td>
+                            <td> true</td>
+                            <td>控制checkbox是否可见的属性</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>selectedRowClass (String)</td>
+                            <td>
+                                 'sui_selectedrow' (默认)
+                            </td>
+                            <td>选中行的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>mouseOverRowClass  (String)</td>
+                            <td>
+                                 'sui_mouseroverrow' (默认)
+                            </td>
+                            <td>鼠标悬浮行的样式</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>editCellEvent  (String)</td>
+                            <td>
+                                 'click' (默认)
+                            </td>
+                            <td>点击编辑单元格,还是双击编辑单元格</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>readOnly  (Boolean)</td>
+                            <td>
+                                 false (默认)
+                            </td>
+                            <td>是否只读. 对于一些大数据量的表格,考虑性能,可以激活该属性</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>ediable (Boolean)</td>
+                            <td>
+                                 true (默认)
+                            </td>
+                            <td>单元格是否可编辑. 是否可编辑是可以动态变化的</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>isMultiRowHeader  (Boolean)</td>
+                            <td>
+                                 false (默认)
+                            </td>
+                            <td>是否多行列头</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>customRender (Object)</td>
+                            <td>
+                                 null (默认)
+                            </td>
+                            <td>自定义渲染</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defineLastRowClass (Boolean)</td>
+                            <td>
+                                 false (默认)
+                            </td>
+                            <td>是否是多行列头</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>isShowContextMenu  (Boolean)</td>
+                            <td>
+                                 false (默认)
+                            </td>
+                            <td>是否显示右键菜单,默认为false，即不显示</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>cellHeight  (Number)</td>
+                            <td>
+                                 null (默认)
+                            </td>
+                            <td>指定单元格行高</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.table.Table.html" target="_blank">Sui.table.Table.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <section>
+                    <p class="str">Example:创建一个标准Table组件 <a href="js_Table_normal.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:创建一个带工具条和翻页组件的Table组件 <a href="js_Table_rich.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:创建一个带下拉多选择层和树选择层的Table组件 <a href="js_Table_editor.html" target="_blank">演示页面 </a></p>
+                    <p class="str">Example:创建一个多列头的Table组件 <a href="js_Table_multiTh.html" target="_blank">演示页面 </a></p>
+                </section>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+
+</script>
+
+</html>

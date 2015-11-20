@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        #toolbar{
+            /*position: absolute;*/
+            /*top:50px;*/
+            /*left: 300px;*/
+            width: 500px;
+            border: 1px solid #666;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+<div id="c_wrap">
+    <div id="c_code">
+        <article>
+            <h2 class="str">Example:创建一个右键菜单组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var menu = new Sui.menu.ContextMenu({
+itemConfigs:[
+    {html:'添加节点', action:function(obj) {
+        showLog(obj.data.html);
+    }},
+    {html:'操作B', action:function(obj) {
+        showLog(obj.data.html);
+    }},
+    {html:'操作C', action:function(obj) {
+        showLog(obj.data.html);
+    }}
+]
+});
+
+function showLog(msg) {
+   alert('你点击了:' + msg);
+}
+
+$(document).bind('contextmenu',function(e){
+   menu.alignToAndShow(e);
+   return false;
+})
+</code></pre>
+
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div id="menu"></div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var menu//数据源
+    ;
+    $('#std_pop').runCode();
+
+
+</script>
+
+</html>

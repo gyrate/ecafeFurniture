@@ -1,0 +1,12 @@
+.ctrlbar{ position:relative; height:24px;line-height: 24px; padding:2px 8px 4px; background:#f0f0f0 url("../images/ctrlbar/ctrlbar_bg.jpg") 0 0 repeat-x; border: 1px solid #d0d0d0; border-bottom: 0 }
+.ctrlbar:after{ display: table; content: ''; clear: both; }
+
+.ctrlbar .ctrlbar_left{ float: left;}
+.ctrlbar .ctrlbar_right{ float: right;}
+.ctrlbar .button{ display: inline-block; zoom:1; margin-right: 4px; padding: 0 4px; border: 1px solid transparent; line-height: 24px;}
+.ctrlbar .button b{vertical-align: text-top;}
+.ctrlbar .button:hover{ border-color: #ccc; border-radius: 2px; background: #f5f5f5;}
+.ctrlbar .label{ display: inline-block; zoom:1; margin-right: 4px; }
+.ctrlbar .break{ display: inline-block;zoom:1; margin-right: 4px; width:0; height: 16px; font-size: 0 ; border-left: 1px solid #fff; border-right: 1px solid #ccc; vertical-align: middle;}
+
+.ctrlbar_sim {background: #f9f9f9;}

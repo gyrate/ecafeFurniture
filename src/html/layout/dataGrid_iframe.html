@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>数据列表</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="all" href="../../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css" type="text/css"/>
+
+    <link rel="stylesheet" href="../../css/sui.base.css"/>
+    <link rel="stylesheet" href="../../css/sui.table.css"/>
+    <link rel="stylesheet" href="../../css/sui.form.triggerfield.css"/>
+    <link rel="stylesheet" href="../../css/sui.form.date.css"/>
+    <link rel="stylesheet" href="../../css/sui.form.list.css"/>
+    <link rel="stylesheet" href="../../css/sui.form.droplist.css"/>
+    <link rel="stylesheet" href="../../css/sui.menu.css"/>
+    <link rel="stylesheet" href="../../css/sui.tree.css"/>
+    <link rel="stylesheet" href="../../css/sui.navigator.css"/>
+</head>
+<body>
+<div class="frame_top" id="frame_top">
+    <div class="topline">
+        <a class="fl logo" href="demo.html">
+            <img src="../../images/logo.png" width="130" height="40"/>
+        </a>
+        <ul class="topmenu" id="topmenu">
+        </ul>
+            <span class="comlink">
+                <a href="javascript:void(0)">用户设置</a> |
+                <a href="demo.html">帮助中心</a>
+                <a href="../login/theme1/login.html">[退出]</a>
+            </span>
+    </div>
+    <div class="toolbar" id="toolbar">
+
+    </div>
+</div>
+
+<div class="frame_main frame_main_w" id="frame_main" >
+    <iframe src="dataGrid_iframe_inner.html" width="100%" height="100%" frameborder="0"></iframe>
+</div>
+<div class="frame_bottom" id="frame_bottom">
+    <div class="copyright">
+        <p>版权所有：广州中国科学院软件应用技术研究所 ©2010NFS-China.COM京ACP备07504296号</p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+<!--基础公用函数集-->
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/tree/tree.js"></script>
+
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+<script type="text/javascript" src="../../js/navigator/navigator.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+    //初始化导航
+    var nav = new Sui.nav.Navigator({
+
+        applyTo:'topmenu',
+        defaultClass:'topmenu',
+        menuItemClass:'menu_item',
+
+        subRenderTo:'toolbar',
+
+        menuItems: [
+            {
+                id:'1',
+                caption:'项目管理',
+                subMenuItems:[
+                    {
+                        id:'11',
+                        caption : '项目立项',
+                        imgURL : '菜单图标的URL',
+                        imgCss : 's_ico_flag',
+                        url : 'http://www.baidu.com/',
+                        subMenuItems : [
+                            { id:'111', caption : '菜单配置',url : '子菜单标题http://www.baidu.com/' },
+                            { id:'112', caption : 'URL方法权限',url : '子菜单标题http://www.baidu.com/' },
+                            { id:'113', caption : '权限配置',url : '子菜单标题http://www.baidu.com/' },
+                            { id:'114', caption : '权限配置辅助',url : '子菜单标题http://www.baidu.com/' }
+                        ]
+                    },
+                    {
+                        id:'12',
+                        caption : '项目设置',
+                        imgURL : '../../images/ico_img.png',
+                        imgCss : 's_ico_table',
+                        url : 'http://www.baidu.com/',
+                        subMenuItems:[
+                            {id:'121', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'122', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'123', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'124', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                        ]
+                    },
+                    {
+                        id:'13',
+                        caption : '报工查询',
+                        imgURL : '菜单图标的URL2',
+                        imgCss : 's_ico_2col',
+                        url : 'http://www.baidu.com/',
+                        subMenuItems:[
+                            {id:'131', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'132', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'133', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' },
+                            {id:'134', caption : '子菜单标题',  url : '子菜单标题http://www.baidu.com/' }
+                        ]
+                    },
+                    {
+                        id:'14',
+                        caption : '基础数据',
+                        imgURL : '菜单图标的URL2',
+                        imgCss : 's_ico_2col',
+                        url : 'http://www.baidu.com/'
+                    },
+                    {
+                        id:'15',
+                        caption : '系统设置',
+                        imgURL : '菜单图标的URL2',
+                        imgCss : 's_ico_2col',
+                        url : 'http://www.baidu.com/'
+                    }
+                ]
+
+            },
+            {
+                id:'2',
+                caption:'工作流引擎' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///ww.baidu.com',
+                subMenuItems:[
+                    {id:'21',caption:'我是二级菜单1',url:'2子菜单标题',imgCss : 's_ico_2col'},
+                    {id:'22',caption:'我是二级菜单2',url:'2子菜单标题',imgCss : 's_ico_2col'},
+                    {id:'23',caption:'我是二级菜单3',url:'2子菜单标题',imgCss : 's_ico_2col'}
+                ]
+            },
+            {
+                id:'3',
+                caption:'表单申请' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///ww.baidu.com',
+                subMenuItems:[
+                    {id:'31',caption:'我是二级菜单1',url:'3子菜单标题',imgCss : 's_ico_word'},
+                    {id:'32',caption:'我是二级菜单2',url:'3子菜单标题',imgCss : 's_ico_word'},
+                    {id:'33',caption:'我是二级菜单3',url:'3子菜单标题',imgCss : 's_ico_word'}
+                ]
+            },
+            {
+                id:'4',
+                caption:'表单申请' ,
+                imgURL : '菜单图标的URL2',
+                imgCss : 's_ico_2col',
+                url:'http:///ww.baidu.com',
+                subMenuItems:[
+                    {id:'41',caption:'我是二级菜单1',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                    {id:'42',caption:'我是二级菜单2',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                    {id:'43',caption:'我是二级菜单3',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                    {id:'44',caption:'我是二级菜单4',url:'4子菜单标题',imgCss : 's_ico_colpik'},
+                    {id:'45',caption:'我是二级菜单5',url:'4子菜单标题',imgCss : 's_ico_colpik'}
+                ]
+            }
+        ],
+        listeners:{
+            selected:function(e) {
+                console.log(e.url);
+            }
+        }
+    });
+    //case:no menuitemid
+//    case:nav.setSelectedMenuItem('1');
+//    case:nav.setSelectedMenuItem('12');
+//    case:nav.setSelectedMenuItem('123');
+//    case:nav.setSelectedMenuItem('never');
+
+
+    function getDomPaddingV(id) {
+        var obj = $('#' + id);
+        if (obj.length) {
+            return  parseFloat(obj.css('paddingTop')) + parseFloat(obj.css('paddingBottom')) +
+                    ( parseFloat(obj.css('borderTopWidth')) || parseFloat(obj[0].style.borderTopWidth) || 0 ) +
+                    ( parseFloat(obj.css('borderBottomWidth')) || parseFloat(obj[0].style.borderBottomWidth) || 0 );
+        } else {
+            return 0;
+        }
+    }
+
+
+});//end of ready fun
+</script>
+<!--与界面布局相关的代码-->
+<script type="text/javascript" src="../../js/layout.js"></script>
+</html>

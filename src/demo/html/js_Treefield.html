@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.tree.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            下拉选择树组件
+        </div>
+        <article>
+            <h1>Sui.form.TreeField(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> treefield.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.form.DropList</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.form.TreeField </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , textfield.js , triggerField.js ,droplist.js, tree.js ,treefield.js</p>
+                <p>sui.base.css ,triggerfield.css ,sui.form.droplist.css ,sui.tree.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo(String)</td>
+                            <td>'treeField' </td>
+                            <td>
+                                <p>渲染到的组件的id </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>treeConfig(String)</td>
+                            <td>
+                                treeConfig:{
+                                    url:'../date.php',
+                                    requestOnce:true,
+                                    checkedType:Sui.TreeSelectType.SINGLE
+                                }
+                            </td>
+                            <td>
+                                <p>树组件的配置参数 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>initLabel (String)</td>
+                            <td>'产品设计'</td>
+                            <td>组件初始描述值</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>value (String)</td>
+                            <td>'design'</td>
+                            <td>组件的初始值</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>selectText (Boolean)</td>
+                            <td>false (默认)</td>
+                            <td>选中节点之后，触发节点的值是否为nodeText属性值，否则为id属性值</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.form.TreeField.html" target="_blank">Sui.form.TreeField.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准treefield组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript">var treeDate = {
+    "children":[
+        {"children":[
+            {"data":{},"id":"408","nodeIconClass":"","nodeText":"我的表单","parentId":"407"},
+            {"data":{},"id":"409","nodeIconClass":"","nodeText":"待审批表单200","parentId":"407"},
+            {"data":{},"id":"410","nodeIconClass":"","nodeText":"已审批表单300","parentId":"407"},
+            {"data":{},"id":"416","nodeIconClass":"","nodeText":"待查阅的表单500","parentId":"407"},
+            {"data":{},"id":"430","nodeIconClass":"","nodeText":"发起表单","parentId":"407"}
+        ],"data":{},"id":"407","nodeIconClass":"","nodeText":"我的工作台",expanded:true},
+        {"children":[
+            {"data":{},"id":"491","nodeIconClass":"","nodeText":"招待费用","parentId":"490"},
+            {"data":{},"id":"492","nodeIconClass":"","nodeText":"请假单500","parentId":"490"},
+            {"data":{},"id":"493","nodeIconClass":"","nodeText":"借款单600","parentId":"490"},
+            {"data":{},"id":"494","nodeIconClass":"","nodeText":"绩效表单700","parentId":"490"},
+            {"data":{},"id":"495","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"}
+        ],"data":{},"id":"490","nodeIconClass":"","nodeText":"我的工作台 ",expanded:true}
+    ],
+    "data":{},
+    "id":"1",
+    "nodeIconClass":"",
+    "nodeText":"根节点"
+};
+
+var root = Sui.tree.TreeNodeUtil.buildTreeNodeFromJsonData(treeDate);
+
+ treeField = new Sui.form.TreeField({
+    applyTo: 'treeField',
+    selectText:true,
+    initLabel:'初始值',//指定组件描述值
+    value:'408',//指定隐藏表单项的值
+    treeConfig:{
+        root:root,//树的根节点
+        //url:'../../data/treefieldData.php',
+        //requestOnce:true,
+        checkedType:Sui.TreeSelectType.SINGLE //节点选择模式
+    } ,
+    listeners:{
+        selected:function(event){
+            alert(event['value']);
+        }
+    }
+});
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 获取组件的值</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="getValue" class=""><code class="javascript">alert(treeField.getValue());
+//初始化时selectText为true,则返回节点的nodeText属性，否则返回id属性</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="getValue">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:通过url请求数据源 <a target="_blank" href="js_Treefield_json.html">演示页面 </a></p>
+                    </section>
+
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <input id="treeField"/>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/tree/tree.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/form/treefield.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+   //执行code区域代码
+    var treeField//组件句柄
+    ;
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

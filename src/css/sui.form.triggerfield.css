@@ -1,0 +1,43 @@
+.sui_trigger {
+    display: inline-block;
+    height: 20px;
+    width: 128px;
+    background: #fff url('../images/skin1/gradient.png') 0 -98px repeat-x;
+    border: 1px solid #bebebe;
+    vertical-align: top;
+    *display: inline;
+    *zoom:1;
+}
+
+.sui_trigger_readonly {
+   background: none;
+   border : none;
+}
+
+.sui_trigger input {
+    width: 100px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 2px;
+    border: 0 none;
+    margin: 0;
+    float: left;
+}
+
+.sui_trigger_readonly input {
+   color : #999999;
+   border: 1px solid #BEBEBE;
+   height: 20px;
+   line-height: 20px;
+}
+
+.sui_trigger .trigger_icon {
+    display: inline-block;
+    width: 17px;
+    height: 20px;
+    vertical-align: top;
+    margin : 0;
+    border : none;
+    background: transparent url("../images/skin1/element.png") -461px -21px no-repeat;
+    cursor: pointer;
+}

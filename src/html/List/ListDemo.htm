@@ -1,0 +1,144 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+
+
+    <!--<link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>-->
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+
+
+
+</head>
+<body>
+<button id="removeable">可删除</button>
+<button id="unremoveable">不可删除</button>
+<button id="add">添加</button>
+<button id="up">上移</button>
+<button id="down">下移</button>
+<button id="selected">选中的值</button>
+<button id="draggable">可拖放</button>
+<button id="disdraggable">不可拖放</button>
+<button id="editor">修改第一个选项</button>
+<button id="refresh">刷新数据</button>
+<button id="sel3">选择第3个项目</button>
+<button id="clear">清空</button>
+<button id="updata">更新数据</button>
+
+<br/>
+<br/>
+<br/>
+<div id="sex"></div>
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+
+        var arr = [];
+        for(var i =0;i<100;i++){
+            arr.push({
+                label : '中国'+i, value : 'CN'+i
+            });
+        }
+
+        var store = new Sui.data.Store(arr);
+
+        var storeArr2 =[
+            { label : '亚洲', value : 'Asia'},
+            { label : '美洲',value : 'Americas'},
+            { label : '欧洲',value : 'Europe'},
+            { label : '大洋洲',value : 'Oceania'},
+            { label : '非洲',value : 'Africa'}
+        ];
+
+        var select = new Sui.List({
+            applyTo : 'sex',
+            width : 100,
+            height:150,
+            store : store,
+            draggable : true,
+            listeners : {
+                selected : function(e) {
+                    alert(e.value);
+                }
+            }
+        });
+
+        $("#add").click(function() {
+            store.addRecordData({
+                label : '法国',
+                value : 'FR'
+            });
+        });
+
+        $("#removeable").click(function() {
+            select.setRemovable(0, true);
+        });
+
+        $("#unremoveable").click(function() {
+            select.setRemovable(0, false);
+        });
+
+        $("#up").click(function() {
+            select.upSelectedItem();
+        });
+
+        $("#down").click(function() {
+            select.downSelectedItem();
+        });
+
+         $("#selected").click(function() {
+            alert(select.getSelectedValue());
+        });
+
+         $("#draggable").click(function() {
+            select.setDraggable(true);
+        });
+        $("#disdraggable").click(function() {
+            select.setDraggable(false);
+        });
+        $('#editor').click(function(){
+            var record = store.findRecordByNameValue('label','中国');
+            record.setFieldValue('label','中华人民共和国');
+        });
+        $('#refresh').click(function(){
+            select.setStore([
+                { label : '亚洲', value : 'Asia'},
+                { label : '美洲',value : 'Americas'},
+                { label : '欧洲',value : 'Europe'},
+                { label : '大洋洲',value : 'Oceania'},
+                { label : '非洲',value : 'Africa'}
+            ]);
+        });
+
+        $('#sel3').click(function(){
+            select.selectedItemByIndex(2);
+        });
+
+        $('#clear').click(function(){
+            select.removeAllComponents();
+        });
+        $('#updata').click(function(){
+            var store = new Sui.data.Store([
+                {label:'test1',value:1},
+                {label:'test2',value:2},
+                {label:'test3',value:3},
+                {label:'test4',value:4}
+            ]);
+            select.store = store;
+            select.updataComponents();
+        });
+    });
+
+</script>
+
+</body>
+</html>

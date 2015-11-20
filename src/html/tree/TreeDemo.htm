@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/sui.base.css" />
+
+    <script type="text/javascript" src="../../js/tree/tree.js"></script>
+    <link href="../../css/sui.tree.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/menu/menu.js"></script>
+    <link href="../../css/sui.menu.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var tree,
+                menu;
+
+            menu = new Sui.menu.ContextMenu({
+                itemConfigs:[
+                    {html:'添加节点',
+                        action:function(obj) {
+                            var node = tree.getSelectedNode() || tree.root;
+                            node.addChildNode(new Sui.tree.TreeNode({nodeText: "节点" }));
+                        }
+                    },
+                    {html:'操作B'},
+                    {html:'操作C'}
+                ]
+            });
+
+            tree = new Sui.tree.Tree({
+                lineVisible : true,
+                renderTo:'tree',
+               //enableDefaultContextMenu:true,
+               // checkedType: Sui.TreeSelectType.MULTI_ALL,
+                contextMenu:menu,
+                listeners : {
+                    nodeClick : function(event) {
+                        var text = event.nodeText;
+                        Sui.log(text);
+                    }
+                }
+            });
+
+            var root = new Sui.tree.TreeNode({expanded : true,nodeText:'tree'});
+            var node1 = new Sui.tree.TreeNode({expanded : true,nodeText:'Node 1',draggable:true});
+            var node11 = new Sui.tree.TreeNode({expanded : true,nodeText:'Node 1.1'});
+            var node111 = new Sui.tree.TreeNode({expanded : true,nodeText:'Node 1.1.1'});
+            var node1111 = new Sui.tree.TreeNode({nodeText:'Node 1.1.1.1'});
+
+            var node12 = new Sui.tree.TreeNode({nodeText:'Node 1.2'});
+            var node2 = new Sui.tree.TreeNode({nodeText:'Node 2'});
+            var node3 = new Sui.tree.TreeNode({nodeText:'Node 3'});
+            var node4 = new Sui.tree.TreeNode({nodeText:'Node 4'});
+
+            var nodePictures = new Sui.tree.TreeNode({expanded : true,nodeText:'My Pictures'});
+            var nodeIceland = new Sui.tree.TreeNode({nodeText:'The trip to Iceland'});
+            var nodeBirthday = new Sui.tree.TreeNode({nodeText:'Moms birthday'});
+            var nodeRecycle = new Sui.tree.TreeNode({nodeText:'Recycle Bin'});
+
+
+            root.addChildNode(node1);
+            node1.addChildNode(node11);
+            node11.addChildNode(node111);
+            node111.addChildNode(node1111);
+
+            node1.addChildNode(node12);
+
+            root.addChildNode(node2);
+            root.addChildNode(node3);
+            root.addChildNode(node4);
+
+            root.addChildNode(nodePictures);
+            nodePictures.addChildNode(nodeIceland);
+            nodePictures.addChildNode(nodeBirthday);
+
+            root.addChildNode(nodeRecycle);
+
+            tree.setRoot(root);
+
+            $("#expand").click(function() {
+                tree.expand();
+            });
+
+            $("#collapse").click(function() {
+                tree.collapse();
+            });
+
+            $("#foldable").click(function() {
+                tree.setFoldable(true);
+            });
+
+            $("#disfoldable").click(function() {
+                tree.setFoldable(false);
+            });
+
+            $("#search").click(function() {
+                var val = $("#searchContent").val();
+                tree.search(val);
+            });
+
+            $("#clearSearchContent").click(function() {
+                var val = $("#clearSearchContent").val();
+                tree.clearSearch();
+            });
+
+            var val = 0;
+            $("#addNode").click(function() {
+                tree.getSelectedNode().addChildNode(new Sui.tree.TreeNode({nodeText: "节点" + (++val)}));
+            });
+
+            $("#removeNode").click(function() {
+                tree.removeSelectedNodes();
+            });
+
+            $("#hideRoot").click(function() {
+                tree.setRootVisible(false);
+            });
+
+            $("#showRoot").click(function() {
+                tree.setRootVisible(true);
+            });
+
+            $("#hideLine").click(function() {
+                tree.setLineVisible(false);
+            });
+
+            $("#showLine").click(function() {
+                tree.setLineVisible(true);
+            });
+
+            $("#setNodeText").click(function() {
+                tree.setSelectedNodeText($("#nodeText").val());
+            });
+
+            $("#getNodeText").click(function() {
+                alert(tree.getSelectedNodeText());
+            });
+
+            $("#clearSelected").click(function() {
+                alert(tree.clearSelectedNodes());
+            });
+
+            $("#single").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.SINGLE);
+            });
+            $("#multiAllCascade").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_ALL_CASCADE);
+            });
+            $("#multiAll").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_ALL);
+            });
+            $("#multiLeaf").click(function() {
+                tree.setCheckedType(Sui.TreeSelectType.MULTI_LEAF);
+            });
+
+            $("#showIcon").click(function() {
+                tree.setNodeIconVisible(true);
+            });
+
+            $("#hideIcon").click(function() {
+                tree.setNodeIconVisible(false);
+            });
+
+            $("#enableDraggable").click(function() {
+                tree.setDraggable(true);
+            });
+
+            $("#disableDraggable").click(function() {
+                tree.setDraggable(false);
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+<input id="enableDraggable" type="button" value="启用拖放"/>
+<input id="disableDraggable" type="button" value="禁用拖放"/>
+<br/>
+
+<input id="showIcon" type="button" value="显示图标"/>
+<input id="hideIcon" type="button" value="隐藏图标"/>
+<br/>
+
+<input id="expand" type="button" value="展开"/>
+<input id="collapse" type="button" value="折叠"/>
+<input id="foldable" type="button" value="可折叠"/>
+<input id="disfoldable" type="button" value="不可折叠"/>
+<br/>
+<input id="addNode" type="button" value="添加节点"/>
+<input id="removeNode" type="button" value="删除节点"/>
+<br/>
+<input id="hideLine" type="button" value="隐藏线条"/>
+<input id="showLine" type="button" value="显示线条"/>
+<br/>
+<input id="hideRoot" type="button" value="隐藏根节点"/>
+<input id="showRoot" type="button" value="显示根节点"/>
+<br/>
+<input id="single" type="button" value="单选"/>
+<input id="multiAllCascade" type="button" value="级联所有节点"/>
+<input id="multiAll" type="button" value="所有节点可选"/>
+<input id="multiLeaf" type="button" value="只选择叶子节点"/>
+<br/>
+<input id="clearSelected" type="button" value="全不选"/>
+<br/>
+<input type="text" id="searchContent"/><input id="search" type="button" value="搜索所有"/>
+<input id="clearSearchContent" type="button" value="清除搜索结果"/>
+<br/>
+<input type="text" id="nodeText"/><input id="setNodeText" type="button" value="设置节点文本"/>
+<input id="getNodeText" type="button" value="获取节点文本"/>
+
+<div id="tree" style="border:1px solid #000"></div>
+
+</body>
+</html>

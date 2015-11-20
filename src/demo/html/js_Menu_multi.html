@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        #toolbar{
+            /*position: absolute;*/
+            /*top:50px;*/
+            /*left: 300px;*/
+            width: 500px;
+            border: 1px solid #666;
+            overflow: hidden;
+        }
+
+        .sui_layer hr{
+            border: 0 none;
+            border-top: 1px solid #ccc;
+        }
+        .sui_hlayout .hlayout_item {
+            float: left;
+            vertical-align: top;
+        }
+        .sui_hlayout .hlayout_item div{
+            padding: 0 13px;
+            height: 27px;
+            line-height: 27px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="c_wrap">
+    <div id="c_code">
+        <article>
+            <h2 class="str">Example:创建一个多菜单组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var menuBar = new Sui.menu.MenuBar({
+        cls : 'menubar',
+        applyTo : 'toolbar'
+    });
+    menuBar.addComponent(new Sui.menu.Menu({
+        html:'菜单0',
+        itemConfigs:[
+            { html:'菜单0_1',
+                action:function(){
+                    alert('in action');
+                },
+                listeners:{
+                    click:function(e){
+                        alert('item'+e.text);
+                    }
+                }
+            },
+            {html:'菜单0_2'},
+            {html:'菜单0_3'}
+        ]
+    }));
+    menuBar.addComponent(new Sui.menu.Menu({
+        html:'菜单1',
+        itemConfigs:[
+            {
+                html:'item0'
+            },{
+                html:'item1'
+            },
+            {
+                html:'item11',
+                itemConfigs:[
+                    { html:'item11_1'},
+                    { html:'item11_2'},
+                    { html:'有子菜单',
+                        itemConfigs:[
+                            {
+                                html:'item111',
+                                listeners:{ }
+                            },{
+                                html:'item111',
+                                itemConfigs:[
+                                    { html:'node1'},
+                                    {
+                                        html:'node2',
+                                        itemConfigs:[
+                                            {html:'node1'},
+                                            {html:'node2'}
+                                        ]
+                                    }
+                                ],
+                                listeners:{
+                                }
+                            }
+                        ],
+                        listeners:{}
+                    }
+                ],
+                listeners:{
+                    click:function(e){
+                        console.log('item11'+e.text);
+                    }
+                }
+            },
+            '-',
+            {
+                html:'item12',
+                listeners:{
+                    click:function(e){
+                        console.log(e.text);
+                    }
+                }
+            }
+        ],
+        listeners : {
+            click : function(e) {
+                alert(e.text);
+            }
+        }
+    }));
+    menuBar.addComponent(new Sui.menu.Menu({
+        html:'菜单2',
+        itemConfigs:[
+            {html:'菜单0_1'},
+            {html:'菜单0_2'},
+            {html:'菜单0_3',
+                itemConfigs:[
+                    { html:'node1'},
+                    {
+                        html:'node2',
+                        itemConfigs:[
+                            {html:'node1'},
+                            {html:'node2'}
+                        ]
+                    }
+                ]
+            }
+        ]
+    }));
+</code></pre>
+
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div style="padding-bottom: 1em;">
+            <!--<input type="button" value="获取选中的行" id="getSelectedRow"/>-->
+            <!--<input type="button" value="添加行" id="addRow"/>-->
+            <!--<input type="button" value="删除行" id="deleteRow"/>-->
+        </div>
+        <div id="toolbar"></div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var menu//数据源
+    ;
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+
+
+    <!--<link href="../../css/base.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>-->
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+    <p>
+        使用ComboBox
+    </p>
+
+    <p>
+        <button id="getValue">获取值</button>
+        <button id="readOnly">只读</button>
+        <button id="editable">可编辑</button>
+    </p>
+
+    <input id="input"/>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var select = new Sui.form.MultiDropList({
+            applyTo : 'input',
+            name : 'input',
+            searchable : true,
+            value :['CN','US'],
+            //panelWidth:600,
+            items : [
+                { label : '中国', value : 'CN'},
+                { label : '美国', value : 'US'},
+                { label : '英国', value : 'EN'},
+                { label : '意大利', value : 'IT'},
+                { label : '加拿大', value : 'JN'},
+                { label : '日本', value : 'JP'},
+                { label : '俄罗斯',value : 'OR'},
+                { label : '印度',value : 'IN'},
+                { label : '德国', value : 'MD'},
+                { label : '中华人民共和国', value : 'ZH'},
+                { label : '美利坚合众国', value : 'USA'},
+                { label : '日不落帝国', value : 'ENR'},
+                { label : '捷克斯洛伐克', value : 'JK'},
+                { label : '阿尔巴尼亚', value : 'AEB'},
+                { label : '埃塞俄比亚', value : 'ASE'},
+                { label : '伊斯坦布尔',value : 'YS'},
+                { label : '印度尼西亚',value : 'YN'},
+                { label : '埃塞俄比亚', value : 'ASE'},
+                { label : '秘鲁', value : 'ML'},
+                { label : '危地马拉', value : 'WDML'},
+                { label : '澳大利亚', value : 'Au'},
+                { label : '尼泊尔', value : 'IT'},
+                { label : '德意志', value : 'DG'},
+                { label : '法兰西共和国', value : 'FR'},
+                { label : '白俄罗斯',value : 'BELS'},
+                { label : '伊拉克',value : 'YLK'},
+                { label : '塔吉克斯坦', value : 'TJK'},
+                { label : '阿拉伯联合酋长共和国', value : 'TS'}
+            ]
+        });
+
+        $("#getValue").click(function() {
+            alert(select.getValue());
+        });
+
+        $("#readOnly").click(function() {
+            select.setReadOnly(true);
+        });
+
+        $("#editable").click(function() {
+            select.setReadOnly(false);
+        });
+
+    });
+
+</script>
+</body>
+</html>

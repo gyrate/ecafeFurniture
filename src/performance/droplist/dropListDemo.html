@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+    <p>
+        使用ComboBox
+    </p>
+
+    <input id="input"/>
+
+    <div id="sex"></div>
+
+<script type="text/javascript" src="../timer.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        //生成数据源
+        var items = [];
+        for (var i = 0,len = 100; i < len; i++) {
+            items.push({label:'Number ' + i,value: i});
+        }
+        var store = new Sui.data.Store(items);
+
+        //开始计时
+        Timer.start('Sui.List');
+
+        var select = new Sui.form.DropList({
+            applyTo : 'input',
+            name : 'input',
+            searchable : true,
+            value : '3',
+            //forceSelect:false,
+            comboMaxHeight:150,
+            store : store,
+            listeners:{
+                selected : function(event){
+                    console.log(event.value);
+                }
+            }
+        });
+
+        //停止计时
+        Timer.stop('Sui.List');
+        Timer.showResult('Sui.List');
+
+    });
+
+</script>
+</body>
+</html>

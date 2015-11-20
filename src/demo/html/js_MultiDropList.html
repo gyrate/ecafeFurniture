@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            下拉多选框组件
+        </div>
+        <article>
+            <h1>Sui.form.MultiDropList(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> droplist.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.form.Droplist</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.form.MultiDropList</p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , textfield.js , triggerField.js ,list.js ，droplist.js </p>
+                <p>sui.base.css ,sui.form.list.css ,sui.form.droplist.css ,sui.form.triggerfield.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req"></em>items(Array)</td>
+                            <td>[{ label : 'ABBCD', value : '1'},{ label : 'ABBCD2',  value : '2' },]</td>
+                            <td>
+                                <p>下拉多选框的选项数据 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><em class="req"></em>applyTo(String)</td>
+                            <td>
+                                InputID
+                            </td>
+                            <td>
+                                <p>要替换的元素Id </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>labelField (String)</td>
+                            <td>'label'(默认)</td>
+                            <td>服务器输出的数据中与描述值对应的属性名，如数据为[{userName:'tom',id:'12',desc:'tom 编号12'}],则可定义labelField为'userName'</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>valueField (String)</td>
+                            <td>'value'(默认)</td>
+                            <td>服务器输出的数据中与实际值对应的属性名，如数据为[{userName:'tom',id:'12',desc:'tom 编号12'}],则可定义valueField为'id'</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>name (String)</td>
+                            <td>'user'</td>
+                            <td>提交表单时所对应的属性名</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>value (String,Array)</td>
+                            <td>
+                                '3' 或 ['3','4','5']
+                            </td>
+                            <td>初始化组件时，组件的值</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>searchable (Boolean) </td>
+                            <td>false(默认) </td>
+                            <td>是否可搜索，默认为false</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>createHiddenElement (Boolean)</td>
+                            <td>true(默认) </td>
+                            <td>是否创建用于提交表单的<input type="hidden">标签,默认为true</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>panelWidth (Number)</td>
+                            <td>360 （默认）</td>
+                            <td>下拉面板宽度，默认为null，搜索模式下默认为360</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>itemWidth</td>
+                            <td>100 (默认)</td>
+                            <td>已选区域和待选区域选项的宽度，该参数只在searchable为true的模式下生效，默认为100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.form.MultiDropList.html" target="_blank">Sui.form.MultiDropList.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:60%;">
+                    <section>
+                        <p class="str">Example:创建一个标准的MultiDropList组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+<pre id="multiDroplist"><code class="javascript"> select1  = new Sui.form.MultiDropList({
+    applyTo : 'input',
+    name : 'input',
+    value :'44',
+    items : [
+        { label : '2013年质量体系改进项目', value : '11'},
+        { label : '智慧路灯软件四期', value : '22'},
+        { label : 'IT部2013年日常工作',  value : '33'},
+        { label : '测试部2013年日常工作', value : '44'},
+        { label : '南沙智慧家庭服务平台', value : '55'},
+        { label : '南沙区一卡通系统',value : '66'}
+    ]
+});
+</code></pre>                                <!--class="pre_fold"-->
+                        <p class="str">Demo</p>
+
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+
+                    </section>
+
+                    <section>
+                        <p class="str">Example:设置组件的值</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+<pre id="setValue"><code class="javascript"> select1.setValue(['22','11']);
+</code></pre>                                <!--class="pre_fold"-->
+                        <p class="str">Demo</p>
+
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="setValue" />
+                        </p>
+
+                    </section>
+
+                </div>
+                <div style="float: right;width:38%;">
+                    <input id="input"/>
+                </div>
+
+                <div style="float: left;width:60%;">
+
+                    <section>
+                        <p class="str">Example:创建一个支持搜索的MultiDropList组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+<pre id="multiDropList_searchable"><code class="javascript"> select2  = new Sui.form.MultiDropList({
+    applyTo : 'input2',
+    name : 'input2',
+    value :['CN','JN','YS'],
+    searchable:true,//开启搜索模式
+    items : [
+        { label : '中国', value : 'CN'},
+        { label : '美国', value : 'US'},
+        { label : '英国', value : 'EN'},
+        { label : '意大利', value : 'IT'},
+        { label : '加拿大', value : 'JN'},
+        { label : '日本', value : 'JP'},
+        { label : '俄罗斯',value : 'OR'},
+        { label : '印度',value : 'IN'},
+        { label : '德国', value : 'MD'},
+        { label : '中华人民共和国', value : 'ZH'},
+        { label : '美利坚合众国', value : 'USA'},
+        { label : '日不落帝国', value : 'ENR'},
+        { label : '捷克斯洛伐克', value : 'JK'},
+        { label : '阿尔巴尼亚', value : 'AEB'},
+        { label : '埃塞俄比亚', value : 'ASE'},
+        { label : '伊斯坦布尔',value : 'YS'},
+        { label : '印度尼西亚',value : 'YN'},
+        { label : '埃塞俄比亚', value : 'ASE'},
+        { label : '秘鲁', value : 'ML'},
+        { label : '危地马拉', value : 'WDML'},
+        { label : '澳大利亚', value : 'Au'},
+        { label : '尼泊尔', value : 'IT'},
+        { label : '德国', value : 'DG'},
+        { label : '法兰西共和国', value : 'FR'},
+        { label : '白俄罗斯',value : 'BELS'},
+        { label : '伊拉克',value : 'YLK'},
+        { label : '塔吉克斯坦', value : 'TJK'},
+        { label : '阿拉伯联合酋长共和国', value : 'TS'}
+    ]
+});
+</code></pre>                                <!--class="pre_fold"-->
+                    <p class="str">Demo</p>
+
+                    <p>
+                        <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                    </p>
+                    </section>
+                </div>
+                <div style="float: right;width: 38%;">
+                    <input id="input2"/>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+   //执行code区域代码
+    var select1,//组件句柄
+        select2,
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#multiDroplist').runCode();
+    $('#multiDropList_searchable').runCode();
+</script>
+
+</html>

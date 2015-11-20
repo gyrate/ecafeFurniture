@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" media="all" href="../../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../../css/skin1.css" type="text/css"/>
+
+    <link rel="stylesheet" href="../../css/sui.base.css" />
+    <link rel="stylesheet" href="../../css/sui.table.css" />
+    <link rel="stylesheet" href="../../css/sui.form.triggerfield.css" />
+    <link rel="stylesheet" href="../../css/sui.form.date.css" />
+    <link rel="stylesheet" href="../../css/sui.form.list.css" />
+    <link rel="stylesheet" href="../../css/sui.form.droplist.css" />
+    <link rel="stylesheet" href="../../css/sui.menu.css" />
+    <link rel="stylesheet" href="../../css/sui.tree.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+</head>
+<body class="dashwrap">
+   <div class="layout layout_dash" id="layout">
+       <div class="dashtoolbar">
+           <a href="#"  id="set_component">配置组件</a>
+       </div>
+       <div id="dashboard">
+       </div>
+   </div>
+
+<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
+<script>
+$(function() {
+
+    var dataArray = [
+        { id:'0', columnId:0, html:'待我审批的任务', src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com'},
+        { id:'1', columnId:0, html:'项目未填报的任务',src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com' },
+        { id:'2', columnId:0,html:'项目Bug列表',src:'http://www.baidu.com', checked:false , more:'http://www.baidu.com'} ,
+        { id:'3', columnId:1,html:'Bug跟踪',src:'http://www.baidu.com', checked:false , more:'http://www.baidu.com'},
+        { id:'4', columnId:1,html:'待我审批的基线变更',src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com' },
+        { id:'5', columnId:1,html:'个人任务列表',src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com' },
+        { id:'6', columnId:2,html:'待我处理的工作B',src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com'},
+        { id:'7', columnId:2,html:'待我处理的工作A',src:'http://www.baidu.com', checked:false , more:'http://www.baidu.com'},
+        { id:'8', columnId:2,html:'待我处理的工作C',src:'http://www.baidu.com', checked:true , more:'http://www.baidu.com'}
+    ];
+
+    var dataStore = new Sui.data.Store(dataArray);
+
+    var dashboard1 = new Sui.Dashboard({
+        applyTo:'dashboard',
+        columnConfig:[1,2,1],
+        store: dataStore,
+
+        titleField:'html',
+        contentField:'src',
+        columnField:'columnId',
+        showField:'checked',
+        detailField:'more',
+        boxIdField:'id' ,
+        listeners:{
+            remove:function(event) {
+                var itemIndex ;
+                for (var i = 0,len = dataArray.length; i < len; i++) {
+                    if(event.boxid == dataArray[i]['id']){
+                        itemIndex = i;
+                        break;
+                    }
+                }
+                selMenu.layer.getComponent(itemIndex).toggleIcon('checked.png','unchecked.png');
+            }
+        }
+    });
+
+    var arrConfig = [];
+    for (var i = 0,len = dataArray.length; i < len; i++) {
+        arrConfig.push({
+            html:dataArray[i]['html'],
+            icon:dataArray[i]['checked'] ? 'checked.png' : 'unchecked.png',
+            iconBaseUrl:'../../images/table/',
+            listeners:{
+                click:(function(index){
+                    return  function(event){
+
+                        var menuitem = event.target;
+                        //添加或删除box
+                        var record = dataStore.findRecordByNameValue('html',event.text),
+                        boxid = record.getFieldValue('id');
+                        if( record.getFieldValue('checked')){
+                            dashboard1.removeBox(boxid);
+                        }else{
+                            dashboard1.showBox(boxid);
+                            menuitem.toggleIcon('checked.png','unchecked.png');
+                        }
+
+                    }
+                })(i)
+            }
+        })
+    }
+
+    var selMenu = new Sui.menu.Menu({
+        html:'+ 配置组件',
+        applyTo:'set_component',
+        itemConfigs:arrConfig,
+        hideOnClick:false,
+        overClass:''
+    });
+
+})();//end of ready fun
+
+</script>
+<!--与界面布局相关的代码-->
+<script type="text/javascript" src="../../js/layout.js"></script>
+</body>
+</html>

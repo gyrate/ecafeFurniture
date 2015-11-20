@@ -1,0 +1,200 @@
+.sui_treenode_selected {
+    background-color: #D9E8FB;
+    border:1px solid #6699ff;
+}
+.sui_tree_node .sui_treenode_searchnotmatch {
+    color: GREEN;
+}
+
+.sui_tree_node .sui_treenode_searchmatch{
+    background: #ffe6b0;
+    border: 1px #FFB951 solid;
+}
+
+.sui_tree_node_filtered {
+    display : none;
+}
+
+.sui_tree_node_searchHidden {
+    display: none;
+}
+
+.sui_tree {
+    outline: none;
+    font-size: 12px;
+    padding-bottom: 30px;
+}
+
+.sui_treeborder {
+    border: 1px solid #B2B7BC;
+    padding: 5px 0;
+}
+
+.sui_tree_node {
+    margin-right: 4px;
+    white-space: nowrap;
+    height: 18px;
+    line-height: 18px;
+}
+.sui_treenode_check{
+    margin-right: 4px;
+}
+
+.sui_tree_drag_insert_img {
+    position: absolute;
+    width: 18px;
+    height: 16px;
+    background-image: url('../images/tree/right.jpg');
+}
+
+.sui_selecttree {
+    height: 200px;
+    min-height: 12px;
+    width: 250px;
+    overflow: auto;
+}
+
+.sui_tree ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sui_tree ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.sui_tree_node a {
+    /*vertical-align: top;*/
+    display: inline-block;
+    line-height: 18px;
+    cursor: pointer;
+}
+.sui_tree_node a:hover span{
+    text-decoration: underline;
+}
+
+.sui_tree_node a img{
+    margin-right: 2px;
+    vertical-align: -2px;
+}
+
+.sui_node_text {
+    display: inline-block;
+    /*height: 18px;*/
+    vertical-align: top;
+    /* 禁止文本自动换行 */
+    white-space: nowrap;
+}
+
+.sui_tree_node_disabled .sui_node_text{
+    color : #ddd;
+}
+
+.sui_tree_icon {
+    display: inline-block;
+    height: 20px;
+    width: 16px;
+}
+
+.sui_tree_emptyicon {
+    height: 16px;
+    width: 16px;
+}
+
+.sui_tree .sui_treenode_drophover {
+    color: #fff;
+    background: #0099ff;
+    font-weight: bold;
+}
+
+.sui_tree_unfold {
+    background-position: -107px -149px
+}
+
+.sui_tree_fold {
+    background-position: -128px -149px
+}
+
+.sui_tree_loading {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    background-position: 50% 50%;
+    background-image: url(../images/loading16-16.gif);
+}
+
+.sui_tree .treenode_expanded .node_icon_folder {
+    background-image: url(../images/tree/folder-open.gif);
+}
+
+.sui_tree .treenode_collapse .node_icon_folder {
+    background-image: url(../images/tree/folder.gif);
+}
+
+.sui_tree .node_icon_leaf {
+    background-image: url(../images/tree/leaf.gif);
+}
+
+/* 不显示线条 */
+.sui_tree .sui_tree_elbow_end_minus {
+    background-image: url(../images/tree/elbow-end-minus-nl.gif);
+    background-position: 0 0;
+}
+
+.sui_tree .sui_tree_elbow_end_plus {
+    background-image: url(../images/tree/elbow-end-plus-nl.gif);
+    background-position: 0 0;
+}
+
+.sui_tree .sui_tree_elbow_minus {
+    background-image: url(../images/tree/elbow-minus-nl.gif);
+    background-position: 0 0;
+}
+
+.sui_tree .sui_tree_elbow_plus {
+    background-image: url(../images/tree/elbow-plus-nl.gif);
+    background-position: 0 0;
+}
+
+/* 显示线条 */
+.sui_tree_showline .sui_tree_elbow_end_minus {
+    background-image: url(../images/tree/elbow-end-minus.gif);
+    background-position: 0 0;
+}
+
+.sui_tree_showline .sui_tree_elbow_end_plus {
+    background-image: url(../images/tree/elbow-end-plus.gif);
+    background-position: 0 0;
+}
+
+.sui_tree_showline .sui_tree_elbow_minus {
+    background-image: url(../images/tree/elbow-minus.gif);
+    background-position: 0 0;
+}
+
+.sui_tree_showline .sui_tree_elbow_line {
+    background-image: url(../images/tree/elbow-line.gif);
+    background-position: 0 0;
+    height: 18px;
+    width: 16px;
+}
+
+.sui_tree_showline .sui_tree_elbow_plus {
+    background-image: url(../images/tree/elbow-plus.gif);
+    background-position: 0 0;
+}
+
+.sui_tree_showline .sui_tree_elbow {
+    background-image: url(../images/tree/elbow.gif);
+    background-position: 0 0;
+    height: 18px;
+}
+
+.sui_tree_showline .sui_tree_elbow_end {
+    background-image: url(../images/tree/elbow-end.gif);
+    background-position: 0 0;
+    height: 18px;
+}
+

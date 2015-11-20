@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            下拉单选框
+        </div>
+        <article>
+            <h1>Sui.form.Droplist(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> droplist.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.form.TriggerField</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.form.DropList </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , textfield.js , triggerField.js ,list.js ,droplist.js </p>
+                <p>sui.base.css ,sui.form.list.css ,sui.form.droplist.css ,sui.form.triggerfield.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>items(Array)</td>
+                            <td>[{ label : 'ABBCD', value : '1'},{ label : 'ABBCD2',  value : '2' },]</td>
+                            <td>
+                                <p>下拉单选框选项数据 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo(String)</td>
+                            <td>
+                                InputID'
+                            </td>
+                            <td>
+                                <p>要替换的元素Id </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>labelField (String)</td>
+                            <td>'label'(默认)</td>
+                            <td>服务器输出的数据中与描述值对应的属性名，如数据为[{userName:'tom',id:'12',desc:'tom 编号12'}],则可定义labelField为'userName'</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>valueField (String)</td>
+                            <td>'value'(默认)</td>
+                            <td>服务器输出的数据中与实际值对应的属性名，如数据为[{userName:'tom',id:'12',desc:'tom 编号12'}],则可定义valueField为'id'</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>displayValueField (String)</td>
+                            <td>'displayValue'(默认)</td>
+                            <td>服务器输出的数据中与输入框显示的值对应的属性名，如数据为[{userName:'tom',id:'12',desc:'tom 编号12'}],则可定义displayValueField为'desc'</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>name (String)</td>
+                            <td>'user'</td>
+                            <td>提交表单时所对应的属性名</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>value (String,Array)</td>
+                            <td>
+                                '3' 或 ['3','4','5']
+                            </td>
+                            <td>初始化组件时，组件的值</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>listeners (Object) </td>
+                            <td>{selected:function(event){...}}  </td>
+                            <td>监听器，可根据对组件的各种动作（如选中、点击等）执行反应，具体可见演示</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>comboMaxHeight (Number) </td>
+                            <td>150  </td>
+                            <td>下拉选择框最大高度，默认值为null</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>forceSelect (Boolean) </td>
+                            <td>true (默认)  </td>
+                            <td>是否强制选择选项内的值，非选项内的值不能提交，默认为true</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>needIframeInIE (Boolean) </td>
+                            <td>false (默认)  </td>
+                            <td>在IE浏览器是否需要使用iframe方法将layer的z轴层级提高，高于视频控件 ，该参数只对IE有效</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>hideIconElement (Boolean) </td>
+                            <td>false (默认)  </td>
+                            <td>是否隐藏组件触发选择层按钮</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>url (String) </td>
+                            <td>null (默认)  </td>
+                            <td>通过异步方式获得初始化数据，此时url为请求地址</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>searchUrl (String) </td>
+                            <td>null (默认)  </td>
+                            <td>支持ajax搜索时，数据请求地址，通过GET方式传递关键词返回数据</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.form.DropList.html" target="_blank">Sui.form.DropList.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准DropList组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript"> select1 = new Sui.form.DropList({
+    applyTo : 'input',
+    name : 'input',
+    searchable : true,
+    value : '3',
+    items : [
+        { label : 'ABBABBCDABBCDABBCDABBCDABBCDABBCDCD', value : '1'},
+        { label : 'ABBABBCDABBCDABBCDABBCDABBCDABBCDCD2大风吹 大风吹 冰淇淋流泪', value : '2' },
+        { label : 'ABBCD3',  value : '3'},
+        { label : 'ABBCD4', value : '4'},
+        { label : 'DBBCD2',value : '5'},
+        { label : 'AAAAA', value : '6'},
+        { label : 'BBBBB',value : '7'},
+        { label : 'CCCCC', value : '8'},
+        { label : 'DDDDD', value : '9'},
+        { label : 'EEEEE', value : '10'},
+        { label : 'FFFFF', value : '11'},
+        { label : 'GGGGG', value : '12'},
+        { label : 'HHHHH', value : '13'},
+        { label : 'IIIII', value : '14'},
+        { label : 'JJJJJ', value : '15'}
+    ],
+    listeners:{
+        selected : function(event){
+            alert(event.value);
+        }
+    }
+});
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 设置下拉单选框是否可搜索</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="setSearchable" class=""><code class="javascript">
+select1.setSearchable(searchable);
+searchable = !searchable;
+//首次运行变为不可搜索，再次运行变为可以搜索
+                        </code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="setSearchable">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 设置下拉单选框为只读</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="setReadOnly" class=""><code class="javascript">
+select1.setReadOnly(readonly);
+readonly = !readonly;
+//首次运行变为只读，再次运行变为可编辑
+                        </code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="setReadOnly">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 函数清空输入框内容</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="clearValue" class=""><code class="javascript">
+select1.clearValue();
+                        </code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="clearValue">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 强制使用选项的值，不能使用手动输入值</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="forceSelect" class=""><code class="javascript">
+select1.forceSelect = !select1.forceSelect;
+                        </code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="forceSelect">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example: 下拉单选框级联功能 <a target="_blank" href="js_DropList_cascade.html">演示页面 </a></p>
+                        <p class="str">Example: 伪装成input的下拉单选框 <a target="_blank" href="js_DropList_autocomplete.html">演示页面 </a></p>
+                        <p class="str">Example: ajax搜素更新数据 <a target="_blank" href="js_DropList_ajax.html">演示页面 </a></p>
+
+                    </section>
+
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <input id="input"/>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+   //执行code区域代码
+    var select1,//组件句柄
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

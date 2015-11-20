@@ -1,0 +1,1103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>System UI</title>
+    <link rel="stylesheet" media="all" href="../css/base.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../css/default.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../css/skin1.css" type="text/css"/>
+    <link rel="stylesheet" media="all" href="../css/sui.processbar.css" type="text/css"/>
+
+    <style type="text/css">
+        body{
+            background-color: #fff;
+        }
+        h2.caption {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .std_pop {
+            position: static;
+        }
+
+        .navigator{
+            position: fixed;
+            top:20px;
+            left:20px;
+            background: #fff;
+            box-shadow: 1px 1px 3px rgba(100,100,100,0.2);
+            z-index: 999;
+        }
+        .navigator li{
+            margin-top: -1px;
+            width: 150px;
+            border: 1px solid #ccc;
+        }
+        .navigator li:hover{
+            background: #27618f;
+        }
+        .navigator li:hover a{
+            color: #fff;
+        }
+        .navigator a{
+            display: block;
+            padding: 0 2em;
+            line-height: 3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigator">
+        <ul>
+            <li><a href="#ui_message">提示信息</a></li>
+            <li><a href="#ui_input">输入组件</a></li>
+            <li><a href="#ui_filter">过滤表单</a></li>
+            <li><a href="#ui_table">数据表格</a></li>
+            <li><a href="#ui_icon">图标</a></li>
+            <li><a href="#ui_button">按钮</a></li>
+            <li><a href="#ui_form">表单</a></li>
+            <li><a href="#ui_dialog">窗口样式</a></li>
+            <li><a href="#ui_box">文本容器</a></li>
+        </ul>
+    </div>
+    <div class="std" id="ui_message">
+        <h2 class="caption">提示信息</h2>
+        <div style="width:300px;">
+            <span class="sys_tip sys_wait" >数据加载中...</span>
+            <span class="sys_tip sys_suc" >顶部系统提示信息，操作成功</span>
+            <span class="sys_tip sys_war" >顶部系统提示信息，操作失败</span>
+            <span class="sys_tip sys_err" >顶部系统提示信息，操作失败</span>
+        </div>
+    </div>
+    <div class="hr"></div>
+    <div class="std"  id="ui_input">
+        <h2 class="caption">各种输入组件</h2>
+        <div class="std_filter">
+            <form class="std_form">
+
+                <div class="p">
+                    <label for="department0">表格：</label>
+                    <div class="ipt_extxt">
+                        <input type="text" id="department0" value="无表格">
+                        <b class="s_ico s_ico_table"></b>
+                    </div>
+
+                    <label for="department1">树状：</label>
+                    <div class="ipt_extxt">
+                        <input type="text" id="department1">
+                        <b class="s_ico s_ico_2col" id=""></b>
+                    </div>
+
+                    <label for="department2">表单：</label>
+                    <div class="ipt_extxt">
+                        <input type="text" id="department2" value="无表单">
+                        <b class="s_ico s_ico_form"></b>
+                    </div>
+                </div>
+                <div class="p">
+                    <label for="department3">单选：</label>
+                    <div id="singleSelect" class="ipt_extxt" name="department1">
+                        <input type="text" value="" id="department3"><span></span>
+                    </div>
+                    <label for="position1">多选：</label>
+                    <div class="ipt_extxt" id="multipleSelect">
+                        <input type="text" id="position1">
+                        <b class="s_ico s_ico_list"></b>
+                    </div>
+                    <label for="datepicker">日期：</label>
+                    <div class="ipt_extxt">
+                        <input type="text" id="datepicker">
+                        <b class="s_ico s_ico_date" id="datepicker_b"></b>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="hr"></div>
+    <div class="std" id="ui_filter">
+        <h2 class="caption">过滤表单</h2>
+        <h2 class="caption">三列多行布局</h2>
+        <form class="std_form">
+            <div class="p">
+                <label class="lab_s">部门：</label>
+                <div class="ipt_extxt">
+                    <input type="text" value=""/><span></span>
+                </div>
+
+                <label class="lab_s">lab_s：</label>
+                <div class="ipt_extxt" >
+                    <input type="text"/>
+                    <b class="s_ico s_ico_list"></b>
+                </div>
+
+                <label class="lab">lab：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+            </div>
+            <div class="p">
+                <label class="lab_s">起始日：</label>
+                <div class="ipt_extxt" >
+                    <input type="text"/>
+                    <b class="s_ico s_ico_list"></b>
+                </div>
+
+                <label class="lab_s">最长四字：</label>
+                <div class="ipt_extxt" >
+                    <input type="text"/>
+                    <b class="s_ico s_ico_list"></b>
+                </div>
+
+                <label class="lab">最长能有七个字：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+            </div>
+            <div class="p">
+                <label class="lab_s">时间：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+
+                <label class="lab_s">职位：</label>
+                <div class="ipt_extxt" >
+                    <input type="text"/>
+                    <b class="s_ico s_ico_list"></b>
+                </div>
+
+                <label class="lab">活动时间：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+
+                <input type="submit" value="查询目标" class="btn btn_deep">
+            </div>
+
+        </form>
+
+
+        <h2 class="caption">单行布局</h2>
+        <form class="std_form">
+            <label>部门：</label>
+            <div class="ipt_extxt" >
+                <input type="text" value=""/><span></span>
+            </div>
+            <label >职位：</label>
+            <div class="ipt_extxt" >
+                <input type="text" />
+                <b class="s_ico s_ico_list"></b>
+            </div>
+            <label>活动时间：</label>
+            <div class="ipt_extxt" >
+                <input type="text" />
+                <b class="s_ico s_ico_date"></b>
+            </div>
+            <input type="submit" value="查询目标" class="btn btn_deep">
+        </form>
+        <h2 class="caption">两列单行布局</h2>
+        <form class="std_form">
+            <div class="p">
+
+                <label class="lab">部门：</label>
+                <div class="ipt_extxt">
+                    <input type="text" value=""/><span></span>
+                </div>
+
+                <label class="lab">职位：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_list"></b>
+                </div>
+
+            </div>
+            <div class="p">
+
+                <label class="lab">成员身份：</label>
+                <div class="ipt_extxt">
+                    <input type="text" value=""/><span></span>
+                </div>
+
+                <label class="lab">活动时间：</label>
+                <div class="ipt_extxt">
+                    <input type="text"/>
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+
+                <input type="submit" value="查询目标" class="btn btn_deep">
+            </div>
+        </form>
+    </div>
+    <div class="hr"></div>
+    <div class="std" id="ui_table">
+        <h2 class="caption">html表格</h2>
+        <div class="std_filter">
+            <form class="std_form">
+                <!--可过滤下拉菜单 BEGIN-->
+                <label for="department">部门：</label>
+                <div id="department" class="ipt_extxt">
+                    <input type="text" value="123456789132546879"><span></span>
+                    <!--下拉区域-->
+                    <ul style="display: none;" class="droplist">
+                        <li class="on"><a href="javascript:void(0)">发起立项</a></li>
+                        <li><a href="javascript:void(0)">项目立项列表</a></li>
+                    </ul>
+                </div>
+                <!--可过滤下拉菜单 END-->
+                <!--可多选项浮动层 BEGIN-->
+                <label for="position">职位：</label>
+                <div class="ipt_extxt">
+                    <input type="text" id="position">
+                    <b class="s_ico s_ico_list"></b>
+                    <!--多选区域-->
+                    <div style="display: none;" class="multilist">
+                        <div class="multilist_opt">
+                            <a href="javascript:void(0);">[全选]</a>
+                            <a href="javascript:void(0);">[不选]</a>
+                            <a href="javascript:void(0);">[已选择]</a>
+                            <a href="javascript:void(0);">[确定]</a>
+                        </div>
+                        <ul class="multilist_list">
+                            <li><input type="checkbox" value=""><label>草稿中</label></li>
+                            <li><input type="checkbox" value=""><label>待审批</label></li>
+                            <li><input type="checkbox" value=""><label>审批中</label></li>
+                            <li><input type="checkbox" value=""><label>审批通过</label></li>
+                            <li><input type="checkbox" value=""><label>审批未通过</label></li>
+                            <li><input type="checkbox" value=""><label>审批通过</label></li>
+                            <li><input type="checkbox" value=""><label>审批未通过</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--可多选项浮动层 END-->
+                <!--时间选择输入框 BEGIN-->
+                <label for="active_time">活动时间：</label>
+                <div class="ipt_extxt">
+                    <input type="text" id="active_time" >
+                    <b class="s_ico s_ico_date"></b>
+                </div>
+                <!--时间选择输入框 END-->
+                <input type="submit" class="btn" value="查询目标">
+                <input type="submit" class="btn btn_deep" value="查询目标">
+            </form>
+        </div>
+        <!--表格操作（添加，删除）区-->
+        <div class="std_ctrl">
+            <a href="javacript:void(0);"><b class="s_ico s_ico_add"  ></b>添加项目</a>
+            <a href="javacript:void(0);"><b class="s_ico s_ico_minu"  ></b>删除项目</a>
+        </div>
+        <div class="std_tdiv">
+            <!--常规轻量表格，不同于Flexigrid.js的DATAGRID START-->
+
+            <table class="std_table" cellpadding="0" cellspacing="0" border="0" id="stable" >
+                <thead>
+                     <tr>
+                         <th class="col0 tc"><input type="checkbox" value="" class="fid"></th>
+                         <th class="col1 ">员工编号<b class="s_ico s_ico_sorup"></b></th>
+                         <th class="">员工姓名<b class="s_ico s_ico_sorup"></b></th>
+                         <th class=" ">邮箱<b class="s_ico s_ico_sordow"></b></th>
+                         <th class="col1 ">部门<b class="s_ico s_ico_sorup"></b></th>
+                         <th class="col1 tc">操作</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col0 tc"><input type="checkbox" value="" class="fid"></td>
+                        <td>0014</td>
+                        <td title="我是贾君鹏" >贾君鹏</td>
+                        <td>Gyrate.sky@gz.iscas.ac.cn</td>
+                        <td>研发部</td>
+                        <td class="tc">
+                           <a href="javascript:void(0);" class="unl">查看</a> |
+                           <a href="javascript:void(0);" class="unl">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col0 tc"><input type="checkbox" value="" class="fid"></td>
+                        <td>0014</td>
+                        <td >贾君鹏</td>
+                        <td>Gyrate.sky@gz.iscas.ac.cn</td>
+                        <td>研发部</td>
+                        <td class="tc">
+                           <a href="javascript:void(0);" class="unl">查看</a> |
+                           <a href="javascript:void(0);" class="unl">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col0 tc"><input type="checkbox" value="" class="fid"></td>
+                        <td>0014</td>
+                        <td >贾君鹏</td>
+                        <td>Gyrate.sky@gz.iscas.ac.cn</td>
+                        <td>研发部</td>
+                        <td class="tc">
+                           <a href="javascript:void(0);" class="unl">查看</a> |
+                           <a href="javascript:void(0);" class="unl">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col0 tc"><input type="checkbox" value="" class="fid"></td>
+                        <td>0014</td>
+                        <td >贾君鹏</td>
+                        <td>Gyrate.sky@gz.iscas.ac.cn</td>
+                        <td>研发部</td>
+                        <td class="tc">
+                           <a href="javascript:void(0);" class="unl">查看</a> |
+                           <a href="javascript:void(0);" class="unl">删除</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col0 tc"><input type="checkbox" value="" class="fid"></td>
+                        <td>0014</td>
+                        <td >贾君鹏</td>
+                        <td>Gyrate.sky@gz.iscas.ac.cn</td>
+                        <td>研发部</td>
+                        <td class="tc">
+                           <a href="javascript:void(0);" class="unl">查看</a> |
+                           <a href="javascript:void(0);" class="unl">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="std_tpage tr">
+            <span>批量操作：</span>
+            <select>
+                <option value="1" selected>删除</option>
+                <option value="2" >编辑</option>
+            </select>
+            <a href="javascript:void(0)">首页</a>
+            <a href="javascript:void(0)">上一页</a>
+            <a href="javascript:void(0)">下一页</a>
+            <a href="javascript:void(0)">末页</a>
+            <select>
+                <option value="1" selected>1/2</option>
+                <option value="2" >2/2</option>
+            </select>
+        </div>
+        <h2 class="caption">空数据表格</h2>
+        <!--空数据表格-->
+        <table class="std_table" cellpadding="0" cellspacing="0" border="0" >
+            <thead>
+                 <tr>
+                     <th class="col0 tc"><input type="checkbox" value=""></th>
+                     <th class="col1 ">员工编号<b class="s_ico s_ico_sorup"></b></th>
+                     <th class="">员工姓名<b class="s_ico s_ico_sorup"></b></th>
+                     <th class=" ">邮箱<b class="s_ico s_ico_sordow"></b></th>
+                     <th class="col1 ">部门<b class="s_ico s_ico_sorup"></b></th>
+                     <th class="col1 tc">操作</th>
+                 </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="6" class="empty">表格数据为空</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="caption">Form表单内常用表格</h2>
+        <div class="std_ctrl std_ctrl_sim mt10">
+            <a href="javacript:void(0);"><b class="s_ico s_ico_add"  ></b>添加项目</a>
+            <a href="javacript:void(0);"><b class="s_ico s_ico_minu"  ></b>删除项目</a>
+        </div>
+        <table class="std_table std_table_sim" cellpadding="0" cellspacing="0" border="0"  id="form_table">
+            <colgroup>
+                <col width="50"/>
+                <col width="100"/>
+                <col width="100"/>
+                <col width="100"/>
+                <col width="120"/>
+                <col width=""/>
+                <col width=""/>
+                <col width="100"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class=" tc"><input class="fid" type="checkbox"></th>
+                    <th class=" ">任务名称</th>
+                    <th class="">任务类型</th>
+                    <th class="">剩余工作量</th>
+                    <th class=" ">时间比值</th>
+                    <th>其他</th>
+                    <th class=" tc">审核时间</th>
+                    <th class=" tc">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tc">
+                        <input class="fid" type="checkbox">
+                    </td>
+                    <td>报工前端开发</td>
+                    <td>编码</td>
+                    <td class="tc"><input type="text" class="ipt_txt_s"></td>
+                    <td>
+                        <div class="percent">
+                            <div class="percent_g" style="width: 80%;"></div>
+                            <span class="percent_num">80%</span>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td class="tc">2012-05-02</td>
+                    <td class="tc">
+                        <a href="javascript:void(0)" class="unl">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tc">
+                        <input class="fid" type="checkbox">
+                    </td>
+                    <td>报工前端开发</td>
+                    <td>编码</td>
+                    <td class="tc"><input type="text" class="ipt_txt_s"></td>
+                    <td>
+                        <div class="percent">
+                            <div class="percent_r" style="width: 100%;">
+                                <span>120%</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td class="tc">2012-05-02</td>
+                    <td class="tc">
+                        <a href="javascript:void(0)" class="unl">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tc">
+                        <input class="fid" type="checkbox">
+                    </td>
+                    <td>报工前端开发</td>
+                    <td>编码</td>
+                    <td class="tc"><input type="text" class="ipt_txt_s"></td>
+                    <td>
+                        <div class="percent">
+                            <div class="percent_r" style="width: 100%;">
+                                <span>120%</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td class="tc">2012-05-02</td>
+                    <td class="tc">
+                        <a href="javascript:void(0)" class="unl">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="caption">提示中的表格</h2>
+        <div class="remind">
+            <p>你有未提交或被拒绝的报工记录 <a href="javascript:void(0);" id="show_remind_detail">详细信息↓</a></p>
+            <table class="inf_table mt10 w560" cellpadding="0" cellspacing="0" border="1" id="remind_detail">
+                <colgroup>
+                    <col width="140">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>日志期间</th>
+                    <th>未提交的报工记录</th>
+                    <th>未审核的报工记录</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2012/05/21</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2012/05/21</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2012/05/21</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <h2 class="caption">进度条</h2>
+
+        <div style="width:550px;">
+            <div class="sui_process" style="width: 100%;">
+                <span class="sui_process_con" style="width:80%;"></span>
+                <span class="sui_process_text">80%</span>
+            </div>
+            <div class="sui_process" style="width: 100%;">
+                <span class="sui_process_con" style="width:100%;"></span>
+                <span class="sui_process_text">100%</span>
+            </div>
+            <div class="sui_process sui_process_red" style="width: 100%;">
+                <span class="sui_process_con" style="width:80%;"></span>
+                <span class="sui_process_text">80%</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="hr"></div>
+    <div class="std" id="ui_icon">
+        <h2 class="caption">各种系统图标</h2>
+        <b class="s_ico s_ico_male"></b><label>男性</label>
+        <b class="s_ico s_ico_female"></b><label>女性</label>
+        <br/><br/>
+        <b class="s_ico s_ico_search"></b><label>搜索</label>
+        <b class="s_ico s_ico_list"></b><label>多选</label>
+        <b class="s_ico s_ico_table"></b><label>表格</label>
+        <b class="s_ico s_ico_date"></b><label>日期</label>
+        <b class="s_ico s_ico_2col"></b><label>两栏窗口</label>
+        <b class="s_ico s_ico_colpik"></b><label>颜色</label>
+        <b class="s_ico s_ico_form"></b><label>表单</label>
+        <br/><br/>
+        <b class="s_ico s_ico_detail"></b><label>查看</label>
+        <b class="s_ico s_ico_edit"></b><label>编辑</label>
+        <b class="s_ico s_ico_delete"></b><label>删除</label>
+        <b class="s_ico s_ico_draft"></b><label>草稿</label>
+        <b class="s_ico s_ico_record"></b><label>意见</label>
+        <br/><br/>
+        <b class="s_ico s_ico_allow"></b><label>批准</label>
+        <b class="s_ico s_ico_reject"></b><label>拒绝</label>
+        <b class="s_ico s_ico_project"></b><label>项目</label>
+        <b class="s_ico s_ico_task"></b><label>任务</label>
+        <b class="s_ico s_ico_report"></b><label>报告</label>
+        <br/><br/>
+        <b class="s_ico s_ico_line"></b><label>线图</label>
+        <b class="s_ico s_ico_temp"></b><label>模版</label>
+        <b class="s_ico s_ico_addtemp"></b><label>添加模版</label>
+        <b class="s_ico s_ico_temph"></b><label>根模版</label>
+        <br/><br/>
+        <b class="s_ico s_ico_wait"></b><label>等待</label>
+        <b class="s_ico s_ico_tick"></b><label>打勾</label>
+        <b class="s_ico s_ico_cross"></b><label>打叉</label>
+        <b class="s_ico s_ico_qa" title="我是帮助，想看啥内容请找我。"></b><label>帮助</label>
+        <br/><br/>
+        <b class="s_ico s_ico_sorup"></b><label>增序</label>
+        <b class="s_ico s_ico_sordow"></b><label>降序</label>
+        <b class="s_ico s_ico_fold"></b><label>收缩</label>
+        <b class="s_ico s_ico_unfold"></b><label>展开</label>
+        <br/><br/>
+        <h2 class="caption"> 附件图标</h2>
+        <b class="s_ico s_ico_excel"></b><label>Excel</label>
+        <b class="s_ico s_ico_word"></b><label>Word</label>
+        <b class="s_ico s_ico_ppt"></b><label>PPT</label>
+        <b class="s_ico s_ico_7zip"></b><label>7zip</label>
+        <b class="s_ico s_ico_rar"></b><label>RAR</label>
+        <br/><br/>
+        <b class="s_ico s_ico_jpg"></b><label>jpg</label>
+        <b class="s_ico s_ico_gif"></b><label>gif</label>
+        <b class="s_ico s_ico_png"></b><label>png</label>
+        <b class="s_ico s_ico_bmp"></b><label>bmp</label>
+        <b class="s_ico s_ico_tif"></b><label>tif</label>
+        <br/><br/>
+        <h2 class="caption">各种操作图标和信息图标</h2>
+        <a href="#"><b class="s_ico s_ico_add"></b>添加项目</a>
+        <a href="#"><b class="s_ico s_ico_minu"></b>删除项目</a>
+        <span class="t_suc"><b class="s_ico s_ico_suc"></b>成功操作提示</span>
+        <span class="t_war"><b class="s_ico s_ico_war"></b>警告操作提示</span>
+        <br/><br/>
+        <b class="b_ico b_ico_suc"></b></b><label>成功</label>
+        <b class="b_ico b_ico_inf"></b></b><label>信息</label>
+        <b class="b_ico b_ico_err"></b></b><label>错误</label>
+        <b class="b_ico b_ico_war"></b></b><label>警告</label>
+        <br/>
+        <br/>
+        <h2 class="caption"> 导航栏图标</h2>
+        <b class="s_ico s_ico_flag"></b><a href="javascript:void(0)">项目立项</a>
+        <b class="s_ico s_ico_project-set"></b><a href="javascript:void(0)">项目设置</a>
+        <br/>
+        <br/>
+        <b class="s_ico s_ico_my-form"></b><a href="javascript:void(0)">我的表单</a>
+        <b class="s_ico s_ico_todo-form"></b><a href="javascript:void(0)">代办任务</a>
+        <b class="s_ico s_ico_done-form"></b><a href="javascript:void(0)">已办任务</a>
+        <b class="s_ico s_ico_complete-form"></b><a href="javascript:void(0)">办结任务</a>
+        <br/>
+        <br/>
+        <b class="s_ico s_ico_loan"></b><a href="javascript:void(0)">借款申请表</a>
+        <b class="s_ico s_ico_loan-travel"></b><a href="javascript:void(0)">出差申请表</a>
+        <b class="s_ico s_ico_loan-server"></b><a href="javascript:void(0)">招待费申请表</a>
+        <br/>
+        <br/>
+        <b class="s_ico s_ico_sys-set"></b><a href="javascript:void(0)">系统设置</a>
+
+    </div>
+    <div class="hr"></div>
+    <div class="std" id="ui_button">
+        <h2 class="caption">各种按钮</h2>
+        <input type="submit" value="提交" class="btn"/>
+        <input type="button" value="保存" class="btn btn_deep"/>
+        <input type="button" value="失效" class="btn btn_dis" disabled="disabled"/>
+
+        <input type="submit" value="保存" class="b_btn"/>
+        <input type="button" value="提交" class="b_btn b_btn_deep"/>
+
+        <br/><br/>
+        <a href="javascript:void(0);" class="a_btn">修改配置信息修改配置信息修改 最长22个字<span></span></a>
+        <br/><br/>
+        <a href="javascript:void(0);" class="a_btn a_btn_deep">修改配置信息修改配置信息修改 最长22个字<span></span></a>
+        <br/><br/>
+        <a href="javascript:void(0);" class="a_btn a_btn_dis">修改配置信息修改配置信息修改 最长22个字<span></span></a>
+        <br/>
+    </div>
+    <div class="hr"></div>
+    <div class="std" id="ui_form">
+        <h2 class="caption">常规表单</h2>
+        <form id="sysForm" action="" method="post" enctype="" class="std_form">
+            <h3 class="caption">表单标题</h3>
+            <p>
+                <label class="lab"><em class="t_req">*</em> 员工姓名：</label>
+                <input class="ipt_txt ipt_war" type="text"/>
+                <span class="t_war"><b class="s_ico s_ico_war"></b>该项不能为空</span>
+            </p>
+            <p>
+                <label class="lab"><em class="t_req">*</em> 员工姓名：</label>
+                <input class="ipt_txt readonly" type="text" value="只读状态" readonly />
+                <span class="t_war"><b class="s_ico s_ico_war"></b>该项不能为空</span>
+            </p>
+            <p>
+                <label class="lab"><em class="t_req">*</em> 电子邮箱：</label>
+                <input class="ipt_txt" type="text" value="gyrate@gz.iscas.ac.cn" />
+                <span class="t_suc"><b class="s_ico s_ico_suc"></b>邮箱验证通过</span>
+            </p>
+            <p>
+                <label class="lab"><em class="t_req">*</em> 所属部门：</label>
+                <select>
+                    <option>研发部</option>
+                    <option>人事部</option>
+                    <option>行政部</option>
+                    <option>信息技术部</option>
+                </select>
+            </p>
+            <p>
+                <label  class="lab">资料上传：</label>
+                <input type="file" class="ipt_file" size="1" contenteditable="false" id="ipt_file"/>
+                <input type="button" class="btn btn_deep" value="点击上传" />
+                <label id="ipt_file_src" >文件名称</label>
+            </p>
+            <!--<div class="hr hr_s"></div>-->
+            <p>
+                <label class="lab"> 电话号码：</label>
+                <input class="ipt_txt" type="text" value="" />
+                <span class="t_tip">此为选填项</span>
+            </p>
+            <p>
+                <label class="lab"> 权限：</label>
+                <span  class="ipt_extxt" >
+                    <input type="text"  value="123" /><b class="s_ico s_ico_search"></b>
+                </span>
+            </p>
+            <p>
+                <label class="lab"> 入职时间：</label>
+                <span  class="ipt_extxt" >
+                    <input type="text"  value="" /><b class="s_ico s_ico_date"></b>
+                </span>
+            </p>
+            <p>
+                <label class="lab"> 选择器：</label>
+                <span  class="ipt_extxt" >
+                    <input type="text"  value="#f9f9fe" /><b class="s_ico s_ico_colpik"></b>
+                </span>
+                <span class="t_tip">未完成</span>
+            </p>
+            <p>
+                <label class="lab"> 权限：</label>
+                <input class="ipt_chk" type="checkbox" id="hall"/><label for="hall">大厅</label>
+                <input class="ipt_chk" type="checkbox" id="gate"/><label for="gate">大门</label>
+                <input class="ipt_chk" type="checkbox" id="lab" /><label for="lab">研究室</label>
+                <input class="ipt_chk" type="checkbox" id="ser" /><label for="ser">服务器机房</label>
+            </p>
+            <p>
+                <label class="lab"> 黑名单：</label>
+                <input type="radio" name="black" value="true"><label>是</label>
+                <input type="radio" name="black" value="false" checked><label>否</label>
+            </p>
+            <div class="hr hr_s mb20"></div>
+            <p>
+                <label class="lab"> 填入内容：</label>
+                <textarea rows="" cols="" class="tarea"></textarea><br/>
+                <span class="t_tip tarea_tip">当前已经输入45字，最多输入400字。</span>
+            </p>
+            <p>
+                <label class="lab"> 提交出错：</label>
+                <textarea rows="" cols="" class="tarea ipt_war"></textarea><br/>
+            </p>
+            <div class="hr hr_s mb20"></div>
+            <p class="barea">
+                <input type="submit" value="保存" class="b_btn b_btn_deep"/>
+                <input type="button" value="返回" class="b_btn"/>
+            </p>
+        </form>
+    </div>
+    <div class="hr"></div>
+    <div class="std" id="ui_dialog">
+        <h2 class="caption">窗口样式</h2>
+        <!--普通消息提示窗口 START-->
+        <div class="std_pop">
+            <div class="pop_border">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pop_title">
+                                    <span class="fl">系统提示</span>
+                                    <b class="close">关闭</b>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pop_content">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td class="tc td_ico">
+                                                <b class="b_ico b_ico_suc"></b>
+                                            </td>
+                                            <td class="td_txt">
+                                                    淘宝网所展示的宝贝供求信息由买卖双方自行提供，其真实性、准确性和合法性由信息发布人负责。
+                                                淘宝网不提供任何保证，并不承担任何法律责任。淘宝网友情提醒：为保障您的利益，请网上成交，
+                                                贵重宝贝，请使用支付宝交易。
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pop_foot">
+                                     <input type="button" value="确定" class="btn"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <b class="pop_resize"></b>
+            </div>
+        </div>
+        <!--普通消息提示窗口 END-->
+        <br/>
+        <br/>
+        <!--表达式编辑器 START-->
+        <div class="std_pop" style="width: 480px;">
+            <div class="pop_border">
+                <div class="pop_title">
+                    <span class="fl">表达式编辑窗口</span>
+                    <b class="close">关闭</b>
+                </div>
+                <form class="std_form">
+                    <div class="pop_content expression">
+                        <div class="lib">
+                            <p>
+                            <input type="button" value="插入变量" class="btn"> |
+                            <a class="sign" href="javascript:void(0)" title="加">+</a>
+                            <a class="sign" href="javascript:void(0)" title="减">-</a>
+                            <a class="sign" href="javascript:void(0)" title="乘">*</a>
+                            <a class="sign" href="javascript:void(0)" title="除">/</a> |
+                            <a class="sign" href="javascript:void(0)" title="等于">=</a>
+                            <a class="sign" href="javascript:void(0)" title="大于">&lt;</a>
+                            <a class="sign" href="javascript:void(0)" title="小于">&gt;</a>
+                            <a class="sign" href="javascript:void(0)" title="大于或等于">&le;</a>
+                            <a class="sign" href="javascript:void(0)" title="小于或等于">&ge;</a>
+                            <a class="sign" href="javascript:void(0)" title="不等于">&ne;</a> |
+                            <a class="sign" href="javascript:void(0)" title="左括弧">(</a>
+                            <a class="sign" href="javascript:void(0)" title="右括弧">)</a>
+                            </p>
+                            <p>
+                            <a class="sign" href="javascript:void(0)" title="并且">&&</a>
+                            <a class="sign" href="javascript:void(0)" title="或者">||</a>
+                            <a class="sign" href="javascript:void(0)" title="非">!</a>
+                            </p>
+                            <div class="fwin w200" style="display: block;">
+                                <div class="arraw"></div>
+                                <div class="fwin_content h90">
+                                    <p>
+                                        <select>
+                                            <option>department</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select>
+                                            <option>sub department</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select>
+                                            <option>department</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select>
+                                            <option>sub department</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select>
+                                        <select>
+                                            <option>department</option>
+                                        </select>
+                                    </p>
+                                    <p>
+                                        <select>
+                                            <option>sub department</option>
+                                        </select>
+                                    </p>
+                                </div>
+                                <div class="fwin_foot">
+                                    <a href="javascript:void(0)">[确定]</a>
+                                    <a href="javascript:void(0)">[取消]</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <textarea class="tarea" ></textarea>
+                        </div>
+                        <div class="tip">
+                            <span class="t_suc"><b class="s_ico s_ico_suc"></b>表达式校验成功</span>
+                            <span class="t_war"><b class="s_ico s_ico_war"></b>表达式校验失败</span>
+                        </div>
+                    </div>
+                    <div class="pop_foot">
+                         <input type="button" value="确定" class="btn"/>
+                         <input type="button" value="取消" class="btn"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--表达式编辑器 END-->
+        <br/>
+        <br/>
+        <!--节点选择器 START-->
+        <div class="std_pop" style="width:500px;">
+            <div class="pop_border">
+                <div class="pop_title">
+                    <span class="fl">节点选择器</span>
+                    <b class="close">关闭</b>
+                </div>
+                <div class="pop_content nodeselbox">
+                    <table style="width: 100%;">
+                        <colgroup>
+                            <col width="210"/>
+                            <col />
+                            <col width="210"/>
+                        </colgroup>
+                        <tr>
+                            <td>
+                                <div class="searchbox">
+                                    <form action="">
+                                        <div class="ipt_extxt">
+                                            <input type="text" value="输入关键词">
+                                            <b class="s_ico s_ico_search"></b>
+                                        </div>
+                                        <ul style="display: none;" class="droplist">
+                                            <li class="on"><a href="javascript:void(0)">发起立项</a></li>
+                                            <li><a href="javascript:void(0)">项目立项列表</a></li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </td>
+                            <td></td>
+                            <td><span class="tip">已选择对象</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--树状结构 START-->
+                                <div class="treebox" style="width:202px;height: 350px;">
+                                </div>
+                                <!--树状结构 END-->
+                            </td>
+                            <td class="tc">
+                                <b class="s_ico s_ico_right"></b>
+                            </td>
+                            <td>
+                                <!--选择结果 START-->
+                                <div class="selbox" >
+                                    <ul>
+                                        <li>
+                                            <span>叶俊贤叶俊贤叶俊贤叶俊贤叶俊贤</span><a class="selbox_del" href="javascript:void(0)">删除</a>
+                                        </li>
+                                        <li>
+                                            <span>叶俊贤</span> <a class="selbox_del" href="javascript:void(0)">删除</a>
+                                        </li>
+                                        <li>
+                                            <span>叶俊贤</span> <a class="selbox_del" href="javascript:void(0)">删除</a>
+                                        </li>
+                                        <li>
+                                            <span>叶俊贤</span> <a class="selbox_del" href="javascript:void(0)">删除</a>
+                                        </li>
+                                        <li>
+                                            <span>叶俊贤</span> <a class="selbox_del" href="javascript:void(0)">删除</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--选择结果 END-->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="pop_foot">
+                     <input type="button" value="保存" class="btn btn_deep"/>
+                     <input type="button" value="取消" class="btn"/>
+                </div>
+            </div>
+        </div>
+        <!--节点选择器 END-->
+        <br/>
+        <br/>
+        <!--借款申请表 START-->
+        <div class="std_pop" style="width:760px;">
+            <div class="pop_border">
+                <div class="pop_title">
+                    <span class="fl">借款申请表</span>
+                    <b class="close">关闭</b>
+                </div>
+                <form action="">
+                <div class="pop_content simple_form">
+                    <h2 class="caption">借款申请单</h2>
+                    <p class="tcline"><label>借款时间：</label> <input type="text" class="txtline"/></p>
+                    <table cellspacing="0" cellpadding="0" border="0" class="simple_table">
+                        <tbody>
+                            <tr>
+                                <td class="labeltd">部门</td>
+                                <td width="380">
+                                    <select class="w250">
+                                        <option>123</option>
+                                    </select>
+                                </td>
+                                <td class="labeltd">借款人</td>
+                                <td >
+                                    <span>叶俊贤</span><input type="hidden" value="1231" name="applicantId">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="labeltd">所属项目组</td>
+                                <td  colspan="3">
+                                    <select class="w250">
+                                        <option>123</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="labeltd">借款事由</td>
+                                <td  colspan="3">
+                                    <input type="text" value="" class="noborder w600" name="originIndident" id="originIndident">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="labeltd">借款金额(人民币)</td>
+                                <td  colspan="3"><span id="signSpan"></span>
+                                    <input type="text" value=""  class="num txtline" name="m0" id="m0" /><span>拾</span>
+                                    <input type="text" value=""  class="num txtline" name="m1" id="m1" /><span>万</span>
+                                    <input type="text" value=""  class="num txtline" name="m2" id="m2" /><span>仟</span>
+                                    <input type="text" value=""  class="num txtline" name="m3" id="m3" /><span>佰</span>
+                                    <input type="text" value=""  class="num txtline" name="m4" id="m4" /><span>拾</span>
+                                    <input type="text" value=""  class="num txtline" name="m5" id="m5" /><span>元</span>
+                                    <input type="text" value=""  class="num txtline" name="m6" id="m6" /><span>角</span>
+                                    <input type="text" value=""  class="num txtline" name="m7" id="m7" /><span>分</span>
+                                    <span>￥</span><input type="text" value="" size="10"   class="txtline" name="fee" /><span>元</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="labeltd">借款方式</td>
+                                <td  colspan="3">
+                                    <input type="radio" name="loanway" checked/><label>现金</label>
+                                    <input type="radio" name="loanway"/><label>支票</label>
+                                    <input type="text" class="txtline">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <table cellspacing="0" cellpadding="0" border="0" class="simple_table">
+                        <tr>
+                            <td class="titletd">部门主管</td>
+                            <td class="titletd">财务处</td>
+                            <td class="titletd">主管主任/部门主管领导</td>
+                            <td class="titletd">所长/常务副所长</td>
+                        </tr>
+                        <tr class="selarea">
+                            <td>
+                                <select>
+                                    <option>123</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>123</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>123</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>123</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="tcline">
+                        <label>会计：</label><input class="txtline" type="text" name=""/>
+                        <label>出纳：</label><input class="txtline" type="text" name=""/>
+                        <label>收款人：</label><input class="txtline" type="text" name=""/>
+                    </p>
+                </div>
+                <div class="pop_foot">
+                     <input type="button" value="保存" class="btn btn_deep"/>
+                     <input type="button" value="取消" class="btn"/>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!--借款申请表 END-->
+        <br/>
+    </div>
+    <div class="hr"></div>
+    <div class="std" id="ui_box">
+        <h2 class="caption">文本信息容器</h2>
+        <div class="std_box linb mb10">
+            <div class="box_title">
+                <span class="fl">新闻中心</span>
+                <a class="fr" href="#">更多>></a>
+            </div>
+            <div class="box_content">
+                <ul>
+                    <li><a class="li_des wrap" href="javascript:void(0);">武汉全球征集智慧城市智慧建设方案武汉全球征集智慧城市智慧建设方案</a><span class="li_tip">2012-12-15</span></li>
+                    <li><a class="li_des wrap" href="javascript:void(0);">智慧城市智慧建设方案</a><span class="li_tip">2012-12-15</span></li>
+                    <li><a class="li_des wrap" href="javascript:void(0);">智慧城市</a><span class="li_tip">2012-12-15</span></li>
+                    <li><a class="li_des wrap" href="javascript:void(0);">武汉全球征集智慧城市智慧建设方案</a><span class="li_tip">2012-12-15</span></li>
+                    <li><a class="li_des wrap" href="javascript:void(0);">武汉全球征集智慧城市智慧建设方案</a><span class="li_tip">2012-12-15</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="std_box linb">
+            <div class="box_title ">
+                <span class="fl">新闻中心</span>
+                <a class="fr" href="#">更多>></a>
+            </div>
+            <div class="box_content">
+                <p>
+                    近期网络盗号严重，建议您绑定手机确保帐号安全，可免费取回密码。
+                    <a href="javascript:void(0);"> 马上绑定>> </a>
+                </p>
+                <p>
+                    网易另有四大密保措施确保您的帐号安全，自主研发人脸识别技术2012年将率先应用于邮箱，欢迎你更新系统使用。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

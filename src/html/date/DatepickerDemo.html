@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title></title>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+
+    <script type="text/javascript" src="../../js/form/numberfield.js"></script>
+
+    <script type="text/javascript" src="../../js/form/spinner.js"></script>
+    <link href="../../css/sui.form.spinner.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/form/timefield.js"></script>
+    <link href="../../css/sui.form.timefield.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/form/date.js"></script>
+    <script type="text/javascript" src="../../js/form/datepicker.js"></script>
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css"/>
+    <script>
+
+        $(function() {
+
+            var datepicker = new Sui.Datepicker({
+                renderTo:Sui.getBody(),
+                trigger:'date-input',
+                dateFormat:'yyyy-MM-dd',
+//                currentDate:new Date('2099/12/15')
+//                value:'2049-12-03',
+                range:['2001/01/01','2050/12/31']
+//                errorHandler:function(event) {
+//                    var msg = {
+//                        invalid:'输入格式错误',
+//                        outRange:'超出日期范围'
+//                    };
+////                    alert(msg[event.type]);
+//                }
+            }) ;
+
+            var datepicker2 = new Sui.Datepicker({
+                renderTo:Sui.getBody(),
+                trigger:'date-trigger',
+                output:'date-input2',
+                dateFormat:'yyyy,M,d',
+                errorHandler:function(event) {
+                    var msg = {
+                        invalid:'输入格式错误',
+                        outRange:'超出日期范围'
+                    };
+                    alert(msg[event.type]);
+                    datepicker2.setValue(Sui.DateUtil.format(event.currentDate, event.dateFormat), event.currentDate);
+                }
+            });
+
+            //
+            $("#year").click(function() {
+                datepicker.setDateFormat("yyyy");
+            });
+
+            $("#yearMonth").click(function() {
+                datepicker.setDateFormat("yyyy-MM");
+            });
+
+            $("#yearMonthDay").click(function() {
+                datepicker.setDateFormat("yyyy-MM-dd");
+            });
+
+            $("#yearMonthDayH").click(function() {
+                datepicker.setDateFormat("yyyy-MM-dd hh");
+            });
+
+            $("#yearMonthDayHM").click(function() {
+                datepicker.setDateFormat("yyyy-MM-dd hh:mm");
+            });
+
+            $("#yearMonthDayHMS").click(function() {
+                datepicker.setDateFormat("yyyy-MM-dd hh:mm:ss");
+            });
+
+            $('#activateDate').click(function(){
+                datepicker.activeDisableDate();
+            });
+            $('#setRange').click(function(){
+                console.log('setRange');
+                datepicker.setRange(['2013-09-05','2013-09-25']);
+            });
+            $('#button-set-value').click(function(){
+                var string = $('#input-value').val();
+                datepicker.setValue(string);
+            });
+            $('#button-get-value').click(function(){
+                alert(datepicker.getValue());
+            });
+
+            $('#button-clear').click(function(){
+                datepicker.clearValue();
+            });
+        });
+
+    </script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .section{
+            overflow: hidden;
+            background: #f0f0f0;
+            height: 700px;
+        }
+        .ctrlSection h2{ font-size: 20px; font-weight: 600; margin: 1em 0;}
+        .ctrlSection p{ margin: 1em 0;}
+        .componentSection{
+            margin-left: 30%;
+            padding: 20px;
+            background: #fff;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+        .ctrlSection{
+            float: left;
+            width:30%;
+            height: 100%;
+            border-right: 1px solid #ccc;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+        .p20{padding: 20px;}
+    </style>
+</head>
+<body>
+
+<div class="section">
+    <div class="ctrlSection">
+       <div class="p20">
+
+           <h2>自定义日期组件的格式</h2>
+           <p>
+               <button id="year">选择年yyyy</button>
+               <button id="yearMonth">选择年月yyyy-MM</button>
+               <button id="yearMonthDay">选择年月日yyyy-MM-dd</button>
+           </p>
+           <p><button id="yearMonthDayH">选择年月日时yyyy-MM-dd hh</button>          </p>
+           <p><button id="yearMonthDayHM">选择年月日时分yyyy-MM-dd hh:mm</button>     </p>
+           <p><button id="yearMonthDayHMS">选择年月日时分秒yyyy-MM-dd hh:mm:ss</button></p>
+
+           <h2>设置可选择范围</h2>
+           <p><input id="activateDate" type="button" value="激活禁用日期"></p>
+           <p><input id="setRange" type="button" value="修改可选范围"></p>
+           <p>修改可选范围为['2013-09-05','2013-09-25']</p>
+
+           <h2>设置组件datepicker的值</h2>
+           <p><input type="text" value="2014-125" id='input-value'><input type="button" value="赋值" id="button-set-value"></p>
+           <p>输入框的值必须格式正确，且在可选范围，否则派发出错事件</p>
+           <h2>获取组件datepicker的值</h2>
+           <p><input type="button" value="取值" id="button-get-value"></p>
+
+           <h2>清空datepicker的值</h2>
+           <p><input type="button" value="清空" id="button-clear"></p>
+       </div>
+
+    </div>
+
+    <div class="componentSection">
+        <label>datepicker:</label> <input  id="date-input" type="text" style="width: 150px;"/>
+
+        <br/>
+        <br/>
+
+        <label>datepicker2:</label>
+        <div class="ipt_extxt">
+            <input type="text" id="date-input2">
+            <b id="date-trigger" class="s_ico s_ico_date"></b>
+        </div>
+
+        <a href="" id="link">超链接</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

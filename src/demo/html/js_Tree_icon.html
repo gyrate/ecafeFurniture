@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.tree.css" rel="stylesheet" media="all"/>
+    <style>
+        .sui_tree .country_node_icon .node_icon {
+            background-image: url("");
+            background-color: RED;
+        }
+
+        .sui_tree .provice_node_icon .node_icon {
+            background-image: url("");
+            background-color: #adff2f;
+        }
+
+        .sui_tree .city_node_icon .node_icon {
+            background-image: url("");
+            background-color: BLUE;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个标准Tree组件</h2>
+            <section>
+<pre id="std_pop" ><code class="javascript">var tree = new Sui.tree.Tree({
+    renderTo:'tree',
+    lineVisible : true,
+    nodeIconVisible : true,
+
+    nodeClasses : {
+        country : 'country_node_icon',
+        provice : 'provice_node_icon',
+        city : 'city_node_icon'
+    },
+
+    listeners : {
+        nodeClick : function(event) {
+            var text = event.nodeText;
+            Sui.log(text);
+        }
+    }
+});
+
+var china = new Sui.tree.TreeNode({
+    expanded : true,
+    nodeText:'中国',
+    nodeType : 'country'
+});
+var hunan = new Sui.tree.TreeNode({
+    expanded : true,nodeText:'湖南',
+    nodeType : 'provice'
+});
+var changsha = new Sui.tree.TreeNode({
+    expanded : true,nodeText:'长沙',
+    nodeType : 'city'
+});
+
+var hengyang = new Sui.tree.TreeNode({
+    nodeText:'衡阳',
+    nodeType : 'city'
+});
+var hubei = new Sui.tree.TreeNode({
+    nodeText:'湖北',
+    nodeType : 'provice'
+});
+
+china.addChildNode(hunan);
+hunan.addChildNode(changsha);
+hunan.addChildNode(hengyang);
+china.addChildNode(hubei);
+
+tree.setRoot(china);
+
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div id="tree"></div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script src="../../js/tree/tree.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+</script>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <style>
+        .caption{ padding: 1em; font-size: 2em;}
+        p{margin-bottom: 1em;}
+    </style>
+</head>
+<body style="background: #ccc;">
+
+    <div style="padding: 2em;">
+        <p>
+            <input id="pop" value="跨域弹窗" type="button">
+        </p>
+        <p>
+            <input type="text" id="messageText" value="msg from b.html">
+        </p>
+        <p>
+            <button id="actionButton"> 向父窗口a.html发送一个消息</button>
+        </p>
+        <p>
+            <label>接收消息：</label><label id='status'></label>
+        </p>
+
+    </div>
+
+<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../js/sui.js"></script>
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+<script>
+$(function(){
+
+        //检查postMessage 是否可以用：window.postMessage===undefined
+        //定义信任的消息源
+        var trustedOrigin = "http://192.168.17.41";
+        function messageHandler(e) {
+            if (e.origin === trustedOrigin) {
+                showMsg(e.data);
+            } else {
+                // ignore messages from other origins
+            }
+        }
+
+        function sendString(s) {
+            window.top.postMessage(s,  trustedOrigin); //第二个参数是消息传送的目的地
+        }
+
+        function loadDemo() {
+            addEvent(document.getElementById("actionButton"), "click", function () {
+                var messageText = document.getElementById("messageText").value;
+                sendString(messageText);
+            });
+            addEvent(document.getElementById('pop'),'click',function(){
+                //发送一条需要弹窗的消息
+                sendString({
+                    action:'dialog.SysDialog',
+                    config:{
+                        body:'我是来自inner的dialog内容'
+                    }
+                });
+            })
+        }
+
+        function showMsg(message) {
+            document.getElementById("status").innerHTML = message;
+        }
+
+        function addEvent(obj, trigger, fun) {
+            if (obj.addEventListener) obj.addEventListener(trigger, fun, false);
+            else if (obj.attachEvent) obj.attachEvent('on' + trigger, fun);
+            else obj['on' + trigger] = fun;
+        }
+        addEvent(window, "load", loadDemo);
+        addEvent(window, "message", messageHandler);
+
+})
+</script>
+</body>
+</html>

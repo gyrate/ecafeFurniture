@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.processbar.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            翻页组件
+        </div>
+        <article>
+            <h1>Sui.Processbar(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> procesbar.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Component</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.Processbar </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , processbar.js </p>
+                <p>sui.processbar.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo (String)</td>
+                            <td>'dom'</td>
+                            <td>
+                                <p>渲染容器的ID </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>value (Number)</td>
+                            <td>0</td>
+                            <td>
+                                <p>组件的数值，默认为0 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>showText (Boolean)</td>
+                            <td>true</td>
+                            <td>
+                                <p>是否显示进度数值,默认为true</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>customClass (Number)</td>
+                            <td>'sui_porcess_red'</td>
+                            <td>
+                                <p>自定义组件样式，默认为''</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.Processbar.html" target="_blank">Sui.Processbar.html</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准Processbar组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="case1"><code class="javascript">var process1 = new Sui.Processbar({
+    applyTo: 'percent1',
+    value:2
+})
+process1.setValue(83);
+
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+                   <section>
+                        <p class="str">Example:自定义样式</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="case2"><code class="javascript">var process2 = new Sui.Processbar({
+    applyTo: 'percent2'  ,
+    customClass:'sui_process_red',
+    value:45
+})
+
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+                    <section>
+                        <p class="str">Example:没有进度数值的组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="case3"><code class="javascript">var process3 = new Sui.Processbar({
+    applyTo: 'percent3',
+    value:78,
+    showText:false
+})
+
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+                </div>
+                <div style="float: left; ;width:20%;padding: 30px 0;">
+                    <div id="percent1"></div>
+                    <div id="percent2"></div>
+                    <div id="percent3"></div>
+                </div>
+            </div>
+
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+<script type="text/javascript" src="../../js/processbar/processbar.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    $('#case1').runCode();
+    $('#case2').runCode();
+    $('#case3').runCode();
+</script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../../css/base.css" rel="stylesheet" media="all">
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.spinner.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.timefield.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.datefield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div  style="padding:50px 200px;">
+        <input id="datefield" />
+
+        <input id="setValue" type="button" value="设置值'2014/12/01'">
+        <input id="setValue2" type="button" value="设置值'2014年12月02日'">
+        <input id="setValue3" type="button" value="设置值'new Date('2012/12/03')">
+    </div>
+</body>
+<script src="../../js/jquery-1.7.1.min.js"></script>
+<!--<script src="../js/commont.js"></script>-->
+
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/spinner.js"></script>
+<script type="text/javascript" src="../../js/form/numberfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/timefield.js"></script>
+<script type="text/javascript" src="../../js/form/date.js"></script>
+<script type="text/javascript" src="../../js/form/datefield.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+
+<script type="text/javascript">
+
+    var datefield = new Sui.form.DateField({
+        applyTo:'datefield'
+        //,dateFormat:'yyyy/MM/dd'
+        ,dateFormat:'yyyy年MM月dd日'
+        ,value:'2014年12月12日'
+    });
+    //datefield.setValue('2014年12月22日');
+    $('#setValue').click(function(){
+        datefield.setValue('2014/12/01');
+    });
+
+    $('#setValue2').click(function(){
+       datefield.setValue('2014年12月02日');
+    });
+
+    $('#setValue3').click(function(){
+        datefield.setValue(new Date('2012/12/03'));
+    });
+</script>
+
+</html>

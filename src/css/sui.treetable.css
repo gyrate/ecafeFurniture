@@ -1,0 +1,138 @@
+
+.sui_table {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+    position: relative;
+}
+.sui_table table {
+    border-collapse: collapse;
+    border-width: 0;
+    table-layout: fixed;
+}
+.sui_table .grid_thead {
+    background: url("../images/table/gradient.png") repeat-x scroll 0 -43px #EBECEE;
+    clear: both;
+    overflow: hidden;
+}
+.sui_table .grid_thead .gred_thead_box {
+    float: left;
+    padding-right: 40px;
+}
+.sui_table .grid_thead table {
+}
+.sui_table .headercell {
+    border-bottom: 1px solid #D0D0D0;
+    border-right: 1px solid #D0D0D0;
+    font-weight: normal;
+    height: 24px;
+}
+.sui_table .headercell_inner {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    padding: 0 5px;
+    position: relative;
+}
+.sui_table .headercell_inner_hove {
+    border-bottom-color: #EC6941;
+}
+.sui_table .grid_thead_column_trigger {
+    background: url("../images/table/table_th_opr.png") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border-left: 1px solid #CCCCCC;
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 14px;
+}
+.sui_table .grid_body {
+    clear: both;
+    overflow: auto;
+    position: relative;
+}
+.sui_table .odd {
+    background: none repeat scroll 0 0 #F7F7F7;
+}
+.sui_table .bodycell {
+    border-bottom: 1px solid #D0D0D0;
+    border-right: 1px solid #CCCCCC;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.sui_table .bodycell .bodycell_inner {
+    overflow: hidden;
+    padding: 0 5px;
+}
+.sui_table .sui_selectedrow {
+    background: none repeat scroll 0 0 #FFFCEC;
+}
+.sui_table .sui_mouseroverrow {
+    background-color: #FFFCEC;
+}
+.sui_texteditor {
+    border: 1px solid #3399FF;
+    box-shadow: 0 0 5px #3399FF;
+    height: auto;
+    overflow: visible;
+}
+.sui_texteditor input {
+    border: 0 none;
+    height: 100%;
+    line-height: 24px;
+}
+.sui_texteditor input:focus {
+    outline: 0 none;
+}
+.sui_table .cDrag {
+    float: left;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+}
+.sui_table .cDrag div {
+    cursor: col-resize;
+    position: absolute;
+    width: 5px;
+}
+.sui_table .cDrag div:hover, .sui_table .cDrag .dragging {
+    background: url("../images/table/line.gif") repeat-y scroll 1px center rgba(0, 0, 0, 0);
+}
+.colCopy {
+    background: url("../images/table/gradient.png") repeat-x scroll 0 -43px #EBECEE;
+    border: 1px solid #D0D0D0;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    width: 100px;
+}
+.colCopy .headercell_inner {
+    overflow: hidden;
+    padding: 0 5px;
+}
+
+.sui_treetable_foldicon {
+    width : 16px;
+    height : 18px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: -4px;
+}
+
+.sui_treetable_minus {
+    background-image: url(../images/tree/elbow-minus-nl.gif);
+    background-position: 0 0;
+}
+
+.sui_treetable_plus {
+    background-image: url(../images/tree/elbow-plus-nl.gif);
+    background-position: 0 0;
+}

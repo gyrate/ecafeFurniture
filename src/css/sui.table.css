@@ -1,0 +1,19 @@
+.sui_table { position: relative; border-collapse: collapse; border-spacing: 0; font-size: 12px; border: 1px solid #d0d0d0; background: #fff;  }
+.sui_table table { table-layout: fixed; border-collapse: collapse; border-width: 0; }
+.sui_table .grid_thead { clear: both; overflow: hidden;  }
+.sui_table .grid_thead tr{ }
+.sui_table .grid_thead th{ padding: 0 5px; overflow: hidden; background: #ebecee url('../images/table/table_th_bg.png') 0 0px repeat-x;}
+.sui_table .headercell { font-weight: normal; border-right: 1px solid #D0D0D0; height: 24px; border-bottom: 1px solid #d0d0d0;}
+.sui_table .headercell_inner { position: relative; padding: 0 5px; overflow: hidden; height: 24px;line-height: 24px; }
+.sui_table .headercell_inner_hove{ border-bottom-color: #ec6941;}
+.sui_table .grid_thead_column_trigger { display: none; position: absolute; top: 0; right: 0; width: 14px; height: 100%; background: url('../images/table/table_th_opr.png') 50% no-repeat; cursor: pointer; border-left: 1px solid #ccc; }
+.sui_table .grid_body { position: relative; clear: both; overflow: auto; }
+.sui_table .grid_body table{ table-layout: initial;}/*修复chrome下出现横向滚动条的异常*/
+.sui_table .odd{ background: #f7f7f7;}
+.sui_table .bodycell { line-height: 24px; overflow: hidden; border-right: 1px solid #ccc; border-bottom: 1px solid #D0D0D0; word-wrap: break-word; word-break: break-all; padding: 0 5px; overflow: hidden; }
+.sui_table .emptycell{ /*height: 150px;*/ text-align: center; }
+.sui_table .sui_selectedrow { background: #FFFCEC; }
+.sui_texteditor { border: 1px solid #3399ff; height: auto; box-shadow: 0 0 5px #3399ff; overflow: visible; }
+	.sui_texteditor input { height: 100%; line-height: 24px; border: 0 none; }
+    .sui_texteditor input:focus{ outline: 0 none;}
+.sui_table .sui_process{ margin-top: 0px;margin-bottom: 0;}

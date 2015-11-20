@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.extable.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.extreetable.css" rel="stylesheet" media="all"/>
+
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.datefield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个可编辑ExTreeTable组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.TreeStore({
+    idName : 'taskName',
+    parentIdName : 'parentTaskName',
+    leafName: 'isLeaf',
+    datas : [
+        { parentTaskName : null, taskName : '节点1',  taskType: '编码', date : '2012-01-19',  fruit : '苹果' ,project:'SIE001'},
+        { parentTaskName : '节点1', taskName : '节点11', taskType: '编码', date : '2012-01-19',  fruit : '苹果' ,project:'SIE001'  },
+        {  parentTaskName : '节点11', taskName : '节点111', taskType: '编码', date : '2012-01-19',  fruit : '苹果' ,project:'SIE001'  },
+        { parentTaskName : '节点11', taskName : '节点112',  taskType: '编码', date : '2012-01-19',  fruit : '苹果' ,project:'SIE001' },
+        { parentTaskName : '节点1',  taskName : '节点12',  taskType: '编码' },
+        { parentTaskName : null, taskName : '节点2', taskType: '编码'},
+        { parentTaskName : '节点2', taskName : '节点21', taskType: '编码'},
+        { parentTaskName : '节点2', taskName : '节点22', taskType: '编码'},
+        { parentTaskName : '节点22', taskName : '节点221', taskType: '编码'}
+    ]});
+
+var treetable = new Sui.table.ExTreeTable({
+    applyTo : 'dateReportTable',
+    treeColumnName : 'taskName',
+    //height:200,
+    columns: [
+        {
+            display: '任务名称',
+            name: 'taskName',
+            width: 200,
+            renderBody : function(text, parentElementJQ, table, cm) {
+                parentElementJQ.append(text + "&nbsp;");
+                $("&lt;a href='javascript:void(0)'&gt;增加&lt;/a&gt;").appendTo(parentElementJQ).click(onAdd);
+                parentElementJQ.append("&nbsp;");
+                $("&lt;a href='javascript:void(0)'&gt;删除&lt;/a&gt;").appendTo(parentElementJQ).click(onDelete);
+
+                function onAdd(e) {
+                    var rowIndex = table.findDomInRowIndex(e.target);
+                    if (rowIndex != -1) {
+                        var recordIndex = rowIndex;
+                        var parentTaskName = store.getRecord(recordIndex).getId();
+                        table.getStore().addChildRecordData({
+                            parentTaskName : parentTaskName,
+                            taskName : "name" + (i++),
+                            taskType : "sex" + (i++)
+                        }, recordIndex);
+                    }
+                }
+
+                function onDelete(e) {
+                    var rowIndex = table.findDomInRowIndex(e.target);
+                    if (rowIndex != -1) {
+                        table.getStore().removeRecord(rowIndex);
+                    }
+                }
+            }
+        },
+        {
+            display: '任务类型',
+            name: 'taskType',
+            editor : new Sui.table.TextEditor()
+        },
+        {
+            display: '日期',
+            width:100,
+            name: 'date',
+            editor : new Sui.table.DateEditor()
+        },
+        {
+            display: '水果',
+            name: 'fruit',
+            editor : new Sui.table.SelectEditor({
+                searchable : true,
+                items :['苹果','香蕉','李子','梨子']
+            })
+        },
+        {
+            display: '项目',
+            name: 'project',
+            editor : new Sui.table.SelectEditor([
+                {value : 'SIE001', label : '美的项目'},
+                {value : 'SIE002', label : '华为项目'}
+            ]),
+            renderBody  : function(text, parentElementJQ, table, cm) {
+                var arr = [
+                    {value : 'SIE001', label : '美的项目'},
+                    {value : 'SIE002', label : '华为项目'}
+                ];
+                var label = "";
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].value == text) {
+                        label = arr[i].label;
+                        break;
+                    }
+                }
+
+                parentElementJQ.append(label);
+            }
+        },
+        {
+            display: '根节点才能编辑',
+            width:150,
+            name: 'cellEditor',
+            editor : new Sui.table.TextEditor(),
+            isEditable : function(cellVal, columnModel, index, record, table) {
+                // 只有根节点，才能编辑。
+                if (record.isRoot()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+    ],
+    store :  store
+});
+
+var i = 0;
+$("#addRow").click(function() {
+
+    var parentTaskName = store.getRecord(treetable.getSelectedRowIndex()).getId();
+    var recordIndex = treetable.getSelectedRowIndex();
+    store.addChildRecordData({
+        parentTaskName : parentTaskName,
+        taskName : "name" + (i++),
+        taskType : "sex" + (i++)
+    }, recordIndex);
+});
+
+$("#insertBefore").click(function() {
+
+    var parentTaskName = store.getRecord(treetable.getSelectedRowIndex()).getParentId();
+    var recordIndex = treetable.getSelectedRowIndex();
+    store.insertRecordDataBefore({
+        parentTaskName : parentTaskName,
+        taskName : "name" + (i++),
+        taskType : "sex" + (i++)
+    }, recordIndex);
+});
+
+$("#insertAfter").click(function() {
+
+    var parentTaskName = store.getRecord(treetable.getSelectedRowIndex()).getParentId();
+    var recordIndex = treetable.getSelectedRowIndex();
+    store.insertRecordDataAfter({
+        parentTaskName : parentTaskName,
+        taskName : "name" + (i++),
+        taskType : "sex" + (i++)
+    }, recordIndex);
+});
+
+$("#deleteRow").click(function() {
+    treetable.removeSelectedRows();
+});
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div style="padding-bottom: 1em;">
+            <input type="button" value="添加子节点" id="addRow"/>
+            <input type="button" value="在前面插入" id="insertBefore"/>
+            <input type="button" value="在后面插入" id="insertAfter"/>
+            <input type="button" value="删除行" id="deleteRow"/>
+        </div>
+        <div id="dateReportTable"></div>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+<script type="text/javascript" src="../../js/form/date.js"></script>
+<script type="text/javascript" src="../../js/form/datefield.js"></script>
+
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/extable.js"></script>
+<script type="text/javascript" src="../../js/table/extreetable.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+</script>
+
+</html>

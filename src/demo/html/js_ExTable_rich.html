@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.extable.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个带工具条和翻页组件的ExTable组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+    { name : '张三', sex: '男', classA:'001', score:'86'},
+    { name : '王四', sex: '女', classA:'001', score:'86'},
+    { name : '王五', sex: '未知', classA:'001', score:'86'},
+    { name : '赵六', sex: '男Rick', classA:'001', score:'86'},
+    { name : '吴七', sex: '女', classA:'001', score:'86'},
+    { name : '李华', sex: '男', classA:'001', score:'86'}
+]);
+var table = new Sui.table.ExTable({
+    applyTo : 'grid',
+    fixWidth:false,//不按照列宽总和设定表格宽
+    selectType : Sui.table.SelectType.MULTI,//多选
+    columns: [
+        {
+            display: '名称',
+            name: 'name',
+            width: 100,
+            editor : new Sui.table.TextEditor(),
+            sortable:true
+        },
+        {
+            display: '性别',
+            name: 'sex',
+            width: 150,
+            align: 'left',
+            editor : new Sui.table.TextEditor(),
+            sortable:true
+        },
+        {
+            display: '班级',
+            name: 'classA',
+            width: 150,
+            align: 'left',
+            sortable:true,
+            editor: new Sui.table.SelectEditor([
+                {value : '001', label : '三年一班'},
+                {value : '002', label : '四年二班'},
+                {value : '003', label : '五年三班'},
+                {value : '004', label : '六年四班'}
+            ]),
+            renderBody  : function(text, parentElementJQ, table, cm) {
+                var arr = [
+                    {value : '001', label : '三年一班'},
+                    {value : '002', label : '四年二班'},
+                    {value : '003', label : '五年三班'},
+                    {value : '004', label : '六年四班'}
+                ];
+                var label = "";
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].value == text) {
+                        label = arr[i].label;
+                        break;
+                    }
+                }
+                parentElementJQ.append(label);
+            }
+        },
+        {
+            display:'成绩',
+            name:'score',
+            width:100,
+            align:'center',
+            sortable:true,
+            editor: new Sui.table.NumberEditor({ toFixed:0,minValue:0,maxValue:100 })
+        },
+        {
+            display : '操作列',
+            align:'center',
+            name : 'operator',
+            width : 180,
+            renderBody: function(val, targetElement) {
+                var button = $("&lt;a class='unl'&gt;删除&lt;/a&gt;").appendTo(targetElement);
+                button.click(function(e) {
+                    var index = table.findDomInRowIndex(e.target);
+                    store.removeRecord(index);
+                });
+            }
+        }
+    ],
+    store :  store
+});
+var i = 0;
+$("#addRow").click(function() {
+    store.addRecordData({
+        name : "name" + (i++),
+        sex : "sex" + (i++),
+        classA : "001",
+        score: (Math.random()*100).toFixed(0)
+    });
+});
+
+$("#deleteRow").click(function() {
+    table.removeSelectedRows();
+});
+
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div>
+            <!--工具栏-->
+            <div style="" class="std_ctrl">
+                <a href="javascript:void(0);" id="addRow"><b class="s_ico s_ico_add"></b>添加项目</a>
+                <a href="javascript:void(0);" id="deleteRow"><b class="s_ico s_ico_minu"></b>删除项目</a>
+            </div>
+            <!--表格主体-->
+            <div id="grid"></div>
+            <!--翻页组件 -->
+            <div class="std_tpage">
+                <span class="total">
+                    <label>当前共123条数据</label>
+                    <label>每页显示</label>
+                    <select>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                    </select>
+                    <label>条</label>
+                </span>
+
+                <a href="">首页</a>
+                <a href="">上一页</a>
+                <a href="">下一页</a>
+                <a href="">末页</a>
+                <form>
+                    <input type="text" class="w50">
+                    <span>/12</span>
+                    <input type="submit" value="跳转" class="btn_go">
+                </form>
+            </div>
+        </div>
+        <p>
+            <br/>
+            <br/>
+            当前表格组件不支持异步数据加载，翻页组件通过刷新页面更新表格数据
+        </p>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/numberfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/table/extable.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

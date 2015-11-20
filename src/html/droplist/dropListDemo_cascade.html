@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/list.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+    <p>
+        使用Droplist 级联功能
+    </p>
+
+    <label>大洲：</label>
+    <input id="input"/>
+    <label>城市：</label>
+    <input id="input2"/>
+
+
+    <script type="text/javascript">
+
+    $(function () {
+
+         var cities = {
+            'Asia':[
+                {label:'新加坡',value:'11'},
+                {label:'东京',value:'12'},
+                {label:'首尔',value:'13'},
+                {label:'曼谷',value:'14'},
+                {label:'台北',value:'15'},
+                {label:'吉普岛',value:'16'},
+                {label:'巴厘岛',value:'17'}
+            ],
+            'Americas':[
+                {label:'温哥华',value:'21'},
+                {label:'洛杉矶',value:'22'},
+                {label:'纽约',value:'23'},
+                {label:'旧金山',value:'24'},
+                {label:'里约热内卢',value:'25'},
+                {label:'波士顿',value:'26'},
+                {label:'夏威夷',value:'27'}
+            ],
+            'Europe':[
+                {label:'巴黎',value:'31'},
+                {label:'伦敦',value:'32'},
+                {label:'法兰克福',value:'33'},
+                {label:'罗马',value:'34'},
+                {label:'慕尼黑',value:'35'},
+                {label:'维也纳',value:'36'},
+                {label:'马德里',value:'37'},
+                {label:'日内瓦',value:'37'},
+                {label:'苏黎世',value:'37'}
+            ],
+            'Oceania':[
+                {label:'悉尼',value:'41'},
+                {label:'墨尔本',value:'42'},
+                {label:'凯恩斯',value:'43'},
+                {label:'奥克兰',value:'44'},
+                {label:'达尔文',value:'45'},
+                {label:'黄金海岸',value:'46'},
+                {label:'惠灵顿',value:'47'}
+            ],
+            'Africa':[
+                {label:'突尼斯',value:'51'},
+                {label:'毛里求斯',value:'52'},
+                {label:'内罗毕',value:'53'},
+                {label:'蒙巴萨',value:'54'},
+                {label:'开罗',value:'55'},
+                {label:'亚历山大',value:'56'},
+                {label:'伊丽莎白',value:'57'}
+            ]
+        } ;
+
+        var select = new Sui.form.DropList({
+            applyTo : 'input',
+            name : 'continents',
+            value:'Asia',
+            searchable : true,
+            comboMaxHeight:150,
+            items : [
+                { label : '亚洲', value : 'Asia'},
+                { label : '美洲',value : 'Americas'},
+                { label : '欧洲',value : 'Europe'},
+                { label : '大洋洲',value : 'Oceania'},
+                { label : '非洲',value : 'Africa'}
+            ],
+            listeners:{
+                selected : function(event){
+                    select2.setStore(cities[event.value]);
+                }
+            }
+        });
+
+        var items2 = cities[select.getValue()];
+
+        var select2 = new Sui.form.DropList({
+            applyTo:'input2',
+            name:'city',
+            items: items2,
+            listeners:{
+                selected: function(event) {
+                    console.log(event.value);
+                }
+            }
+        });
+        select2.setSelectedIndex(0);
+    })
+
+
+</script>
+</body>
+</html>

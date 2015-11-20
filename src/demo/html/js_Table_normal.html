@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个标准Table组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+    { name : '张三', sex: '男'},
+    { name : '王四', sex: '女'},
+    { name : '王五', sex: '未知; '},
+    { name : '赵六', sex: '男Rickshaw'},
+    { name : '吴七', sex: '女'},
+    { name : '李华', sex: '男'}
+]);
+var table = new Sui.table.Table({
+    applyTo : 'grid',
+    width:500, //设定表格宽度，没有定义列宽的列会自动调整列宽把表格宽度填满
+    fixWidth:false, //不会根据列宽计算表格宽度
+    cellHeight:null,//不指定行高
+    //selectType : Sui.table.SelectType.MULTI,//多选
+    showTipWhenEmpty:true,
+    columns: [
+        {
+            display: '名称',
+            name: 'name',
+           // width: 150,
+            editor : new Sui.table.TextEditor(),
+            sortable:true,
+            onCompleteEdit:function(val,record) {
+                alert('我刚刚修改了名称');
+            }
+        },
+        {
+            display: '性别',
+            name: 'sex',
+            //width: 150,
+            align: 'left',
+            editor : new Sui.table.TextEditor(),
+            sortable:true
+        },
+        {
+            display:'描述',
+            name:'desc',
+            width:150,
+            align:'left',
+            editor:new Sui.table.TextAreaEditor()
+        },
+        {
+            display : '操作列',
+            align:'center',
+            name : 'operator',
+            //width : 180,
+            renderBody: function(val, targetElement) {
+                var button = $("&lt;a class='unl'&gt;删除&lt;/a&gt;").appendTo(targetElement);
+                button.click(function(e) {
+                    var index = table.findDomInRowIndex(e.target);
+                    store.removeRecord(index);
+                });
+            }
+        },{
+            display: '图标',
+            align:'center',
+            name:'icon',
+            renderBody: function(val,targetElement){
+                  var icon = $("&lt;b class='s_ico s_ico_male'&gt;&lt;/b&gt;").appendTo(targetElement);
+            }
+        }
+    ],
+    store :  store
+});
+var i = 0;
+$("#addRow").click(function() {
+    store.addRecordData({
+        name : "name" + (i++),
+        sex : "sex" + (i++)
+    });
+});
+
+$("#deleteRow").click(function() {
+    table.removeSelectedRows();
+});
+
+$("#getSelectedRow").click(function() {
+    if( table.getSelectedRowIndexs().length > 0 ){
+        alert('选中第 '+ table.getSelectedRowIndexs() +' 行。');
+    }else{
+        alert('当前未选择行，请先选择行。');
+    }
+});
+
+$("#clearSelectedRow").click(function() {
+    table.clearSelectedRows();
+});
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div style="padding-bottom: 1em;">
+            <input type="button" value="获取选中的行" id="getSelectedRow"/>
+            <input type="button" value="取消选中行的样式" id="clearSelectedRow"/>
+            <input type="button" value="添加行" id="addRow"/>
+            <input type="button" value="删除行" id="deleteRow"/>
+        </div>
+        <table id="grid"></table>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/textareafield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+</script>
+
+</html>

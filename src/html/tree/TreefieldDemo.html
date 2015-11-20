@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/sui.base.css" />
+
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../../css/sui.form..css" rel="stylesheet" type="text/css"/>-->
+    <link rel="stylesheet" type="text/css" href="../../css/sui.form.droplist.css"/>
+    <link href="../../css/sui.tree.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="../../js/form/textfield.js"></script>
+    <script type="text/javascript" src="../../js/form/triggerField.js"></script>
+    <script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+    <script type="text/javascript" src="../../js/tree/tree.js"></script>
+
+
+    <script type="text/javascript" src="../../js/form/treefield.js"></script>
+
+
+
+</head>
+<body>
+
+    <input id="treeField" type="text" name="form"/>
+
+<script>
+
+    $(function(){
+
+
+        var treeDate = {
+            "children":[
+                {"children":[
+                    {"data":{},"id":"408","nodeIconClass":"","nodeText":"我的表单","parentId":"407"},
+                    {"data":{},"id":"409","nodeIconClass":"","nodeText":"待审批表单200","parentId":"407"},
+                    {"data":{},"id":"410","nodeIconClass":"","nodeText":"已审批表单300","parentId":"407"},
+                    {"data":{},"id":"416","nodeIconClass":"","nodeText":"待查阅的表单500","parentId":"407"},
+                    {"data":{},"id":"430","nodeIconClass":"","nodeText":"发起表单","parentId":"407"}
+                ],"data":{},"id":"407","nodeIconClass":"","nodeText":"我的工作台",expanded:true},
+                {"children":[
+                    {"data":{},"id":"491","nodeIconClass":"","nodeText":"招待费用","parentId":"490"},
+                    {"data":{},"id":"492","nodeIconClass":"","nodeText":"请假单500","parentId":"490"},
+                    {"data":{},"id":"493","nodeIconClass":"","nodeText":"借款单600","parentId":"490"},
+                    {"data":{},"id":"494","nodeIconClass":"","nodeText":"绩效表单700","parentId":"490"},
+                    {"data":{},"id":"495","nodeIconClass":"","nodeText":"差旅报销单800","parentId":"490"}
+                ],"data":{},"id":"490","nodeIconClass":"","nodeText":"我的工作台 ",expanded:true}
+            ],
+            "data":{},
+            "id":"1",
+            "nodeIconClass":"",
+            "nodeText":"根节点"
+        };
+
+        var root = Sui.tree.TreeNodeUtil.buildTreeNodeFromJsonData(treeDate);
+
+        var treeField = new Sui.form.TreeField({
+            applyTo: 'treeField',
+            treeConfig:{
+                root:root,
+                //url:'../../js/form/treefieldData.php',
+                //requestOnce:true,
+                checkedType:Sui.TreeSelectType.SINGLE
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.table.css" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:创建一个标准Table组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+    { taskName : '节点1',  taskType: '编码',parameter:0},
+    { taskName : '节点11', taskType: '编码',parameter:0},
+    { taskName : '节点111',taskType: '编码',parameter:0 },
+    { taskName : '节点112', taskType: '编码',parameter:0},
+    { taskName : '节点12',  taskType: '编码',parameter:0},
+    { taskName : '节点2', taskType: '编码',parameter:0},
+    { taskName : '节点21', taskType: '编码',parameter:0},
+    { taskName : '节点22', taskType: '编码',parameter:0}
+]);
+
+var defaultRow = {
+    taskName : '报工前端开发',
+    taskType: '编码'
+};
+
+var table = new Sui.table.Table({
+    selectType : Sui.table.SelectType.MULTI,
+    applyTo : 'grid',
+    treeTable : false,
+    treeColumnName : 'taskName',
+    columns: [
+        [
+            { display:'all',name:'taskType',width:50,align:'center',rowspan:2 },
+            { display:'任务1',name:'miss1',width:60,align:'center',colspan:2 } ,
+            { display: '参数值目前没法合并',name:'parameter',width:200, colspan:1,align:'center'}
+        ],
+        [
+            { display: '任务名称', name: 'taskName', width: 60,align:'center' },
+            { display: '任务类型', name: 'taskType', width: 100, align: 'center'},
+            { display: '参数值目前没法合并',name:'parameter',width:200, colspan:1,align:'center'}
+        ]
+    ],
+    store :  store
+});
+
+$("#deleteRow").click(function() {
+    table.removeSelectedRows();
+});
+
+$("#getSelectedRow").click(function() {
+    if(table.getSelectedRowIndexs().length){
+        alert('选中第' + table.getSelectedRowIndexs() + '行。');
+    }else{
+        alert('未选中任何行。');
+    }
+});
+
+$("#clearSelectedRow").click(function() {
+    table.clearSelectedRows();
+});
+
+var i = 0;
+$("#addRow").click(function() {
+
+    store.addRecordData({
+        taskName : "name" + (i++),
+        taskType : "sex" + (i++),
+        parameter : i
+    });
+
+});
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <div style="padding-bottom: 1em;">
+            <input type="button" value="获取选中的行" id="getSelectedRow"/>
+            <input type="button" value="取消选中行的样式" id="clearSelectedRow"/>
+            <input type="button" value="删除选中行" id="deleteRow">
+            <input type="button" value="添加" id="addRow">
+        </div>
+        <table id="grid"></table>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript" src="../../js/table/table.js"></script>
+<script type="text/javascript" src="../../js/form/form.js"></script>
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+   $('#std_pop').runCode();
+
+</script>
+
+</html>

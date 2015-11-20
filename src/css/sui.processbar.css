@@ -1,0 +1,21 @@
+.sui_process{ position:relative; border: 1px solid #999; height: 12px; margin-bottom: 1em;}
+.sui_process_con{
+    position: relative; display: block; height: 100%;
+    background: #84d700;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b0e55a', endColorstr='#84d700');
+    background-image: -moz-linear-gradient(90deg, rgb(132, 215, 0) 48%, rgb(176, 229, 90) 50%);
+    background-image: -webkit-linear-gradient(90deg, rgb(132, 215, 0) 48%, rgb(176, 229, 90) 50%);
+    background-image: -ms-linear-gradient(90deg, rgb(132, 215, 0) 48%, rgb(176, 229, 90) 50%);
+    transition:width .4s ;
+}
+.sui_process_text{ position: absolute; top:-1px; right: -50px; text-align: left; width:40px; line-height: 14px;height: 14px;}
+.sui_process_red .sui_process_con{
+    background: #dc7021;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5945a', endColorstr='#dc7021');
+    background-image: -moz-linear-gradient(90deg, rgb(220, 112, 33) 48%, rgb(229, 148, 90) 50%);
+    background-image: -webkit-linear-gradient(90deg, rgb(220, 112, 33) 48%, rgb(229, 148, 90) 50%);
+    background-image: -ms-linear-gradient(90deg, rgb(220, 112, 33) 48%, rgb(229, 148, 90) 50%);
+}
+
+
+

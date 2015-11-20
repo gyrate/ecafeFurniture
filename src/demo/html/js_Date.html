@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.form.spinner.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.timefield.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.date.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            日期组件
+        </div>
+        <article>
+            <h1>Sui.Date(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> date.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Component</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.Date </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , textfield.js , numberfield.js ,spinner.js, timefield.js ,numberfield.js</p>
+                <p>sui.form.spinner.css , sui.form.timefield.css , sui.form.date.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>currentDate(Date)</td>
+                            <td>null</td>
+                            <td>
+                                <p>日历上的初始日期，初始化方法可以为 </p>
+                                <p>dateObj = new Date();//日期为操作系统当前日期 </p>
+                                <p>dateObj = new Date(dateVal);//日期格式为yyyy/MM/dd </p>
+                                <p>dateObj = new Date(year, month, date[, hours[, minutes[, s</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>dateFormat(String)</td>
+                            <td>
+                                'yyyy-MM-dd' (默认)
+                            </td>
+                            <td>
+                                <p>日期格式，可以在初始化时指定， </p>
+                                <p>允许格式有yyyy-MM-dd hh:mm:ss ,yyyy年MM月dd日 hh时mm分ss秒 等 </p>
+                                <p>日期面板会根据格式的情况进行调整，比如指定dateFormat为yyyy， 则日期面板只出现年份选择器 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defaultClass (String)</td>
+                            <td>'sui_date'(默认)</td>
+                            <td>日期样式定义</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>hiddenClearButton (Boolean)</td>
+                            <td>
+                                false (默认)
+                            </td>
+                            <td>是否隐藏清空按钮</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>hiddenSureButton (Boolean) </td>
+                            <td> false (默认)  </td>
+                            <td>是否隐藏确定按钮</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>maxDate(Date)</td>
+                            <td> new Date('2099/12/31')(默认)</td>
+                            <td>最大日期</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>minDate(Date)</td>
+                            <td> new Date('1900/01/01')(默认)</td>
+                            <td>最小日期</td>
+                        </tr>
+                   　   <tr>
+                            <td></td>
+                            <td>range( Array, Function)</td>
+                            <td>
+                                <p>range: function(year,month,date,day) {</p>
+                                <p>return day > 1; //禁用所有周一、周二</p>
+                                <p>}</p>
+                            </td>
+                            <td>
+                                <p>日期可选范围，接受数组与函数如 [startDate, endDate],</p>
+                                <p>推荐用['2013/12/12','2014/01/15']这种格式(范围不超过minDate、 maxDate的默认日期), 也可以用函数过滤，如</p>
+
+                                <p>默认为[]</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>specailDatesFunction <br/>( Function )</td>
+                            <td>
+                                <p>specialDates: function (year, month, date, day){</p>
+                                <p>         return day == 2;//选定所有星期二为特殊日期</p>
+                                <p>}</p>
+                            </td>
+                            <td>定义特殊的负责的日期， 本质是一个函数，可以对指定的年月日星期进行过滤，返回true则断定为特殊日期,默认为null</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>specialDates (Object)</td>
+                            <td>
+                                <p>specialDates: {                             </p>
+                                <p>       '20130929' : {  'background-color' : '#F4A551'  }，  </p>
+                                <p>      '20130918':{ 'class','className'  } </p>
+                                <p>} </p>
+                            </td>
+                            <td>特殊日期, key为"年10000+月100+日"(月份从1开始),值为css属性定义或样式类class定义，默认为null</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>titleClass (String)</td>
+                            <td> 'sui_date_title' （默认）</td>
+                            <td>标题样式定义</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.Date.html" target="_blank">Sui.Date.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准日期组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript">window.date = new Sui.Date({
+    renderTo : 'div',
+    listeners : {
+        'selected' : function(event) {
+            alert(event.value);//点击每个可选日期后执行
+        }
+    },
+    range:function(year,month,date,day){
+        return day !== 2 ;//选择范围为非周二的任何天
+    },
+    currentDate: new Date( 2013,8,7,12,45,2),//设定当前日期
+    specialDates: {  //设置特殊日期
+        '20130929' : {
+            'background-color' : '#F4A551'
+        }
+    },
+    dateFormat:'yyyy年MM月dd日 hh时mm分ss秒'
+});
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:自定义日期组件格式 yyyy</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="format_yyyy" class=""><code class="javascript">date.setDateFormat("yyyy");</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="format_yyyy">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:自定义日期组件格式 yyyy-MM</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="yyyy-MM" class=""><code class="javascript"> date.setDateFormat("yyyy-MM");</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="yyyy-MM">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:自定义日期组件格式 yyyy-MM-dd hh:mm:ss</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="yyyy-MM-dd-hms" class=""><code class="javascript">date.setDateFormat("yyyy-MM-dd hh:mm:ss");</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="yyyy-MM-dd-hms">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:动态设置可选范围</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="setRange" class=""><code class="javascript">date.setRange(['2013-09-05','2013-09-25']);</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="setRange">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:将所有日期设置为可选</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+                        <pre id="activeDisableDate" class=""><code class="javascript">date.activeDisableDate();</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="activeDisableDate">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:动态标识今天为特殊日期</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+<pre id="markToday" class=""><code class="javascript">//将今天标红
+var today = new Date();
+var dayObj = {};
+dayObj[''+ (today.getFullYear()*10000 + (today.getMonth()+1)*100 + today.getDate()) ] = {
+    'background-color' : 'red'
+};
+date.setSpecialDates(dayObj);</code></pre>
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="markToday">
+                        </p>
+                    </section>
+
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <div class="p30" id="div"></div>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+
+<script type="text/javascript" src="../../js/form/numberfield.js"></script>
+<script type="text/javascript" src="../../js/form/spinner.js"></script>
+<script type="text/javascript" src="../../js/form/timefield.js"></script>
+<script type="text/javascript" src="../../js/form/date.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var select1,//组件句柄
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#std_pop').runCode();
+</script>
+
+</html>

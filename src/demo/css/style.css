@@ -1,0 +1,55 @@
+/*-------------------PUBLIC---------------------*/
+a{ color:#27618f; }
+body { background:#fefefe; font:normal .8em/1.6em 'Tahoma',"Lucida Grande",'microsoft yahei', Arial, Verdana, sans-serif; color:#000; }
+.req{ color:#f08300;}
+.str { font-weight: 600;}
+.tc{ text-align: center;}
+.outlink{ padding-right: 13px; background: transparent url('../images/outlink.png') 100% 50% no-repeat;}
+.img{ box-shadow: 1px 1px 2px #ccc;}
+/*-------------------HEADER---------------------*/
+#d_header { position: fixed; top: 0; width: 100%; height: 3.5em; background: #1d2d44; box-shadow: 0 0 10px rgba(0,0,0,.5), inset 0 -2px 10px #222;z-index: 999; }
+#d_header input[type="search"] { position: fixed; top: 0.4em; right: 3em; padding: .2em .5em .2em 1.5em; font-size: 1.2em; border: 0 none; background: #fff; border-radius: 1em; -webkit-border-radius: 1em; opacity: .4; transition: opacity 300ms; -webkit-transition: opacity 300ms ; -moz-transition: opacity 300ms; }
+#d_header input[type="search"]:hover { opacity: 1; }
+#d_header .logo { position: fixed; top: 0; left: 0; width: 100em; height: 3.5em; text-indent: -9999px; background: url(../images/logo.jpg) -4px -4px no-repeat; }
+#d_header .download{ position: absolute; top:10px; right:10px;color: #fff; }
+/*-------------------NAV---------------------*/
+#d_nav { position: fixed; top: 3.5em; float: left; padding: 20px 0px; width: 16em; height: 100%; overflow: hidden; box-shadow: -3px 0 7px #000; -webkit-box-shadow: -3px 0 7px #000; -moz-box-shadow: -3px 0 7px #000; background: #eee; border-right: 1px solid #ccc; z-index: 9; }
+/*-------------------CONTENT---------------------*/
+#d_content  { margin: 3.5em 0 0 16em; padding-top: 4em; }
+#d_content .title { position: fixed; top: 2.5em; padding: 0 1.2em; width: 100%; height: 2.2em; line-height: 2.2em; font-family: 'Tahoma','Microsoft Yahei','宋体';  background: #f7f7f7; box-shadow: 0 2px 3px #d0d0d0; font-size: 1.4em; z-index: 999; }
+#d_content  article { padding: 0 1.2em; line-height: 2em; }
+#d_content  article h1 { padding: 0 .6em; line-height: 2em; font-family: 'Tahoma','Microsoft Yahei','宋体'; font-size: 1.8em; border-bottom: 1px solid #d9d9d9; }
+#d_content  article h2 { padding: 0 .6em; line-height: 2em; font-family: 'microsoft yahei','Tahoma','宋体'; font-size: 1.4em; }
+#d_content  article section { position: relative; padding: .4em 1em; }
+#d_content  article section .toggle-code { position: absolute; top:4px ;right:20px; }
+#d_content  article .info { font-size: 1.2em; border-bottom: 1px solid #d9d9d9; }
+#d_content  pre,
+#d_content  .css{ margin-bottom: .4em; padding: 0; background-color: #F8F8F8; border: 1px solid #E8E8E8; border-left-width: 6px; border-radius: 4px; color: #222; overflow: auto; }
+#d_content .pre_fold{ height: 4px;overflow: hidden;}
+#d_content  .toggle{ font-weight: 600;}
+#d_content  .xmp{ margin: 0 0 0 -120px; padding: 0;}
+#d_content  .demo {margin-bottom: .4em; padding: 1em; border: 1px dashed #CCC; background-color: #F7FBFC;border-radius: 4px;}
+#d_content  .demo p{ line-height: 24px;}
+
+#d_content .about{ padding:60px 60px 0 190px; background: url('../images/index/logo.jpg') 60px 60px no-repeat;}
+#d_content .about .caption{ margin-bottom: 10px; font: 36px  'tahoma','Microsoft Yahei'; color: #ccc; border: 0 none; background: none; padding: 0;}
+#d_content .about ul{ margin: 10px 0;}
+#d_content .about .download{ display: inline-block; padding: 2px 2px 2px 22px;  background: url('../images/index/download.png') 0 50% no-repeat; color: #333;}
+#d_content .about .document{ display: inline-block; padding: 2px 2px 2px 22px;  background: url('../images/index/document.png') 0 50% no-repeat; color: #333;}
+/*-------------------COMPONENT---------------------*/
+#d_content .exp_table { table-layout: fixed; border-collapse: separate; width: 100%; border: 1px solid #999; border-bottom: 0; box-shadow: 1px 1px 1px #ccc; }
+#d_content .exp_table tr:nth-child(odd) { background: #fff; }
+#d_content .exp_table tr:nth-child(even) { background: #f2f2f2; }
+#d_content .exp_table tr { -webkit-transition: background-color 0.2s; -moz-transition: background-color 0.2s; transition: background-color 0.2s; }
+#d_content .exp_table tr:hover { background: #ffffcc; }
+#d_content .exp_table tr td,.exp_table tr th { padding: 0 .2em; height: 2.4em; line-height: 1.8em; border-bottom: 1px solid #999; white-space: normal; /*word-break:break-all;*/}
+#d_content .exp_table tr th { background: #1d2d44; color: #fff; }
+
+/*-------------------DEMO页样式---------------------*/
+#c_wrap{ overflow: hidden;}
+#c_code{ float: left; width: 45%; padding: 10px; background: #F8F8FF;border-right: 1px solid #666;padding-bottom: 9999px;margin-bottom: -9999px;}
+#c_code h2{ padding: 2em 0; font-size: 20px;}
+#c_view{  margin-left: 50%;padding-bottom: 9999px;margin-bottom: -9999px;}
+#c_view .view_con{padding: 2em;}
+
+

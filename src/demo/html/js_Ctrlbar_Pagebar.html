@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/sui.ctrlbar.css" rel="stylesheet" media="all"/>
+    <link href="../../css/sui.pagebar.css" rel="stylesheet" media="all"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code">
+    <article>
+            <h2 class="str">Example:创建Ctrlbar组件和Pagebar组件</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var store = new Sui.data.Store([
+    {  name : '王四王',  sex: '男'},
+    { name : '王四', sex: '男'},
+    { name : '王四', sex: ' 《变形金刚4》的电脑特效是怎么做出来的？需要哪些知识储备和怎样的团队？ '},
+    { name : '王四', sex: '男Rickshaw 。'},
+    { name : '王四', sex: '男Rickshaw 。'},
+    { name : '王四', sex: '男Rickshaw 。'},
+    { name : '王四', sex: '男Rickshaw 。'},
+    { name : '王四', sex: '男Rickshaw 。'},
+    { name : '王四', sex: '男'},
+    { name : '王四', sex: '男'},
+    { name : '王四', sex: '男'},
+    { name : '李华', sex: '男'}
+]);
+
+//创建工具条
+var i = 0;
+var toolbar = new Sui.Ctrlbar({
+    applyTo:'ctrlbar',
+    config:[{
+        displayName: '添加数据',
+        iconCss:'s_ico s_ico_add',
+        componentType : "button",
+        position:'left',
+        action: function(scope) {
+        }
+    },{
+        position:'left',
+        componentType:'break'
+    },{
+        displayName: '删除数据',
+        position:'left',
+        componentType : "button",
+        iconCss:'s_ico s_ico_minu',
+        action: function(scope) {
+        }
+    },{
+        displayName: '导入数据',
+        componentType : "button",
+        position:'right',
+        action: function(scope) {
+
+        }
+    },{
+        displayName:'总共{COUNT}条记录',
+        componentType:'label',
+        position:'right'
+    }]
+});
+
+//创建翻页组件
+var pagebar = new Sui.Pagebar({
+    applyTo:'pagebar',
+    currentPage:1,
+    totalCount:123,
+    countPerPageConfig:[10,20,50],
+    defaultCountPerPage: 20,
+    listeners:{
+        changeCountPerPage:function(e){
+            alert(e.value);
+        },
+        jumpToPage:function(e){
+           console.log(e.value);
+           // alert(e.value);
+        }
+    }
+});
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+
+        <!--<div style="margin: 0 auto;width:400px;">-->
+            <div id="ctrlbar"></div>
+            <div id="grid" style="height: 300px;background: #f0f0f0;border: 1px solid #ccc;"></div>
+            <div id="pagebar"></div>
+        <!--</div>-->
+
+
+    </div>
+</div>
+
+</div>
+
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../js/ctrlbar/ctrlbar.js"></script>
+<script type="text/javascript" src="../../js/pagebar/pagebar.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

@@ -1,0 +1,256 @@
+/* 
+ * My97 DatePicker 4.7
+ */
+.sui_date {
+    width: 180px;
+    background-color: #FFFFFF;
+    border: #bbb 1px solid;
+    padding: 0px;
+}
+
+.sui_date * {
+    font-size: 9pt;
+}
+
+.sui_date .NavImg a {
+    display: block;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+}
+
+.sui_date .NavImgll a {
+    float: left;
+    background: transparent url(../images/date/img.gif) no-repeat scroll 0 0;
+}
+
+.sui_date .NavImgl a {
+    float: left;
+    background: transparent url(../images/date/img.gif) no-repeat scroll -16px 0;
+}
+
+.sui_date .NavImgr a {
+    float: right;
+    background: transparent url(../images/date/img.gif) no-repeat scroll -32px 0;
+}
+
+.sui_date .NavImgrr a {
+    float: right;
+    background: transparent url(../images/date/img.gif) no-repeat scroll -48px 0;
+}
+
+.sui_date .sui_date_title {
+    position: relative;
+    height: 24px;
+    margin-bottom: 2px;
+    padding: 1px;
+    background: #2862a2 url("../images/date/title_bg.png") 0 0 repeat-x;
+    color: #fff;
+}
+
+.sui_date .yminput {
+    margin-top: 2px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    border: 0px;
+    width: 50px;
+    cursor: pointer;
+    background: #2862a2 url("../images/date/title_bg.png") 0 -2px repeat-x;
+    color: #fff;
+}
+
+.sui_date .yminputfocus {
+    margin-top: 2px;
+    text-align: center;
+    font-weight: bold;
+    height: 20px;
+    color: blue;
+    border: #ccc 1px solid;
+    width: 50px;
+}
+
+.sui_date .menuSel {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: #FFFFFF;
+    border: #ccc 1px solid;
+}
+
+.sui_date .menu {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.sui_date .menuOn {
+    cursor: pointer;
+    background-color: #d2dff1;
+}
+
+.sui_date .invalidMenu {
+    color: #aaa;
+}
+
+.sui_date .YMenu {
+    margin-top: 20px;
+}
+
+.sui_date .MMenu {
+    margin-top: 20px;
+    *width: 62px;
+}
+
+.sui_date .hhMenu {
+    margin-top: -90px;
+    margin-left: 26px;
+}
+
+.sui_date .mmMenu {
+    margin-top: -46px;
+    margin-left: 26px;
+}
+
+.sui_date .ssMenu {
+    margin-top: -24px;
+    margin-left: 26px;
+}
+
+.sui_date .Wweek {
+    text-align: center;
+    background: #d2dff1;
+    border-right: #bbb 1px solid;
+}
+
+.sui_date .MTitle {
+    background: #eff0f2 url("../images/date/tr_bg.png") 0 0 repeat-x;
+
+}
+
+.sui_date .MTitle td {
+    border-bottom: 1px solid #bbb;
+}
+
+.sui_date .WdayTable2 {
+    border-collapse: collapse;
+    border-bottom: #bbb 1px solid;
+}
+
+.sui_date .WdayTable2 table {
+    border: 0;
+}
+
+.sui_date .WdayTable {
+    line-height: 20px;
+    border-bottom: #bbb 1px solid;
+}
+
+.sui_date .WdayTable td {
+    text-align: center;
+}
+
+.sui_date .Wday {
+    cursor: pointer;
+}
+.sui_date .disabledDate {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.sui_date .WdayOn {
+    cursor: pointer;
+    background-color: #4387d8 !important;
+    color : #FFF;
+
+}
+
+.sui_date .Wwday {
+    cursor: pointer;
+    color: #f08300;
+}
+
+.sui_date .WwdayOn {
+    cursor: pointer;
+    background-color: #4387d8 !important;
+    color : #FFF;
+}
+
+.sui_date .Wtoday {
+    cursor: pointer;
+    color: blue;
+}
+
+.sui_date .Wselday {
+    background-color: #4387d8;
+    color: #fff;
+}
+
+.sui_date .WspecialDay {
+    background-color: #2862a2;
+}
+
+.sui_date .WotherDay {
+    cursor: pointer;
+    color: #999;
+}
+
+.sui_date .WotherDayOn {
+    cursor: pointer;
+    background-color: #ececec;
+}
+
+.sui_date .WinvalidDay {
+    color: #aaa;
+}
+
+.sui_date .dpButton {
+    height: 20px;
+    width: 45px;
+    border: #ccc 1px solid;
+    margin: 2px 1px 2px 0;
+    background: url("../images/date/tr_bg.png") 0 0 repeat-x;
+    cursor: pointer;
+}
+
+.sui_date .quickSelect {
+    padding: 1px 0;
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.sui_date .quickSelect .MTitle{
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.sui_date .quickSelect div {
+    line-height: 23px;
+    padding-left: 5px;
+}
+
+.sui_date .monthCell {
+    padding: 2px;
+    height: 20px;
+    line-height: 20px;
+    color : #000;
+    font-size: 12px;
+}
+
+.sui_date .yearCell {
+    height: 20px;
+    line-height: 20px;
+    color : #000;
+    padding: 2px;
+    font-size: 11px;
+}
+
+.sui_date .yearButton {
+    color : #000;
+    padding: 2px;
+}
+
+.sui_date  .sui_spinner{
+    margin: 2px 2px 0;
+}
+
+
+

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.base.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.list.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.droplist.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/sui.form.triggerfield.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="c_wrap">
+<div id="c_code" >
+    <article>
+            <h2 class="str">Example:使用Droplist 级联功能</h2>
+            <section>
+
+<pre id="std_pop" ><code class="javascript">var select = new Sui.form.DropList({
+    applyTo : 'input',
+    name : 'continents',
+    //value:'Asia',
+    searchable : true,
+    comboMaxHeight:150,
+    hideIconElement:true,//隐藏下拉选择层触发按钮
+    forceSelect :false, //允许手动输入任何值
+    items : [
+        { label : '亚洲', value : 'Asia'},
+        { label : '美洲',value : 'Americas'},
+        { label : '欧洲',value : 'Europe'},
+        { label : '大洋洲',value : 'Oceania'},
+        { label : '非洲',value : 'Africa'}
+    ],
+    listeners:{
+        selected : function(event) {
+        }
+    }
+});
+
+select.getLayer().addExcludeElementsClick($('#trigger'));
+$('#trigger').click(function() {
+    select.toggleExpand();
+});
+</code></pre>
+            </section>
+    </article>
+</div>
+
+<div id="c_view">
+    <div class="view_con">
+       <label>大洲：</label>
+       <input id="input"/>
+       <input type="button" id="trigger" value="匹配" class="btn"/>
+    </div>
+</div>
+
+</div>
+
+</body>
+
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/form/textfield.js"></script>
+<script type="text/javascript" src="../../js/form/triggerField.js"></script>
+<script type="text/javascript" src="../../js/form/list.js"></script>
+<script type="text/javascript" src="../../js/form/droplist.js"></script>
+
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var store,//数据源
+        select1,//组件句柄
+        searchable = false,//是否可搜索
+        readonly = true;//是否只读
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

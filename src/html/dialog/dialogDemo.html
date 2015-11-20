@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="../../css/base.css" rel="stylesheet" media="all"/>
+    <link href="../../css/default.css" rel="stylesheet" media="all"/>
+    <link href="../../css/skin1.css" rel="stylesheet" media="all"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" media="all"/>
+
+    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="../../js/sui.js"></script>
+    <script type="text/javascript" src="../../js/suibase.js"></script>
+
+    <script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+</head>
+<body>
+
+    <div style="padding: 2em;">
+        <p style="margin-bottom: 1em;">
+            <button id="refresh">刷新页面</button>
+        </p>
+        <p style="margin-bottom: 1em;">
+            <button id="open">创建新窗口</button>
+            <button id="open2">创建新窗口，内容为现有Div</button>
+            <button id="open3">url请求创建新窗口</button>
+        </p>
+        <object type="application/x-shockwave-flash" data="http://cardimg.163.com/mcards/6/big/2266.swf" width="500"
+                height="400" id="flash" style="visibility: visible;">
+            <param name="wmode" value="transparent">
+            <param name="volume" value="0">
+        </object>
+
+        <div id="content" style="height: 200px;width: 350px;background-color: #7EC4CC;">
+            Content
+        </div>
+        <p style="margin: 1em;">
+            <label>用户：</label>
+            <input id="userVal" type="text">
+        </p>
+    </div>
+      <!--class="tab"-->
+    <div id="switch">
+
+    </div>
+
+
+
+    <script>
+        $(function(){
+
+            $('#refresh').click(function(){
+                window.location.reload();
+            });
+
+            $('#open').click(function(){
+
+                var dialog1 = new SysDialog({
+                    id:'test',
+                    title:'test',
+                    body:'Hello world'  ,
+                    needIframeInIE:true,
+                    mask:false
+                });
+
+            });
+
+            $('#open2').click(function(){
+
+                var dialog2 = new SysDialog({
+                    body:document.getElementById('content'),
+                    resize:true
+                })
+
+            });
+
+            $('#open3').click(function(){
+
+                var win = new SysDialog({
+                    url:'./dialogFramA.html',
+                    resize:true,
+                    button:[{
+                        value:'确定'
+                    },{
+                        value:'最小化',
+                        fun:function(){
+                            win.minimize();
+                        }
+                    }]
+                })
+
+            })
+
+            $('#msgTip').click(function(){
+                var msgtip =  new MsgTip({
+                    body:'大家好我是MsgTip'
+                });
+            });
+
+        })
+    </script>
+</body>
+</html>

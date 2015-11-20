@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/skin1.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body{ background: #fff;}
+    </style>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            消息窗口
+        </div>
+        <article>
+            <h1>Sui.dialog.Alert(${option})</h1>
+            <section class="info">
+                <p><label>旧名</label> SysAlert</p>
+                <p><label>文件</label> dialog.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> 无</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.dialog.Alert </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js,  dialog.js</p>
+                <p>default.css , skin1.css</p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。<em class="req">*</em>表示该属性为必填项</p>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="140">
+                        <col width="240">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>title(String)</td>
+                            <td>"系统消息"</td>
+                            <td>窗体标题，默认值为"<em class="str">系统提示</em>"</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>body(String)<em class="req">*</em></td>
+                            <td>"你的操作成功。"</td>
+                            <td>主体内容</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>type(String)</td>
+                            <td>"suc"</td>
+                            <td>消息窗口的图标类型，提供 suc | err | war | <em class="str">info</em>(缺省)四种图标，代表成功、错误、警告、提示。</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>closeAfterFun(function)</td>
+                            <td>function(){...}</td>
+                            <td>关闭后执行参数,只支持传入一个函数</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>打开模态窗口</span>
+                                <a href="javascript:void(0);">openDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span>关闭当前模态窗口</span>
+                                <a href="javascript:void(0);">closeDialog()</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a target="_blank" href="../../api/classes/Sui.dialog.Alert.html">Sui.dialog.Alert.html</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <section>
+                <p class="str">Example:创建一个消息窗口</p>
+<pre id="std_alert" class="ml2e"><code class="javascript">new Sui.dialog.Alert({
+    type:'suc',
+    body:'恭喜，你的申请已成功处理。'
+    });
+</code></pre>
+                <p>
+                    <input type="button" pre="std_alert" class="_runCode" value="运行">
+                </p>
+            </section>
+            <section>
+                <p class="str">Example:创建一个消息窗口</p>
+<pre id="std_url" class="ml2e"><code class="javascript">new Sui.dialog.Alert({
+    type:'war',
+    body:'您的操作将有造成数据无法恢复，确定要这么做？',
+    title:'危险操作',
+    closeAfterFun:function(){
+        alert('我在窗口关闭后触发');
+    }
+    });
+</code></pre>
+                <p>
+                    <input type="button" pre="std_url" class="_runCode" value="运行">
+                </p>
+            </section>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/dialog/dialog.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var tab//数据源
+    ;
+    $('#createComponent').click(function(){
+        $(this).attr('disabled',true);
+    });
+
+</script>
+
+</html>

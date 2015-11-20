@@ -1,0 +1,46 @@
+/*顶部一级菜单*/
+.topmenu{}
+.topmenu .menu_item{  position:relative; float:left;  margin: 0 4px 0 0;  padding:0 0 0 20px;  height:40px; }
+.topmenu .menu_item a{ position: relative;top: 0px;left: 0;height: 32px;line-height: 32px;font-size: 14px;font-weight: 700; color: #fff;vertical-align:middle;  }
+.topmenu .menu_item span{ display: inline-block;width: 20px;height: 40px;line-height: 40px;vertical-align:middle;}
+.topmenu .menu_item.on{ background: transparent url("../images/navigator/topmenu_element.png") 0 5px no-repeat; }
+.topmenu .menu_item.on a{ position:relative; top:0; left: 0;height:32px;  topmenu_element-height:32px;  font-size:14px;  font-weight:700; color: #2e8fdc;}
+.topmenu .menu_item.on span{display:inline-block;  width:20px;  height:40px; line-height:40px; background: transparent url("../images/navigator/topmenu_element.png") 100% 5px no-repeat; }
+
+/*顶部二级菜单*/
+.submenu{ padding:10px ;z-index:9}
+.submenu:after,
+.submenu:before{ content: ' '; display: table; clear: both;}
+.submenu .menu_item{ position:relative; float: left;  display:block;  float:left;  margin-right:10px;  padding:0 0 0 12px;  height:24px;border: 0 none; cursor: pointer;  }
+.submenu .menu_item:hover,
+.submenu .menu_item.on { background: transparent url("../images/navigator/submenu_element.png") 0 0 no-repeat; }
+.submenu .menu_item:hover span,
+.submenu .menu_item.on span { background: transparent url("../images/navigator/submenu_element.png") 100% 0 no-repeat; }
+.submenu .menu_item a{ vertical-align: middle; cursor: pointer; }
+.submenu .menu_item a label{ cursor: pointer; vertical-align: 1px; }
+.submenu .menu_item span{ vertical-align: middle;display:inline-block;  width:10px;  height:24px;}
+.submenu .menu_item .s_ico{ vertical-align: -3px;}
+.submenu .menu_item .ico_tri{ display: inline-block; vertical-align: -3px; width: 20px;height: 16px; background: url('../images/navigator/nav_element.png') -6px -5px no-repeat; cursor: pointer;}
+.submenu .menu_item .ico_tri:hover{ background-position: -6px -40px ; }
+.submenu .droplist { display:none; position: absolute; top: 23px; left: 0; width: auto; _width:110px;max-width: none; height: auto; max-height: none;overflow: visible; z-index: 9;}
+.submenu .droplist .submenu_item { float: none; margin: 0; padding: 0;zoom:1; width: 100%; background: none;}
+.submenu .droplist .submenu_item:hover a{ color: #fff; background-color: #9ec1dc; }
+.submenu .droplist .submenu_item.on a { color: #fff; background-color: #3E83B9; }
+
+/*侧边二级菜单*/
+.sidenav{ overflow:auto; }
+.sidenav .menu_item{ position:relative;margin-bottom: 2px; height: 29px; line-height: 29px; padding: 0 10px 0 32px; background: #d8e7fa url('../images/navigator/sidenav_gradient.png') 0 0 repeat-x; color:#35699b; border: 1px solid #94b8e8;}
+.sidenav .menu_item:hover{ background-position:0 -46px;}
+.sidenav .menu_item.on{ background-position:0 -93px; color: #fff; border-color: #2c74c9;}
+.sidenav .menu_item.on a{ color: #fff;}
+.sidenav .menu_item .ico{ position: absolute;top:6px;right:5px; width:16px;height: 16px; cursor: pointer; background: url('../images/navigator/sidenav_element.png') no-repeat;}
+.sidenav .menu_item .ico_expand{ background-position: -5px -25px;}
+.sidenav .menu_item .ico_fold{ background-position: -4px -4px;}
+.sidenav .menu_item .s_ico{ position:absolute; top:7px; left:10px; cursor: pointer;}
+.sidenav .submenu{ margin-bottom: 2px; padding: 10px 0; background: #fbfcfe; border: 1px solid #94b8e8;}
+.sidenav  .submenu_item{ position: relative; display: block; padding: 0 14px 0 32px; line-height: 24px; height: 24px;}
+.sidenav  .submenu_item .s_ico{ position: absolute; top:5px;left: 10px; cursor: pointer; }
+.sidenav  .submenu_item:hover{ background-color: #edf1fa;}
+.sidenav  .submenu_item.on{ background-color: #326eb4; color: #fff;}
+
+

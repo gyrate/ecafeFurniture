@@ -1,0 +1,61 @@
+body{
+    min-width: 1004px;min-height: 400px;
+    *min-width: auto;*min-height: auto;/*IE7下获取body尺寸受min-width其影响*/
+}
+input::-ms-clear{display:none;}
+input:focus{outline:medium}
+.sui_tip {
+    background: #f1f1f1;
+    width: 100px;
+}
+/**
+*  树节点的折叠图标
+*/
+.sui_icons {
+    background: transparent url("../images/icons.png") no-repeat 20px 20px;
+}
+/**
+ * Layer默认是会指定宽度和高度的，有边框，有背景色。
+ */
+.sui_layer {
+    width: 120px;
+    height: 150px;
+    overflow: auto;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: #fff;
+    border: 1px solid #B2B7BC;
+}
+
+.sui_window {
+    overflow: auto;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #B2B7BC;
+}
+
+.sui_hlayout {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.sui_hlayout .hlayout_item {
+    display: inline-block;
+    line-height: 27px;
+    padding: 0;
+    vertical-align: top;
+}
+
+/* 关闭图标的样式 */
+.closed_icon {
+    background: url(../images/skin1/element.png) no-repeat -423px -25px;
+    width: 12px;
+    height: 12px;
+    display: block;
+}
+
+.closed_icon_over {
+    background-position: -444px -25px
+}

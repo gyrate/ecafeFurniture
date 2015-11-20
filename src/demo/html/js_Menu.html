@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+    <link href="../../css/sui.menu.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .sui_menuitem_test {
+            background: #009999;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            菜单组件
+        </div>
+        <article>
+            <h1>Sui.menu.Menu(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> menu.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.TagComponent</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.menu.Menu </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , menu.js</p>
+                <p>sui.menu.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。<em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>renderTo(String)</td>
+                            <td>'div'</td>
+                            <td>
+                                <p>渲染到组件的id</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>html(String)</td>
+                            <td>'菜单项A'</td>
+                            <td>
+                                <p>菜单的描述值,默认为''</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>itemConfigs(Array)</td>
+                            <td>[ {html:'item1',icon:'icon.png',Listeners:{...}},{html:'item2',icon:'icon.png',Listeners:{...}},.. ]</td>
+                            <td>
+                                <p>菜单项配置参数</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>layerClass(String)</td>
+                            <td>'setting_layer'</td>
+                            <td>
+                                <p>菜单主体的外部样式，默认为null</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>hideOnClick(Boolean)</td>
+                            <td>true (默认)</td>
+                            <td>
+                                <p>点击每个可执行菜单项后是否关闭整个菜单</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.menu.Menu.html" target="_blank">Sui.menu.Menu.html</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <div style="float:left; width:70%;">
+                    <section>
+                        <p class="str">Example:创建一个标准Menu组件</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="std_pop"><code class="javascript">menu = new Sui.menu.Menu({
+    html:'菜单测试',
+    applyTo:'menu',
+    itemConfigs:[
+        {
+            html:'菜单项A',
+            action:function(obj) {
+                alert('exclude in Action ');
+            },
+            listeners:{
+                click:function() {
+                    alert('exclude in Listeners ');
+                }
+            }
+        },
+        {
+            html:'菜单项B',
+            itemConfigs:[
+                {html:'菜单项A1',
+                 defaultClass:'sui_menuitem sui_menuitem_test'//该菜单项添加了特殊样式
+                },
+                {html:'菜单项A2',
+                 iconBaseUrl:'../../images/table/',
+                 icon:'checked.png',
+                },
+                {html:'菜单项A3',
+                    itemConfigs:[
+                        {html:'菜单项A31'},
+                        {html:'菜单项A32'},
+                        {html:'菜单项A33'}
+                    ]
+                }
+            ]
+        },
+        { html:'菜单项C',action:function(obj){console.log(obj);} }
+    ]
+})
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="std_pop" disabled>
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:显示、隐藏菜单</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="listOperation"><code class="javascript">menu.toggle();
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="listOperation">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:添加菜单项</p>
+                        <a href="javascript:void(0);" class="toggle-code">折叠|展开</a>
+
+<pre id="sethtml"><code class="javascript"> var item = new Sui.menu.MenuItem({
+    html:'new Item',
+    action:function(obj){
+        alert('hello world');
+    }
+});
+menu.addItem(item);
+</code></pre>                                <!--class="pre_fold"-->
+                        <p>
+                            <input type="button" value="运行" class="_runCode" pre="sethtml">
+                        </p>
+                    </section>
+
+                    <section>
+                        <p class="str">Example:创建一个多菜单组件 <a target="_blank" href="js_Menu_multi.html">演示页面 </a></p>
+                        <p class="str">Example:创建一个右键菜单 <a target="_blank" href="js_Menu_contextMenu.html">演示页面 </a></p>
+                    </section>
+                </div>
+
+                <div style="float: right;width: 28%;">
+                     <a href="javascript:void(0);" id="menu">ClickMe</a>
+                </div>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript" src="../../js/jquery-ui.js"></script>
+
+<script type="text/javascript" src="../../js/menu/menu.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+    //执行code区域代码
+    var menu//数据源
+    ;
+    $('#std_pop').runCode();
+
+</script>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ecafe 在线使用文档</title>
+
+    <!--文档所用css-->
+    <link href="../css/base.css" rel="stylesheet" media="all">
+    <link href="../css/style.css" rel="stylesheet" media="all">
+    <!--[if lt IE 9]><script src="../js/html5.js"></script><![endif]-->
+    <!--目录树调用css-->
+    <link href="../js_plugin/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>
+    <!--代码格式化样式-->
+    <link href="../css/github.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <header id="d_header">
+        <a href="index.html" class="logo">视觉规范</a>
+        <a href="../../download/bq1.0.rar" class="download">下载BQ</a>
+    </header>
+    <nav id="d_nav">
+        <ul id="treeDemo" class="ztree"></ul>
+    </nav>
+    <div id="d_content">
+        <div class="title">
+            翻页组件
+        </div>
+        <article>
+            <h1>Sui.Pagebar(${option})</h1>
+            <section class="info">
+                <p><label>文件</label> pagebar.js</p>
+                <p><label>属性</label> 类</p>
+                <p><label>父类</label> Sui.Container</p>
+                <p><label>子类</label> 无</p>
+
+                <p><label>返回</label> Sui.Pagebar </p>
+                <p><label>依赖</label> </p>
+                <p>jquery-1.7.1.js , sui.js ,suibase.js , pagebar.js </p>
+                <p>sui.ctrlbar.css </p>
+            </section>
+            <h2>参数</h2>
+            <section>
+                <p>${option}所能够包含的属性。  <em class="req">*</em>表示该属性为必填项</p>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="280">
+                        <col width="">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>参数名(类型)</th>
+                            <th>实例</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><em class="req">*</em>applyTo (String)</td>
+                            <td>'dom'</td>
+                            <td>
+                                <p>渲染容器的ID </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>currentPage (Number)</td>
+                            <td>1</td>
+                            <td>
+                                <p>当前页面序号，默认为1 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>totalCount (Number)</td>
+                            <td>0</td>
+                            <td>
+                                <p>总条目数,默认为0 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>defaultCountPerPage (Number)</td>
+                            <td>20</td>
+                            <td>
+                                <p>默认每页显示条目数，默认为20 </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>countPerPageConfig (Array)</td>
+                            <td>[10,20,50]</td>
+                            <td>
+                                <p>配置每页显示条目数待选项，默认为[10,20,50]</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>公共方法</h2>
+            <section>
+                <table  class="exp_table">
+                    <colgroup>
+                        <col width="30"/>
+                        <col/>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>方法</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                查看所有方法：
+                                <a href="../../api/classes/Sui.Pagebar.html" target="_blank">Sui.Pagebar.html</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <h2>例子</h2>
+            <div id="demo">
+
+                <section>
+                    <p class="str">Example:创建一个标准Pagebar组件 <a href="js_Ctrlbar_Pagebar.html" target="_blank">演示页面 </a></p>
+                </section>
+
+            </div>
+
+        </article>
+    </div>
+</body>
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../js_plugin/zTree/js/jquery.ztree.core-3.2.min.js"></script>
+<script src="../js/commont.js"></script>
+
+<script src="../js/highlight.pack.js"></script>
+
+<!--Ecafe需要加载的文档-->
+<script type="text/javascript" src="../../js/sui.js"></script>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>-->
+<script type="text/javascript" src="../../js/suibase.js"></script>
+
+<script type="text/javascript">
+
+    //代码格式化
+    if( $.browser.version > 8 ){
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    }
+
+</script>
+
+</html>

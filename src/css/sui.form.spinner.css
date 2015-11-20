@@ -1,0 +1,32 @@
+.sui_spinner  {
+   display: inline-block;
+}
+
+.sui_spinner input {
+    line-height: 18px;
+    height: 18px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+}
+
+.sui_spinner .upButton {
+    background: url("../images/spinner.gif") no-repeat scroll -32px -16px transparent;
+    border: 0 none;
+    height: 10px;
+    width: 13px;
+    display: block;
+}
+
+.sui_spinner .downButton {
+    background: url("../images/spinner.gif") no-repeat scroll -48px -16px transparent;
+    border: 0 none;
+    height: 10px;
+    width: 13px;
+    display: block;
+}
+
+.sui_spinner .iconContainer {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 20px;
+}
